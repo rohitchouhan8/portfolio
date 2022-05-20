@@ -14,7 +14,7 @@ const IndexPage = () => {
 		<main>
 			<PageContainer>
 				<GradientHeader>Rohit Chouhan</GradientHeader>
-				<div className="text-gray-700 font-medium text-xl leading-relaxed flex flex-col gap-3">
+				<div className="text-gray-700 dark:text-gray-300 font-medium text-xl leading-relaxed flex flex-col gap-3">
 					<p>
 						I'm Rohit. I'm a software engineer at{" "}
 						<BoldSpan>Figma on the Creation Engine</BoldSpan>{" "}
