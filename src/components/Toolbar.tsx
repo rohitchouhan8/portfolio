@@ -31,7 +31,7 @@ const IconButton = ({
 	})
 	return (
 		<button
-			className={`flex w-10 h-10 items-center justify-center p-2 text-gray-700 border border-gray-600 rounded-md hover:border-0 hover:text-white transition-colors transition-transform duration-200 ease-in-out hover:scale-110 hover:bg-gradient-to-r ${hoverGradientStyle}`}
+			className={`flex w-10 h-10 items-center justify-center p-2 text-gray-700 border border-gray-600 rounded-md hover:border-0 hover:text-white transition duration-200 ease-in-out hover:scale-110 hover:bg-gradient-to-r ${hoverGradientStyle}`}
 			onClick={onClick}
 		>
 			{uiIcon}
