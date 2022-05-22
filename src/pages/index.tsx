@@ -2,7 +2,6 @@ import * as React from "react"
 
 import GradientHeader from "../components/GradientHeader"
 import PageContainer from "../components/PageContainer"
-import Toolbar from "../components/Toolbar"
 
 const BoldSpan = ({ children }: React.PropsWithChildren<{}>) => {
 	return <span className="font-extrabold">{children}</span>
