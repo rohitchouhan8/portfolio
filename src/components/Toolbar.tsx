@@ -17,6 +17,7 @@ import {
 import { IconBaseProps, IconType } from "react-icons/lib"
 
 import { FaMedium } from "react-icons/fa"
+import { hoverGradientStyle } from "./GradientHeader"
 
 const IconButton = ({
 	icon,
@@ -30,7 +31,7 @@ const IconButton = ({
 	})
 	return (
 		<button
-			className="flex w-10 h-10 items-center justify-center p-2 text-gray-700 border border-gray-600 rounded-md hover:bg-gray-700 hover:text-white focus:outline-none focus:bg-gray-700 focus:text-white"
+			className={`flex w-10 h-10 items-center justify-center p-2 text-gray-700 border border-gray-600 rounded-md hover:border-0 hover:text-white transition-colors transition-transform duration-200 ease-in-out hover:scale-110 hover:bg-gradient-to-r ${hoverGradientStyle}`}
 			onClick={onClick}
 		>
 			{uiIcon}
@@ -97,30 +98,28 @@ const Section = ({ children }: React.PropsWithChildren<{}>) => {
 }
 
 const VerticalDivider = () => {
-	return <hr className="w-0.5 h-full bg-gray-300 rounded-sm" />
+	return <hr className="w-0.5 h-10 bg-gray-300 rounded-sm" />
 }
 
 const Toolbar = () => {
 	return (
-		<div className="fixed z-50 w-fit h-fit mx-auto inset-x-0 p-4 flex flex-row gap-8 border rounded-2xl bottom-40 shadow-lg">
+		<div className="fixed z-50 w-fit h-fit mx-auto inset-x-0 py-4 px-8 flex flex-row gap-6 border rounded-2xl bottom-40 shadow-lg">
 			<Section>
 				<HomeButton />
 				<ThemeButton />
-				<VerticalDivider />
 			</Section>
+			<VerticalDivider />
 			<Section>
 				<LightBulbButton />
 				<BookButton />
 				<PencilButton />
-				<VerticalDivider />
 			</Section>
-
+			<VerticalDivider />
 			<Section>
 				<TwitterButton />
 				<MailButton />
 				<GithubButton />
 				<LinkedInButton />
-				<VerticalDivider />
 			</Section>
 		</div>
 	)
