@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import GradientHeader from "../components/GradientHeader"
+import { Header } from "../components/Text"
 import PageContainer from "../components/PageContainer"
 
 // markup
@@ -8,7 +8,7 @@ const ProjectsPage = () => {
 	return (
 		<main>
 			<PageContainer>
-				<GradientHeader>Projects</GradientHeader>
+				<Header>Projects</Header>
 			</PageContainer>
 		</main>
 	)

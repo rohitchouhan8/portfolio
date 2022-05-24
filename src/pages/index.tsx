@@ -1,19 +1,16 @@
 import * as React from "react"
 
-import GradientHeader from "../components/GradientHeader"
-import PageContainer from "../components/PageContainer"
+import { BoldSpan, Header } from "../components/Text"
 
-const BoldSpan = ({ children }: React.PropsWithChildren<{}>) => {
-	return <span className="font-extrabold">{children}</span>
-}
+import PageContainer from "../components/PageContainer"
 
 // markup
 const IndexPage = () => {
 	return (
 		<main>
 			<PageContainer>
-				<GradientHeader>Rohit Chouhan</GradientHeader>
-				<div className="text-gray-700 dark:text-gray-300 font-medium text-xl leading-relaxed flex flex-col gap-3">
+				<Header>Rohit Chouhan</Header>
+				<div className="text-gray-800 dark:text-gray-50 font-medium text-xl leading-relaxed flex flex-col gap-3">
 					<p>
 						I'm Rohit. I'm a software engineer at{" "}
 						<BoldSpan>Figma on the Creation Engine</BoldSpan>{" "}
