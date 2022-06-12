@@ -12,8 +12,8 @@ import {
 	FiTwitter,
 } from "react-icons/fi"
 
-import { FaMedium } from "react-icons/fa"
 import { IconType } from "react-icons/lib"
+import { ThemeContext } from "../theme"
 
 const IconButton = ({
 	icon,
@@ -27,7 +27,7 @@ const IconButton = ({
 	})
 	return (
 		<button
-			className={`flex w-10 h-10 items-center justify-center p-2 text-gray-700 border border-gray-600 rounded-md hover:border-white hover:text-white transition duration-200 ease-in-out hover:scale-110 hover:bg-gradient-to-r text-clip`}
+			className={`flex w-10 h-10 items-center justify-center p-2 text-gray-500 border border-gray-500 dark:border-gray-400 dark:text-gray-400 rounded-md hover:border-gray-800 hover:text-gray-800 dark:hover:border-white dark:hover:text-white transition duration-200 ease-in-out hover:scale-125`}
 			onClick={onClick}
 		>
 			{uiIcon}
@@ -47,17 +47,12 @@ const HomeButton = () => {
 }
 
 const ThemeButton = () => {
+	const { state, dispatch } = React.useContext(ThemeContext)
 	return (
 		<IconButton
 			icon={FiSun}
 			onClick={() => {
-				if (document.documentElement.classList.contains("dark")) {
-					document.documentElement.classList.add("light")
-					document.documentElement.classList.remove("dark")
-				} else {
-					document.documentElement.classList.remove("light")
-					document.documentElement.classList.add("dark")
-				}
+				dispatch({ type: "TOGGLE" })
 			}}
 		/>
 	)
@@ -96,12 +91,14 @@ const Section = ({ children }: React.PropsWithChildren<{}>) => {
 }
 
 const VerticalDivider = () => {
-	return <hr className="w-0.5 h-10 bg-white dark:bg-black rounded-sm" />
+	return (
+		<hr className="w-0.5 h-10 bg-gray-200 dark:bg-gray-600 rounded-sm border-0" />
+	)
 }
 
 const Toolbar = () => {
 	return (
-		<div className="fixed z-50 w-fit h-fit mx-auto inset-x-0 py-4 px-8 flex flex-row gap-6 border rounded-2xl bottom-40 shadow-lg backdrop-blur-sm bg-white bg-opacity-25 dark:bg-black dark:bg-opacity-25">
+		<div className="fixed z-50 w-fit h-fit mx-auto inset-x-0 py-4 px-8 flex flex-row gap-6 border dark:border-gray-600 border-gray-400 rounded-2xl bottom-40 shadow-lg dark:shadow-black bg-white dark:bg-gray-800">
 			<Section>
 				<HomeButton />
 				<ThemeButton />

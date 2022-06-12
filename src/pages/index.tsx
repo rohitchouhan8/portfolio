@@ -10,7 +10,7 @@ const IndexPage = () => {
 		<main>
 			<PageContainer>
 				<Header>Rohit Chouhan</Header>
-				<div className="text-gray-800 dark:text-gray-50 font-medium text-xl leading-relaxed flex flex-col gap-3">
+				<div className="text-gray-800 dark:text-gray-50 text-xl leading-relaxed flex flex-col gap-3">
 					<p>
 						I'm Rohit. I'm a software engineer at{" "}
 						<BoldSpan>Figma on the Creation Engine</BoldSpan>{" "}
