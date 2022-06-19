@@ -1,5 +1,9 @@
 import type { GatsbyConfig } from "gatsby"
 
+require("dotenv").config({
+	path: `.env`,
+})
+
 const config: GatsbyConfig = {
 	siteMetadata: {
 		title: `Portfolio`,
@@ -28,6 +32,14 @@ const config: GatsbyConfig = {
 				path: "./src/pages/",
 			},
 			__key: "pages",
+		},
+		{
+			resolve: `gatsby-source-contentful`,
+			options: {
+				spaceId: `jlhsoern2p9i`,
+				// Learn about environment variables: https://gatsby.dev/env-vars
+				accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+			},
 		},
 	],
 }

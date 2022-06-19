@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { Header } from "../components/Text"
+import { H1 } from "../components/Text"
 import PageContainer from "../components/PageContainer"
 
 // markup
@@ -8,7 +8,7 @@ const ReadingPage = () => {
 	return (
 		<main>
 			<PageContainer>
-				<Header>Reading</Header>
+				<H1>Reading</H1>
 			</PageContainer>
 		</main>
 	)

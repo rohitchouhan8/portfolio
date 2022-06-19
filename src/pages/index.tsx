@@ -1,18 +1,26 @@
 import * as React from "react"
 
-import { BoldSpan, Header } from "../components/Text"
+import {
+	AnimatedGradientSpan,
+	BoldSpan,
+	H1,
+	Paragraphs,
+} from "../components/Text"
 
 import PageContainer from "../components/PageContainer"
 
-// markup
-const IndexPage = () => {
+export default function IndexPage() {
 	return (
 		<main>
 			<PageContainer>
-				<Header>Rohit Chouhan</Header>
-				<div className="text-gray-800 dark:text-gray-50 text-xl leading-relaxed flex flex-col gap-3">
+				<H1>Rohit Chouhan.</H1>
+				<Paragraphs>
 					<p>
-						I'm Rohit. I'm a software engineer at{" "}
+						I'm{" "}
+						<AnimatedGradientSpan>
+							Rohit Chouhan
+						</AnimatedGradientSpan>
+						. I'm a software engineer at{" "}
 						<BoldSpan>Figma on the Creation Engine</BoldSpan>{" "}
 						pillar. I am on a team that works on the{" "}
 						<BoldSpan>plugin, widget, and REST APIs</BoldSpan>.
@@ -28,10 +36,8 @@ const IndexPage = () => {
 						I'm not currently looking for a new job, but I'd always
 						love to connect.
 					</p>
-				</div>
+				</Paragraphs>
 			</PageContainer>
 		</main>
 	)
 }
-
-export default IndexPage

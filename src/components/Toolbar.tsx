@@ -17,33 +17,25 @@ import { ThemeContext } from "../theme"
 
 const IconButton = ({
 	icon,
-	onClick,
+	...props
 }: {
 	icon: IconType
-	onClick: () => void
-}) => {
+} & React.HTMLProps<HTMLAnchorElement>) => {
 	const uiIcon = React.createElement(icon, {
 		className: "h-6 w-6",
 	})
 	return (
-		<button
-			className={`flex w-10 h-10 items-center justify-center p-2 text-gray-500 border border-gray-500 dark:border-gray-400 dark:text-gray-400 rounded-md hover:border-gray-800 hover:text-gray-800 dark:hover:border-white dark:hover:text-white transition duration-200 ease-in-out hover:scale-125`}
-			onClick={onClick}
+		<a
+			className={`flex w-10 h-10 items-center justify-center p-2 text-gray-700 border border-gray-300 dark:border-gray-600 dark:text-gray-200 rounded-md hover:border-gray-800 hover:text-gray-800 dark:hover:border-white dark:hover:text-white transition duration-200 ease-in-out hover:scale-125`}
+			{...props}
 		>
 			{uiIcon}
-		</button>
+		</a>
 	)
 }
 
 const HomeButton = () => {
-	return (
-		<IconButton
-			icon={FiHome}
-			onClick={() => {
-				window.location.href = "/"
-			}}
-		/>
-	)
+	return <IconButton icon={FiHome} href={"/"} />
 }
 
 const ThemeButton = () => {
@@ -59,31 +51,55 @@ const ThemeButton = () => {
 }
 
 const LightBulbButton = () => {
-	return <IconButton icon={FiCode} onClick={() => {}} />
+	return <IconButton icon={FiCode} href={"/projects"} />
 }
 
 const BookButton = () => {
-	return <IconButton icon={FiBook} onClick={() => {}} />
+	return <IconButton icon={FiBook} href={"/reading"} />
 }
 
 const PencilButton = () => {
-	return <IconButton icon={FiEdit2} onClick={() => {}} />
+	return <IconButton icon={FiEdit2} href={"/writing"} />
 }
 
 const TwitterButton = () => {
-	return <IconButton icon={FiTwitter} onClick={() => {}} />
+	return (
+		<IconButton
+			icon={FiTwitter}
+			href={"https://twitter.com/@ro_chouhan"}
+			target="_blank"
+		/>
+	)
 }
 
 const GithubButton = () => {
-	return <IconButton icon={FiGithub} onClick={() => {}} />
+	return (
+		<IconButton
+			icon={FiGithub}
+			href={"https://github.com/rochouhan"}
+			target="_blank"
+		/>
+	)
 }
 
 const MailButton = () => {
-	return <IconButton icon={FiMail} onClick={() => {}} />
+	return (
+		<IconButton
+			icon={FiMail}
+			href={"mailto:ro.chouhan@gmail.com"}
+			target="_blank"
+		/>
+	)
 }
 
 const LinkedInButton = () => {
-	return <IconButton icon={FiLinkedin} onClick={() => {}} />
+	return (
+		<IconButton
+			icon={FiLinkedin}
+			href={"https://www.linkedin.com/in/rohit-chouhan/"}
+			target="_blank"
+		/>
+	)
 }
 
 const Section = ({ children }: React.PropsWithChildren<{}>) => {
@@ -98,7 +114,7 @@ const VerticalDivider = () => {
 
 const Toolbar = () => {
 	return (
-		<div className="fixed z-50 w-fit h-fit mx-auto inset-x-0 py-4 px-8 flex flex-row gap-6 border dark:border-gray-600 border-gray-400 rounded-2xl bottom-40 shadow-lg dark:shadow-black bg-white dark:bg-gray-800">
+		<div className="fixed z-50 w-fit h-fit mx-auto inset-x-0 py-4 px-8 flex flex-row gap-6 border dark:border-gray-700 border-gray-200 rounded-2xl bottom-40 shadow-lg dark:shadow-black bg-white dark:bg-gray-800">
 			<Section>
 				<HomeButton />
 				<ThemeButton />

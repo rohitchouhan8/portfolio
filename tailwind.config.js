@@ -9,6 +9,21 @@ module.exports = {
 				header: ["Rubik", ...defaultTheme.fontFamily.sans],
 				sans: ["Inter", ...defaultTheme.fontFamily.sans],
 			},
+			animation: {
+				text: "text 5s ease-in-out infinite",
+			},
+			keyframes: {
+				text: {
+					"0%, 100%": {
+						"background-size": "200% 200%",
+						"background-position": "left center",
+					},
+					"50%": {
+						"background-size": "200% 200%",
+						"background-position": "right center",
+					},
+				},
+			},
 		},
 	},
 	plugins: [],

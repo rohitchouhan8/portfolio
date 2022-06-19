@@ -1,17 +1,13 @@
 import * as React from "react"
 
-import { Header } from "../components/Text"
+import { H1 } from "../components/Text"
 import PageContainer from "../components/PageContainer"
 
 // markup
-const ProjectsPage = () => {
+export default function ProjectsPage() {
 	return (
-		<main>
-			<PageContainer>
-				<Header>Projects</Header>
-			</PageContainer>
-		</main>
+		<PageContainer>
+			<H1>Projects.</H1>
+		</PageContainer>
 	)
 }
-
-export default ProjectsPage
