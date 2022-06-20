@@ -18,7 +18,9 @@ type MediumArticle = {
 export default function WritingPage() {
 	const { allContentfulMediumArticles } = useStaticQuery(graphql`
 		{
-			allContentfulMediumArticles {
+			allContentfulMediumArticles(
+				sort: { order: DESC, fields: publishDate }
+			) {
 				totalCount
 				nodes {
 					title
@@ -38,8 +40,8 @@ export default function WritingPage() {
 				<ListItem key={id} href={url} target="_blank">
 					<H2>{title}</H2>
 					<p className="text-gray-500 dark:text-gray-400">
-						Published on{" "}
-						<span className="text-gray-700 dark:text-gray-200 font-medium">
+						Published{" "}
+						<span className="text-gray-800 dark:text-gray-200 font-medium">
 							{formatDate(publishDate)}
 						</span>
 					</p>

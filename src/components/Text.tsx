@@ -39,7 +39,7 @@ export function AnimatedGradientSpan({
 }: React.PropsWithChildren<{}>) {
 	return (
 		<span
-			className={`font-extrabold text-2xl bg-gradient-to-r bg-clip-text text-transparent 
+			className={`font-extrabold text-xl bg-gradient-to-r bg-clip-text text-transparent 
             from-pink-500 via-yellow-500 to-purple-500
             animate-text`}
 		>
@@ -70,12 +70,28 @@ export function UnorderedList({ children }: React.PropsWithChildren<{}>) {
 	return <ul className="ml-10">{children}</ul>
 }
 
-export function ListItem({ children }: React.PropsWithChildren<{}>) {
+export function LI({ children }: React.PropsWithChildren<{}>) {
 	return (
 		<li
 			className={`list-disc text-gray-600 dark:text-gray-400 text-lg leading-relaxed`}
 		>
 			{children}
 		</li>
+	)
+}
+
+export function StrongSpan({ children }: React.PropsWithChildren<{}>) {
+	return (
+		<span className="text-gray-800 dark:text-gray-200 font-medium">
+			{children}
+		</span>
+	)
+}
+
+export function ListSubtitle({ children }: React.PropsWithChildren<{}>) {
+	return (
+		<p className="text-gray-500 dark:text-gray-400 font-normal">
+			{children}
+		</p>
 	)
 }

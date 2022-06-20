@@ -114,7 +114,7 @@ const VerticalDivider = () => {
 
 const Toolbar = () => {
 	return (
-		<div className="fixed z-50 w-fit h-fit mx-auto inset-x-0 py-4 px-8 flex flex-row gap-6 border dark:border-gray-700 border-gray-200 rounded-2xl bottom-40 shadow-lg dark:shadow-black bg-white dark:bg-gray-800">
+		<div className="fixed z-50 bottom-20 w-fit h-fit mx-auto inset-x-0 py-4 px-8 flex flex-row gap-6 border dark:border-gray-700 border-gray-200 rounded-2xl shadow-lg dark:shadow-black bg-white dark:bg-gray-800 ">
 			<Section>
 				<HomeButton />
 				<ThemeButton />
