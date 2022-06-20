@@ -1,3 +1,5 @@
+import { Project } from "./src/pages/projects"
+
 const path = require(`path`)
 
 // Log out information after a build is done
@@ -5,21 +7,30 @@ exports.onPostBuild = ({ reporter }) => {
 	reporter.info(`Your Gatsby site has been built!`)
 }
 
-// Create medium article pages dynamically
+// Create project pages dynamically
 exports.createPages = async ({ graphql, actions }) => {
 	const { createPage } = actions
-	const result = await graphql(`
+	const { data } = await graphql(`
 		{
-			allContentfulMediumArticles {
-				totalCount
+			allContentfulWork {
 				nodes {
-					title
-					publishDate
-					url
+					endDate
+					startDate
 					id
+					name
+					content {
+						raw
+					}
 				}
 			}
 		}
 	`)
-	console.log(result)
+
+	data.allContentfulWork.nodes.forEach((work: Project) => {
+		createPage({
+			path: `/projects/${work.id}`,
+			component: path.resolve(`./src/templates/ProjectTemplate.tsx`),
+			context: work,
+		})
+	})
 }

@@ -5,6 +5,7 @@ import { List, ListItem } from "../components/List"
 import { graphql, useStaticQuery } from "gatsby"
 
 import PageContainer from "../components/PageContainer"
+import { formatDate } from "../utils/date"
 import moment from "moment"
 
 type MediumArticle = {
@@ -29,11 +30,6 @@ export default function WritingPage() {
 		}
 	`)
 	console.log(allContentfulMediumArticles.nodes)
-
-	function formatDate(dateString: string) {
-		const date = moment(dateString)
-		return date.format("MMMM Do, YYYY")
-	}
 
 	const listItems = allContentfulMediumArticles.nodes.map(
 		({ id, url, title, publishDate }: MediumArticle) => {

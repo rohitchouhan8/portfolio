@@ -1,11 +1,7 @@
 import React from "react"
 
 export const BoldSpan = ({ children }: React.PropsWithChildren<{}>) => {
-	return (
-		<span className="font-extrabold text-gray-800 dark:text-gray-200">
-			{children}
-		</span>
-	)
+	return <span className="font-extrabold">{children}</span>
 }
 
 export function H1({ children }: React.PropsWithChildren<{}>) {
@@ -28,6 +24,16 @@ export function H2({ children }: React.PropsWithChildren<{}>) {
 	)
 }
 
+export function H3({ children }: React.PropsWithChildren<{}>) {
+	return (
+		<h3
+			className={`w-fit font-medium text-lg font-header text-gray-800 dark:text-gray-200 bg-blend-darken tracking-wider`}
+		>
+			{children}
+		</h3>
+	)
+}
+
 export function AnimatedGradientSpan({
 	children,
 }: React.PropsWithChildren<{}>) {
@@ -44,8 +50,32 @@ export function AnimatedGradientSpan({
 
 export function Paragraphs({ children }: React.PropsWithChildren<{}>) {
 	return (
-		<div className="text-gray-600 dark:text-gray-400 text-xl leading-relaxed flex flex-col gap-3">
+		<div className="text-gray-600 dark:text-gray-400 text-xl leading-relaxed flex flex-col gap-3 font-sans">
 			{children}
 		</div>
+	)
+}
+
+export function Paragraph({ children }: React.PropsWithChildren<{}>) {
+	return (
+		<p
+			className={`text-gray-600 dark:text-gray-400 text-lg leading-relaxed font-sans`}
+		>
+			{children}
+		</p>
+	)
+}
+
+export function UnorderedList({ children }: React.PropsWithChildren<{}>) {
+	return <ul className="ml-10">{children}</ul>
+}
+
+export function ListItem({ children }: React.PropsWithChildren<{}>) {
+	return (
+		<li
+			className={`list-disc text-gray-600 dark:text-gray-400 text-lg leading-relaxed`}
+		>
+			{children}
+		</li>
 	)
 }

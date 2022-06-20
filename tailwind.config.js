@@ -7,7 +7,7 @@ module.exports = {
 		extend: {
 			fontFamily: {
 				header: ["Rubik", ...defaultTheme.fontFamily.sans],
-				sans: ["Inter", ...defaultTheme.fontFamily.sans],
+				sans: ["Lato", ...defaultTheme.fontFamily.sans],
 			},
 			animation: {
 				text: "text 5s ease-in-out infinite",

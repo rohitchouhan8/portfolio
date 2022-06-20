@@ -1,3 +1,4 @@
 import "./src/styles/global.css"
 import "typeface-rubik"
-import "typeface-inter"
+import "typeface-lato"
+import "typeface-libre-franklin"

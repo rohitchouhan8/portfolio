@@ -6,9 +6,10 @@ require("dotenv").config({
 
 const config: GatsbyConfig = {
 	siteMetadata: {
-		title: `Portfolio`,
+		title: `Rohit Chouhan`,
 		siteUrl: `https://www.yourdomain.tld`,
 	},
+	pathPrefix: `/`,
 	plugins: [
 		"gatsby-plugin-image",
 		"gatsby-plugin-react-helmet",

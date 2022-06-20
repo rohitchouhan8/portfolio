@@ -9,7 +9,7 @@ export function ListItem(props: React.HTMLProps<HTMLAnchorElement>) {
 		<div
 			className="rounded-lg p-1 bg-gray-200 dark:bg-gray-700 hover:bg-gradient-to-r 
             from-pink-500 via-yellow-500 to-purple-500
-            animate-text transition-all hover:scale-105"
+            animate-text transition-all duration-300 hover:scale-105"
 		>
 			<a
 				className="flex flex-col gap-1 bg-gray-100 dark:bg-gray-800 p-4 rounded-md transition-all duration-200 ease-in-out

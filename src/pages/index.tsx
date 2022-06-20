@@ -4,6 +4,7 @@ import {
 	AnimatedGradientSpan,
 	BoldSpan,
 	H1,
+	Paragraph,
 	Paragraphs,
 } from "../components/Text"
 
@@ -15,7 +16,7 @@ export default function IndexPage() {
 			<PageContainer>
 				<H1>Rohit Chouhan.</H1>
 				<Paragraphs>
-					<p>
+					<Paragraph>
 						I'm{" "}
 						<AnimatedGradientSpan>
 							Rohit Chouhan
@@ -24,18 +25,18 @@ export default function IndexPage() {
 						<BoldSpan>Figma on the Creation Engine</BoldSpan>{" "}
 						pillar. I am on a team that works on the{" "}
 						<BoldSpan>plugin, widget, and REST APIs</BoldSpan>.
-					</p>
-					<p>
+					</Paragraph>
+					<Paragraph>
 						In my freetime, I improve my health through{" "}
 						<BoldSpan>CrossFit</BoldSpan>. I expand my knowledge by{" "}
 						<BoldSpan>reading</BoldSpan>. Finally, I try to expand
 						my creativity by making{" "}
 						<BoldSpan>digital art and designs</BoldSpan>.
-					</p>
-					<p>
+					</Paragraph>
+					<Paragraph>
 						I'm not currently looking for a new job, but I'd always
 						love to connect.
-					</p>
+					</Paragraph>
 				</Paragraphs>
 			</PageContainer>
 		</main>
