@@ -18,14 +18,11 @@
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.12.1",
-    "@fontsource/inter": "^4.5.11",
-    "@fontsource/libre-franklin": "^4.5.8",
-    "@fontsource/open-sans": "^4.5.10",
-    "@fontsource/rubik": "^4.5.9",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "gatsby": "^4.13.1",
     "gatsby-plugin-google-analytics": "^4.13.0",
+    "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-image": "^2.13.0",
     "gatsby-plugin-mdx": "^3.13.0",
     "gatsby-plugin-preload-fonts": "^3.16.0",
@@ -43,10 +40,7 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^4.3.1",
     "sass": "^1.51.0",
-    "typeface-dancing-script": "^1.1.13",
-    "typeface-inter": "^3.18.1",
     "typeface-lato": "^1.1.13",
-    "typeface-libre-franklin": "^1.1.13",
     "typeface-rubik": "^1.1.13"
   },
   "devDependencies": {

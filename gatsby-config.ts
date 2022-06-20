@@ -43,6 +43,16 @@ const config: GatsbyConfig = {
 				accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 			},
 		},
+		{
+			resolve: `gatsby-plugin-google-fonts`,
+			options: {
+				fonts: [
+					`rubik\:100,200,300,400,500,600,700,800,900`,
+					`lato\:100,200,300,400,500,600,700,800,900`,
+				],
+				display: "swap",
+			},
+		},
 	],
 }
 
