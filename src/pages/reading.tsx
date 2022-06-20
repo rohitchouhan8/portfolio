@@ -8,7 +8,7 @@ const ReadingPage = () => {
 	return (
 		<main>
 			<PageContainer>
-				<H1>Reading</H1>
+				<H1>Reading.</H1>
 			</PageContainer>
 		</main>
 	)
