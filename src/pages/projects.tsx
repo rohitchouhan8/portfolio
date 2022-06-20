@@ -19,7 +19,7 @@ export type Project = {
 
 const VerticalDivider = () => {
 	return (
-		<hr className="w-0.5 h-8 bg-gray-200 dark:bg-gray-600 rounded-sm border-0 inline-block mx-3 align-middle" />
+		<div className="w-0.5 h-8 bg-gray-200 dark:bg-gray-600 rounded-sm border-0 inline-block mx-3 align-middle" />
 	)
 }
 
@@ -39,7 +39,6 @@ export default function ProjectsPage() {
 			}
 		}
 	`)
-	console.log(allContentfulWork.nodes)
 
 	const listItems = allContentfulWork.nodes.map(
 		({ id, name, content, startDate, endDate }: Project) => {

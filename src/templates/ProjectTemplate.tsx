@@ -8,7 +8,6 @@ import renderRichText from "../components/RichText"
 export default function ProjectTemplate({ pageContext, ...props }: any) {
 	const { name, content } = pageContext
 	const parsedContent = JSON.parse(content.raw)
-	console.log(parsedContent)
 	return (
 		<PageContainer>
 			<H1>{name}.</H1>

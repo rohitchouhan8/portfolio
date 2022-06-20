@@ -14,6 +14,7 @@ import {
 
 import { IconType } from "react-icons/lib"
 import { ThemeContext } from "../theme"
+import { useTheme } from "next-themes"
 
 const IconButton = ({
 	icon,
@@ -39,12 +40,12 @@ const HomeButton = () => {
 }
 
 const ThemeButton = () => {
-	const { state, dispatch } = React.useContext(ThemeContext)
+	const { theme, setTheme } = useTheme()
 	return (
 		<IconButton
 			icon={FiSun}
 			onClick={() => {
-				dispatch({ type: "TOGGLE" })
+				setTheme(theme === "dark" ? "light" : "dark")
 			}}
 		/>
 	)

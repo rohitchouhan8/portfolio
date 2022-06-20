@@ -1,13 +1,13 @@
 import React, { useContext } from "react"
-import { ThemeContext, ThemeProvider } from "../theme"
 
+import { ThemeProvider } from "next-themes"
 import Toolbar from "./Toolbar"
 
 export default function PageContainer({
 	children,
 }: React.PropsWithChildren<{}>) {
 	return (
-		<ThemeProvider>
+		<ThemeProvider attribute="class">
 			<Page>{children}</Page>
 		</ThemeProvider>
 	)

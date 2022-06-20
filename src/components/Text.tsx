@@ -90,8 +90,8 @@ export function StrongSpan({ children }: React.PropsWithChildren<{}>) {
 
 export function ListSubtitle({ children }: React.PropsWithChildren<{}>) {
 	return (
-		<p className="text-gray-500 dark:text-gray-400 font-normal">
+		<div className="text-gray-500 dark:text-gray-400 font-normal">
 			{children}
-		</p>
+		</div>
 	)
 }

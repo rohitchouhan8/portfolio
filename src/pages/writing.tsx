@@ -31,11 +31,9 @@ export default function WritingPage() {
 			}
 		}
 	`)
-	console.log(allContentfulMediumArticles.nodes)
 
 	const listItems = allContentfulMediumArticles.nodes.map(
 		({ id, url, title, publishDate }: MediumArticle) => {
-			console.log(id, url, title, publishDate)
 			return (
 				<ListItem key={id} href={url} target="_blank">
 					<H2>{title}</H2>
