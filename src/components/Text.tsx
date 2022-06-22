@@ -4,6 +4,34 @@ export const BoldSpan = ({ children }: React.PropsWithChildren<{}>) => {
 	return <span className="font-extrabold">{children}</span>
 }
 
+export const gradientColor = `
+            // dark:from-pink-500 dark:via-yellow-500 dark:to-purple-500
+			from-pink-500 via-yellow-500 to-purple-500
+			saturate-125
+            animate-text`
+
+export function AnimatedTitle({ children }: React.PropsWithChildren<{}>) {
+	return (
+		<h1
+			className={`w-fit bg-clip-text font-bold text-7xl font-title  text-transparent 
+			 bg-gradient-to-r ${gradientColor}`}
+		>
+			{children}
+		</h1>
+	)
+}
+
+export function RegularTitle({ children }: React.PropsWithChildren<{}>) {
+	return (
+		<h1
+			className={`w-fit bg-clip-text font-bold text-7xl font-title  text-transparent 
+			 text-gray-300 dark:text-gray-400`}
+		>
+			{children}
+		</h1>
+	)
+}
+
 export function H1({ children }: React.PropsWithChildren<{}>) {
 	return (
 		<h1
@@ -40,8 +68,7 @@ export function AnimatedGradientSpan({
 	return (
 		<span
 			className={`font-extrabold text-xl bg-gradient-to-r bg-clip-text text-transparent 
-            from-pink-500 via-yellow-500 to-purple-500
-            animate-text`}
+            bg-gradient-to-r ${gradientColor}`}
 		>
 			{children}
 		</span>

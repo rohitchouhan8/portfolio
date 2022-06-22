@@ -8,9 +8,13 @@ module.exports = {
 			fontFamily: {
 				header: ["Rubik", ...defaultTheme.fontFamily.sans],
 				sans: ["Lato", ...defaultTheme.fontFamily.sans],
+				title: ["Dancing Script"],
 			},
 			animation: {
 				text: "text 5s ease-in-out infinite",
+			},
+			saturate: {
+				125: "1.25",
 			},
 			keyframes: {
 				text: {

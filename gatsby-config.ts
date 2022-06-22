@@ -49,6 +49,7 @@ const config: GatsbyConfig = {
 				fonts: [
 					`rubik\:100,200,300,400,500,600,700,800,900`,
 					`lato\:100,200,300,400,500,600,700,800,900`,
+					`dancing script`,
 				],
 				display: "swap",
 			},
