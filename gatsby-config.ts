@@ -7,7 +7,7 @@ require("dotenv").config({
 const config: GatsbyConfig = {
 	siteMetadata: {
 		title: `Rohit Chouhan`,
-		siteUrl: `https://www.yourdomain.tld`,
+		siteUrl: `https://www.rohitchouhan.io`,
 	},
 	pathPrefix: `/`,
 	plugins: [
@@ -52,6 +52,13 @@ const config: GatsbyConfig = {
 					`dancing script`,
 				],
 				display: "swap",
+			},
+		},
+		{
+			resolve: "gatsby-plugin-vercel",
+			options: {
+				// (optional) Prints metrics in the console when true
+				debug: false,
 			},
 		},
 	],
