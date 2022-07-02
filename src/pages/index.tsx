@@ -26,9 +26,9 @@ export default function IndexPage() {
 					</Paragraph>
 					<Paragraph>
 						In my freetime, I improve my health through{" "}
-						<BoldSpan>CrossFit</BoldSpan>. I expand my knowledge by{" "}
-						<BoldSpan>reading</BoldSpan>. Finally, I try to expand
-						my creativity by making{" "}
+						<BoldSpan>CrossFit</BoldSpan> and running. I expand my
+						knowledge by <BoldSpan>reading</BoldSpan>. Finally, I
+						explore my creative side through{" "}
 						<BoldSpan>digital art and designs</BoldSpan>.
 					</Paragraph>
 					<Paragraph>
