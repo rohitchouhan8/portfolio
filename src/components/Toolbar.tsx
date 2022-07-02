@@ -104,7 +104,11 @@ const LinkedInButton = () => {
 }
 
 const Section = ({ children }: React.PropsWithChildren<{}>) => {
-	return <div className="flex flex-row gap-4">{children}</div>
+	return (
+		<div className="flex flex-row gap-4 border w-fit py-3 px-6 transition-all duration-200 dark:border-gray-700 border-gray-200 rounded-2xl shadow-lg dark:shadow-black bg-white dark:bg-gray-800">
+			{children}
+		</div>
+	)
 }
 
 const VerticalDivider = () => {
@@ -115,18 +119,18 @@ const VerticalDivider = () => {
 
 const Toolbar = () => {
 	return (
-		<div className="fixed z-50 bottom-20 w-fit h-fit mx-auto inset-x-0 py-4 px-8 flex flex-row gap-6 border dark:border-gray-700 border-gray-200 rounded-2xl shadow-lg dark:shadow-black bg-white dark:bg-gray-800 ">
+		<div className="flex flex-row flex-wrap place-content-start gap-4 fixed z-50 w-fit h-fit  mx-auto inset-x-0 bottom-20 transition-all duration-200 ease-in-out">
 			<Section>
 				<HomeButton />
 				<ThemeButton />
 			</Section>
-			<VerticalDivider />
+			{/* <VerticalDivider /> */}
 			<Section>
 				<LightBulbButton />
 				<BookButton />
 				<PencilButton />
 			</Section>
-			<VerticalDivider />
+			{/* <VerticalDivider /> */}
 			<Section>
 				<TwitterButton />
 				<MailButton />
