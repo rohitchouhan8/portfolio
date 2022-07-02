@@ -5,7 +5,6 @@ export const BoldSpan = ({ children }: React.PropsWithChildren<{}>) => {
 }
 
 export const gradientColor = `
-            // dark:from-pink-500 dark:via-yellow-500 dark:to-purple-500
 			from-pink-500 via-yellow-500 to-purple-500
 			saturate-125
             animate-text`

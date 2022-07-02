@@ -61,6 +61,12 @@ const config: GatsbyConfig = {
 				debug: false,
 			},
 		},
+		{
+			resolve: "gatsby-plugin-manifest",
+			options: {
+				icon: "src/images/favicon.png",
+			},
+		},
 	],
 }
 
