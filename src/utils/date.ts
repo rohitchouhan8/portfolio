@@ -2,7 +2,7 @@ import moment from "moment"
 
 export function formatDate(dateString: string) {
 	const date = moment(dateString)
-	return date.format("MMMM, YYYY")
+	return date.format("MMMM YYYY")
 }
 
 export function timeBetweenTwoDates(date1: string, date2: string) {

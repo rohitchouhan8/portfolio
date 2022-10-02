@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { BoldSpan, H1, H2 } from "../components/Text"
+import { BoldSpan, H1, H2, ListSubtitle } from "../components/Text"
 import { List, ListItem } from "../components/List"
 import { graphql, useStaticQuery } from "gatsby"
 
@@ -36,23 +36,18 @@ export default function WritingPage() {
 		({ id, url, title, publishDate }: MediumArticle) => {
 			return (
 				<ListItem key={id} href={url} target="_blank">
-					<H2>{title}</H2>
-					<p className="text-gray-500 dark:text-gray-400">
-						Published{" "}
-						<span className="text-gray-800 dark:text-gray-200 font-medium">
-							{formatDate(publishDate)}
-						</span>
-					</p>
+					<div className="flex flex-col md:flex-row place-content-between gap-4">
+						<H2>{title}</H2>
+						<ListSubtitle>{formatDate(publishDate)}</ListSubtitle>
+					</div>
 				</ListItem>
 			)
 		}
 	)
 	return (
-		<main>
-			<PageContainer>
-				<H1>Writing.</H1>
-				<List>{listItems}</List>
-			</PageContainer>
-		</main>
+		<PageContainer>
+			<H1>Writing.</H1>
+			<List>{listItems}</List>
+		</PageContainer>
 	)
 }

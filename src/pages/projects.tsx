@@ -19,7 +19,7 @@ export type Project = {
 
 const VerticalDivider = () => {
 	return (
-		<div className="w-0.5 h-8 bg-gray-200 dark:bg-gray-600 rounded-sm border-0 inline-block mx-3 align-middle" />
+		<div className="w-0.5 h-8 bg-gray-300 dark:bg-gray-700 rounded-sm border-0 inline-block mx-3 align-middle" />
 	)
 }
 
@@ -48,10 +48,12 @@ export default function ProjectsPage() {
 			)
 			let durationText = <></>
 			if (years > 0) {
+				const leftOverMonths = months - 12 * years
 				durationText = (
 					<>
 						<StrongSpan>{years}</StrongSpan> years{" "}
-						<StrongSpan>{months - 12 * years}</StrongSpan> months
+						<StrongSpan>{leftOverMonths}</StrongSpan>{" "}
+						{leftOverMonths > 1 ? "months" : "month"}
 					</>
 				)
 			} else if (months > 0) {
@@ -70,15 +72,17 @@ export default function ProjectsPage() {
 
 			return (
 				<ListItem key={id} href={`/projects/${id}`}>
-					<H2>{name}</H2>
-					<ListSubtitle>
-						<StrongSpan>{formatDate(startDate)}</StrongSpan> to{" "}
-						<StrongSpan>
-							{endDate ? formatDate(endDate) : "Present"}
-						</StrongSpan>
-						<VerticalDivider />
-						{durationText}
-					</ListSubtitle>
+					<div className="flex flex-col md:flex-row place-content-between">
+						<H2>{name}</H2>
+						<ListSubtitle>
+							<StrongSpan>{formatDate(startDate)}</StrongSpan> to{" "}
+							<StrongSpan>
+								{endDate ? formatDate(endDate) : "Present"}
+							</StrongSpan>
+							<VerticalDivider />
+							{durationText}
+						</ListSubtitle>
+					</div>
 				</ListItem>
 			)
 		}

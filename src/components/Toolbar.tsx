@@ -11,23 +11,37 @@ import {
 	FiSun,
 	FiTwitter,
 } from "react-icons/fi"
+import { Page, useCurrentPathname } from "../hooks/navigation"
 
 import { IconType } from "react-icons/lib"
-import { ThemeContext } from "../theme"
+import { gradientColor } from "./Text"
 import { useTheme } from "next-themes"
 
 const IconButton = ({
 	icon,
+	pointingPage,
 	...props
 }: {
 	icon: IconType
-} & React.HTMLProps<HTMLAnchorElement>) => {
+	pointingPage?: Page
+} & Omit<React.HTMLProps<HTMLAnchorElement>, "page">) => {
 	const uiIcon = React.createElement(icon, {
 		className: "h-6 w-6",
 	})
+	const { page: currentPage } = useCurrentPathname()
+	const isCurrentPage = !!(
+		currentPage &&
+		pointingPage &&
+		pointingPage === currentPage
+	)
+	const regularStyle = `text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white`
+	const activeStyle = `text-white bg-gradient-to-br ${gradientColor}`
+	console.log(pointingPage, currentPage, isCurrentPage)
 	return (
 		<a
-			className={`flex w-10 h-10 items-center justify-center p-2 text-gray-700 border border-gray-300 dark:border-gray-600 dark:text-gray-200 rounded-md hover:border-gray-800 hover:text-gray-800 dark:hover:border-white dark:hover:text-white transition duration-200 ease-in-out hover:scale-125`}
+			className={`flex items-center justify-center p-4 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-xl transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer ${
+				isCurrentPage ? activeStyle : regularStyle
+			}`}
 			{...props}
 		>
 			{uiIcon}
@@ -36,7 +50,7 @@ const IconButton = ({
 }
 
 const HomeButton = () => {
-	return <IconButton icon={FiHome} href={"/"} />
+	return <IconButton icon={FiHome} href={"/"} pointingPage={Page.HOME} />
 }
 
 const ThemeButton = () => {
@@ -52,15 +66,33 @@ const ThemeButton = () => {
 }
 
 const LightBulbButton = () => {
-	return <IconButton icon={FiCode} href={"/projects"} />
+	return (
+		<IconButton
+			icon={FiCode}
+			href={"/projects"}
+			pointingPage={Page.PROJECTS}
+		/>
+	)
 }
 
 const BookButton = () => {
-	return <IconButton icon={FiBook} href={"/reading"} />
+	return (
+		<IconButton
+			icon={FiBook}
+			href={"/reading"}
+			pointingPage={Page.READING}
+		/>
+	)
 }
 
 const PencilButton = () => {
-	return <IconButton icon={FiEdit2} href={"/writing"} />
+	return (
+		<IconButton
+			icon={FiEdit2}
+			href={"/writing"}
+			pointingPage={Page.WRITING}
+		/>
+	)
 }
 
 const TwitterButton = () => {
@@ -105,15 +137,9 @@ const LinkedInButton = () => {
 
 const Section = ({ children }: React.PropsWithChildren<{}>) => {
 	return (
-		<div className="flex flex-row gap-4 border w-fit py-3 px-6 transition-all duration-200 dark:border-gray-700 border-gray-200 rounded-2xl shadow-lg dark:shadow-black bg-white dark:bg-gray-800">
+		<div className="flex flex-row gap-4 w-fit py-3 px-6 transition-all duration-200 dark:border-gray-700 border-gray-200 rounded-2xl shadow-lg dark:shadow-black bg-white dark:bg-gray-900">
 			{children}
 		</div>
-	)
-}
-
-const VerticalDivider = () => {
-	return (
-		<hr className="w-0.5 h-10 bg-gray-200 dark:bg-gray-600 rounded-sm border-0" />
 	)
 }
 

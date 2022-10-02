@@ -5,17 +5,23 @@ export function List(props: React.PropsWithChildren<{}>) {
 	return <div className="grid gap-8 grid-cols-1">{props.children}</div>
 }
 
-export function ListItem(props: React.HTMLProps<HTMLAnchorElement>) {
+export function ListItem({
+	children,
+	...props
+}: React.HTMLProps<HTMLAnchorElement>) {
 	return (
-		<div
-			className={`rounded-lg p-1 bg-gray-200 dark:bg-gray-700 
-            hover:bg-gradient-to-r ${gradientColor} transition-all duration-300 hover:scale-105 cursor-default`}
+		<a
+			className={`rounded-lg bg-gray-100 dark:bg-gray-900 
+			p-0 hover:p-1
+            bg-gradient-to-r ${gradientColor} transition-all duration-300  animate-text`}
+			{...props}
 		>
-			<a
-				className="flex flex-col gap-1 bg-gray-100 dark:bg-gray-800 p-4 rounded-md transition-all duration-200 ease-in-out
+			<div
+				className="flex flex-col gap-1 bg-gray-100 dark:bg-gray-900 p-5 rounded-md transition-all duration-200 ease-in-out
             "
-				{...props}
-			/>
-		</div>
+			>
+				{children}
+			</div>
+		</a>
 	)
 }
