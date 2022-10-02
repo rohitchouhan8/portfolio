@@ -1,4 +1,5 @@
 import React from "react"
+import { useLocation } from "@reach/router"
 
 export enum Page {
 	HOME = "home",
@@ -8,12 +9,7 @@ export enum Page {
 }
 
 export function useCurrentPathname() {
-	const [pathname, setPathname] = React.useState<string | null>(null)
-
-	React.useEffect(() => {
-		const pathname = window.location.pathname
-		setPathname(pathname)
-	}, [window.location])
+	const { pathname } = useLocation()
 
 	return { pathname, page: parsePath(pathname) }
 }
