@@ -48,18 +48,18 @@ export default function ProjectsPage() {
 			)
 			let durationText = <></>
 			if (years > 0) {
-				const leftOverMonths = months - 12 * years
-				durationText = (
+				const leftOverMonths = (months - 12 * years) / 12
+				const yearsDecimal = years + leftOverMonths
+				durationText = durationText = (
 					<>
-						<StrongSpan>{years}</StrongSpan> years{" "}
-						<StrongSpan>{leftOverMonths}</StrongSpan>{" "}
-						{leftOverMonths > 1 ? "months" : "month"}
+						<StrongSpan>{yearsDecimal.toPrecision(2)}</StrongSpan>{" "}
+						{yearsDecimal > 1 ? "years" : "year"}{" "}
 					</>
 				)
 			} else if (months > 0) {
 				durationText = (
 					<>
-						<StrongSpan>{months}</StrongSpan> months
+						<StrongSpan>{months.toPrecision(2)}</StrongSpan> months
 					</>
 				)
 			} else {
@@ -75,12 +75,11 @@ export default function ProjectsPage() {
 					<div className="flex flex-col md:flex-row place-content-between">
 						<H2>{name}</H2>
 						<ListSubtitle>
-							<StrongSpan>{formatDate(startDate)}</StrongSpan> to{" "}
+							{durationText}
+							<VerticalDivider />
 							<StrongSpan>
 								{endDate ? formatDate(endDate) : "Present"}
 							</StrongSpan>
-							<VerticalDivider />
-							{durationText}
 						</ListSubtitle>
 					</div>
 				</ListItem>
