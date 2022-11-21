@@ -4,10 +4,12 @@ const colors = require("tailwindcss/colors")
 module.exports = {
 	darkMode: "class",
 	content: ["./src/**/*.{js,jsx,ts,tsx}"],
+
 	theme: {
 		extend: {
 			colors: {
 				black: "#080d17",
+				gray: colors.slate,
 			},
 			fontFamily: {
 				header: ["Rubik", ...defaultTheme.fontFamily.sans],

@@ -8,6 +8,7 @@ import {
 	FiHome,
 	FiLinkedin,
 	FiMail,
+	FiMoon,
 	FiSun,
 	FiTwitter,
 } from "react-icons/fi"
@@ -57,7 +58,7 @@ const ThemeButton = () => {
 	const { theme, setTheme } = useTheme()
 	return (
 		<IconButton
-			icon={FiSun}
+			icon={theme === "dark" ? FiSun : FiMoon}
 			onClick={() => {
 				setTheme(theme === "dark" ? "light" : "dark")
 			}}
