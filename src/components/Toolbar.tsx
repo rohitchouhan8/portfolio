@@ -16,16 +16,21 @@ import { Page, useCurrentPathname } from "../hooks/navigation"
 
 import { IconType } from "react-icons/lib"
 import { gradientColor } from "./Text"
+import { toSentenceCase } from "../utils/text"
 import { useTheme } from "next-themes"
 
-const IconButton = ({
-	icon,
-	pointingPage,
-	...props
-}: {
+type IconButtonProps = {
 	icon: IconType
 	pointingPage?: Page
-} & Omit<React.HTMLProps<HTMLAnchorElement>, "page">) => {
+	tooltip: string
+} & Omit<React.HTMLProps<HTMLAnchorElement>, "page">
+
+function IconButton({
+	icon,
+	pointingPage,
+	tooltip,
+	...props
+}: IconButtonProps) {
 	const uiIcon = React.createElement(icon, {
 		className: "h-4 w-4 md:h-6 md:w-6",
 	})
@@ -37,21 +42,31 @@ const IconButton = ({
 	)
 	const regularStyle = `text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white`
 	const activeStyle = `text-white bg-gradient-to-br ${gradientColor}`
-	console.log(pointingPage, currentPage, isCurrentPage)
+
 	return (
 		<a
-			className={`flex items-center justify-center p-2 md:p-4 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-xl transition duration-300 ease-in-out hover:scale-110 hover:cursor-pointer ${
+			className={`group relative flex items-center justify-center p-2 md:p-4 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-xl transition-colors duration-300 ease-in-out hover:cursor-pointer ${
 				isCurrentPage ? activeStyle : regularStyle
 			}`}
 			{...props}
 		>
+			<span className="absolute -top-12 py-1 px-2 opacity-0 group-hover:opacity-100 whitespace-nowrap transition-opacity duration-100 ease-linear bg-gray-100 dark:bg-gray-800 rounded-lg pointer-events-none">
+				{toSentenceCase(tooltip)}
+			</span>
 			{uiIcon}
 		</a>
 	)
 }
 
 const HomeButton = () => {
-	return <IconButton icon={FiHome} href={"/"} pointingPage={Page.HOME} />
+	return (
+		<IconButton
+			icon={FiHome}
+			href={"/"}
+			pointingPage={Page.HOME}
+			tooltip="home"
+		/>
+	)
 }
 
 const ThemeButton = () => {
@@ -62,6 +77,7 @@ const ThemeButton = () => {
 			onClick={() => {
 				setTheme(theme === "dark" ? "light" : "dark")
 			}}
+			tooltip={theme === "dark" ? "Light mode" : "Dark mode"}
 		/>
 	)
 }
@@ -72,6 +88,7 @@ const LightBulbButton = () => {
 			icon={FiCode}
 			href={"/projects"}
 			pointingPage={Page.PROJECTS}
+			tooltip="projects"
 		/>
 	)
 }
@@ -82,6 +99,7 @@ const BookButton = () => {
 			icon={FiBook}
 			href={"/reading"}
 			pointingPage={Page.READING}
+			tooltip="Reading"
 		/>
 	)
 }
@@ -92,6 +110,7 @@ const PencilButton = () => {
 			icon={FiEdit2}
 			href={"/writing"}
 			pointingPage={Page.WRITING}
+			tooltip="Writing"
 		/>
 	)
 }
@@ -102,6 +121,7 @@ const TwitterButton = () => {
 			icon={FiTwitter}
 			href={"https://twitter.com/@ro_chouhan"}
 			target="_blank"
+			tooltip="Twitter"
 		/>
 	)
 }
@@ -112,6 +132,7 @@ const GithubButton = () => {
 			icon={FiGithub}
 			href={"https://github.com/rochouhan"}
 			target="_blank"
+			tooltip="GitHub"
 		/>
 	)
 }
@@ -122,6 +143,7 @@ const MailButton = () => {
 			icon={FiMail}
 			href={"mailto:ro.chouhan@gmail.com"}
 			target="_blank"
+			tooltip="email"
 		/>
 	)
 }
@@ -132,6 +154,7 @@ const LinkedInButton = () => {
 			icon={FiLinkedin}
 			href={"https://www.linkedin.com/in/rohit-chouhan/"}
 			target="_blank"
+			tooltip="LinkedIn"
 		/>
 	)
 }
