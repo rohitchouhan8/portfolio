@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { BoldSpan, H1, H2, ListSubtitle } from "../components/Text"
+import { H1, H2, HighlightSpan, ListMonoSubtitle } from "../components/Text"
 import { List, ListItem } from "../components/List"
 import { graphql, useStaticQuery } from "gatsby"
 
@@ -38,7 +38,9 @@ export default function WritingPage() {
 				<ListItem key={id} href={url} target="_blank">
 					<div className="flex flex-col md:flex-row place-content-between gap-4">
 						<H2>{title}</H2>
-						<ListSubtitle>{formatDate(publishDate)}</ListSubtitle>
+						<ListMonoSubtitle>
+							{formatDate(publishDate)}
+						</ListMonoSubtitle>
 					</div>
 				</ListItem>
 			)

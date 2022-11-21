@@ -1,5 +1,5 @@
 import { BLOCKS, Document, MARKS } from "@contentful/rich-text-types"
-import { BoldSpan, H2, H3, LI, Paragraph, UnorderedList } from "./Text"
+import { H2, H3, HighlightSpan, LI, Paragraph, UnorderedList } from "./Text"
 import {
 	Options,
 	documentToReactComponents,
@@ -9,7 +9,7 @@ import React from "react"
 
 const options: Options = {
 	renderMark: {
-		[MARKS.BOLD]: (text: any) => <BoldSpan>{text}</BoldSpan>,
+		[MARKS.BOLD]: (text: any) => <HighlightSpan>{text}</HighlightSpan>,
 	},
 	renderNode: {
 		[BLOCKS.HEADING_2]: (node, next) => <H2>{next}</H2>,

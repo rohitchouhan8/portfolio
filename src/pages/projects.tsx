@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { H1, H2, ListSubtitle, StrongSpan } from "../components/Text"
+import { H1, H2, ListMonoSubtitle, StrongSpan } from "../components/Text"
 import { List, ListItem } from "../components/List"
 import { formatDate, timeBetweenTwoDates } from "../utils/date"
 import { graphql, useStaticQuery } from "gatsby"
@@ -19,7 +19,9 @@ export type Project = {
 
 const VerticalDivider = () => {
 	return (
-		<div className="w-0.5 h-8 bg-gray-300 dark:bg-gray-700 rounded-sm border-0 inline-block mx-3 align-middle" />
+		<span className=" text-gray-300 dark:text-gray-800 rounded-sm border-0 inline-block mx-2 align-middle">
+			•
+		</span>
 	)
 }
 
@@ -52,35 +54,25 @@ export default function ProjectsPage() {
 				const yearsDecimal = years + leftOverMonths
 				durationText = durationText = (
 					<>
-						<StrongSpan>{yearsDecimal.toPrecision(2)}</StrongSpan>{" "}
-						{yearsDecimal > 1 ? "years" : "year"}{" "}
+						{yearsDecimal.toPrecision(2)}{" "}
+						{yearsDecimal > 1 ? "years" : "year"}
 					</>
 				)
 			} else if (months > 0) {
-				durationText = (
-					<>
-						<StrongSpan>{months.toPrecision(2)}</StrongSpan> months
-					</>
-				)
+				durationText = <>{months.toPrecision(2)} months</>
 			} else {
-				durationText = (
-					<>
-						<StrongSpan>{days}</StrongSpan> days
-					</>
-				)
+				durationText = <>{days} days</>
 			}
 
 			return (
 				<ListItem key={id} href={`/projects/${id}`}>
 					<div className="flex flex-col md:flex-row place-content-between">
 						<H2>{name}</H2>
-						<ListSubtitle>
+						<ListMonoSubtitle>
 							{durationText}
 							<VerticalDivider />
-							<StrongSpan>
-								{endDate ? formatDate(endDate) : "Present"}
-							</StrongSpan>
-						</ListSubtitle>
+							{endDate ? formatDate(endDate) : "Present"}
+						</ListMonoSubtitle>
 					</div>
 				</ListItem>
 			)

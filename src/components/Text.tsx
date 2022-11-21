@@ -1,8 +1,10 @@
 import React from "react"
 
-export const BoldSpan = ({ children }: React.PropsWithChildren<{}>) => {
+export const HighlightSpan = ({ children }: React.PropsWithChildren<{}>) => {
 	return (
-		<span className="font-medium dark:text-gray-200 text-black">
+		<span
+			className={`py-0.5 px-1 bg-gradient-to-r from-teal-200 to-lime-200 text-black rounded-sm`}
+		>
 			{children}
 		</span>
 	)
@@ -35,7 +37,7 @@ export function RegularTitle({ children }: React.PropsWithChildren<{}>) {
 export function H1({ children }: React.PropsWithChildren<{}>) {
 	return (
 		<h1
-			className={`bg-clip-text font-bold text-4xl font-header text-gray-800 dark:text-gray-200 bg-blend-darken tracking-wider`}
+			className={`bg-clip-text font-bold text-4xl font-header text-gray-800 dark:text-gray-100 bg-blend-darken tracking-wider`}
 		>
 			{children}
 		</h1>
@@ -45,7 +47,7 @@ export function H1({ children }: React.PropsWithChildren<{}>) {
 export function H2({ children }: React.PropsWithChildren<{}>) {
 	return (
 		<h2
-			className={`w-fit font-medium text-xl font-header text-gray-800 dark:text-gray-200 bg-blend-darken tracking-wider text-ellipsis`}
+			className={`w-fit font-medium text-xl font-header text-gray-800 dark:text-gray-100 bg-blend-darken tracking-wider text-ellipsis`}
 		>
 			{children}
 		</h2>
@@ -55,7 +57,7 @@ export function H2({ children }: React.PropsWithChildren<{}>) {
 export function H3({ children }: React.PropsWithChildren<{}>) {
 	return (
 		<h3
-			className={`w-fit font-medium text-lg font-header text-gray-800 dark:text-gray-200 bg-blend-darken tracking-wider`}
+			className={`w-fit font-medium text-lg font-header text-gray-800 dark:text-gray-100 bg-blend-darken tracking-wider`}
 		>
 			{children}
 		</h3>
@@ -82,7 +84,7 @@ export function Paragraphs({ children }: React.PropsWithChildren<{}>) {
 export function Paragraph({ children }: React.PropsWithChildren<{}>) {
 	return (
 		<p
-			className={`text-gray-500 dark:text-gray-400 text-lg leading-relaxed font-sans`}
+			className={`text-gray-700 dark:text-gray-300 text-md leading-loose font-sans`}
 		>
 			{children}
 		</p>
@@ -96,7 +98,7 @@ export function UnorderedList({ children }: React.PropsWithChildren<{}>) {
 export function LI({ children }: React.PropsWithChildren<{}>) {
 	return (
 		<li
-			className={`list-disc text-gray-600 dark:text-gray-400 text-lg leading-relaxed`}
+			className={`list-disc text-gray-600 dark:text-gray-400 text-md leading-relaxed`}
 		>
 			{children}
 		</li>
@@ -111,9 +113,9 @@ export function StrongSpan({ children }: React.PropsWithChildren<{}>) {
 	)
 }
 
-export function ListSubtitle({ children }: React.PropsWithChildren<{}>) {
+export function ListMonoSubtitle({ children }: React.PropsWithChildren<{}>) {
 	return (
-		<div className="text-gray-500 dark:text-gray-400 font-normal whitespace-nowrap truncate text-ellipsis flex-shrink-0">
+		<div className="text-gray-500 dark:text-gray-400 font-normal whitespace-nowrap truncate text-ellipsis flex-shrink-0 font-mono">
 			{children}
 		</div>
 	)

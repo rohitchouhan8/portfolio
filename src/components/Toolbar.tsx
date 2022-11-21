@@ -50,7 +50,7 @@ function IconButton({
 			}`}
 			{...props}
 		>
-			<span className="absolute -top-12 py-1 px-2 opacity-0 group-hover:opacity-100 whitespace-nowrap transition-opacity duration-100 ease-linear bg-gray-100 dark:bg-gray-800 rounded-lg pointer-events-none">
+			<span className="absolute -top-12 py-1 px-2 text-gray-800 dark:text-gray-200 opacity-0 group-hover:opacity-100 whitespace-nowrap transition-opacity duration-100 ease-linear bg-white dark:bg-gray-800 rounded-lg pointer-events-none shadow-md dark:shadow-2xl">
 				{toSentenceCase(tooltip)}
 			</span>
 			{uiIcon}
@@ -174,13 +174,11 @@ const Toolbar = () => {
 				<HomeButton />
 				<ThemeButton />
 			</Section>
-			{/* <VerticalDivider /> */}
 			<Section>
 				<LightBulbButton />
 				<BookButton />
 				<PencilButton />
 			</Section>
-			{/* <VerticalDivider /> */}
 			<Section>
 				<TwitterButton />
 				<MailButton />
