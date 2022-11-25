@@ -3,7 +3,7 @@ import React from "react"
 export const HighlightSpan = ({ children }: React.PropsWithChildren<{}>) => {
 	return (
 		<span
-			className={`py-0.5 px-1 bg-gradient-to-r ${gradientColor} saturate-150 text-white rounded-sm  animate-text`}
+			className={`py-0.5 px-1 bg-gradient-to-r ${gradientColor} text-white rounded-sm  animate-text`}
 		>
 			{children}
 		</span>
