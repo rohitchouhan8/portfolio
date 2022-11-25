@@ -3,19 +3,19 @@ import React from "react"
 export const HighlightSpan = ({ children }: React.PropsWithChildren<{}>) => {
 	return (
 		<span
-			className={`py-0.5 px-1 bg-gradient-to-r from-teal-200 to-lime-200 text-black rounded-sm`}
+			className={`py-0.5 px-1 bg-gradient-to-r ${gradientColor} saturate-150 text-white rounded-sm  animate-text`}
 		>
 			{children}
 		</span>
 	)
 }
 
-export const gradientColor = `saturate-150 from-pink-400 via-amber-400 to-red-400`
+export const gradientColor = `saturate-150 from-pink-400 via-amber-500 to-red-400`
 
 export function AnimatedTitle({ children }: React.PropsWithChildren<{}>) {
 	return (
 		<h1
-			className={`w-fit bg-clip-text font-bold text-7xl font-title text-transparent 
+			className={`w-fit bg-clip-text font-bold text-5xl font-title text-transparent 
 			 bg-gradient-to-r ${gradientColor}  animate-text`}
 		>
 			{children}

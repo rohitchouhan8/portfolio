@@ -16,7 +16,7 @@ export default function IndexPage() {
 	return (
 		<PageContainer>
 			<AnimatedTitle>Rohit Chouhan.</AnimatedTitle>
-			<div className="mt-4">
+			<div>
 				<Paragraphs>
 					<Paragraph>
 						I'm <HighlightSpan>Rohit</HighlightSpan>. I'm a software

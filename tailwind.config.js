@@ -21,7 +21,7 @@ module.exports = {
 				title: ["Dancing Script"],
 			},
 			animation: {
-				text: "text 15s ease-in-out infinite",
+				text: "text 30s ease-in-out infinite",
 			},
 			saturate: {
 				125: "1.25",
