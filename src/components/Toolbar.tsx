@@ -35,7 +35,14 @@ function IconButton({
   const uiIcon = React.createElement(icon, {
     className: 'h-4 w-4 md:h-6 md:w-6',
   })
-  return <ToolbarButton icon={uiIcon} tooltip={tooltip} {...props} />
+  return (
+    <ToolbarButton
+      icon={uiIcon}
+      tooltip={tooltip}
+      pointingPage={pointingPage}
+      {...props}
+    />
+  )
 }
 
 type ToolbarButtonProps = {
@@ -57,6 +64,7 @@ function ToolbarButton({
     pointingPage &&
     pointingPage === currentPage
   )
+
   const regularStyle = `text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white`
   const activeStyle = `text-white bg-gradient-to-br ${gradientColor}`
 
