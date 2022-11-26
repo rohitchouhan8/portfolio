@@ -197,12 +197,12 @@ function ThemeGradientButton() {
 
   return (
     <ToolbarButton
+      onClick={() => {
+        nextGradient()
+      }}
       icon={
         <div
           className={`h-4 w-4 md:h-6 md:w-6 rounded-full bg-gradient-to-br ${gradientColor}`}
-          onClick={() => {
-            nextGradient()
-          }}
         />
       }
       tooltip={'Shuffle gradient'}
