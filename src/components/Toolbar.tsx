@@ -50,7 +50,7 @@ function ToolbarButton({
   tooltip,
   ...props
 }: ToolbarButtonProps) {
-  const [gradientColor] = useAtom(gradientAtom)
+  const gradientColor = useGradientCSS()
   const { page: currentPage } = useCurrentPathname()
   const isCurrentPage = !!(
     currentPage &&
