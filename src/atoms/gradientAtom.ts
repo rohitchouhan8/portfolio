@@ -1,5 +1,6 @@
-import { atom, useAtom, useAtomValue } from 'jotai'
+import { useAtomValue } from 'jotai'
 import { atomWithStorage } from 'jotai/utils'
+import React from 'react'
 
 type GradientTheme = {
   id: string

@@ -198,7 +198,7 @@ function ThemeGradientButton() {
   function nextGradient() {
     return setGradient((prev) => {
       const index = GRADIENTS.indexOf(prev)
-      const nextIndex = (index + 1) % GRADIENTS.length
+      const nextIndex = index >= 0 ? (index + 1) % GRADIENTS.length : 1
       return GRADIENTS[nextIndex]
     })
   }

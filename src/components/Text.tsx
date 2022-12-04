@@ -1,26 +1,42 @@
 import React from 'react'
 import { useGradientCSS } from '../atoms/gradientAtom'
+import ClientOnly from './ClientOnly'
 
 export const HighlightSpan = ({ children }: React.PropsWithChildren<{}>) => {
-  const gradientColor = useGradientCSS()
+  function InnerHighlightSpan() {
+    const gradientColor = useGradientCSS()
+    return (
+      <span
+        className={`py-0.5 px-1 bg-gradient-to-r ${gradientColor} text-white rounded-sm  animate-text`}
+      >
+        {children}
+      </span>
+    )
+  }
   return (
-    <span
-      className={`py-0.5 px-1 bg-gradient-to-r ${gradientColor} text-white rounded-sm  animate-text`}
-    >
-      {children}
-    </span>
+    <ClientOnly>
+      <InnerHighlightSpan />
+    </ClientOnly>
   )
 }
 
 export function AnimatedTitle({ children }: React.PropsWithChildren<{}>) {
-  const gradientColor = useGradientCSS()
-  return (
-    <h1
-      className={`w-fit bg-clip-text font-bold text-5xl font-title text-transparent 
+  function InnerTitle() {
+    const gradientColor = useGradientCSS()
+
+    return (
+      <h1
+        className={`w-fit bg-clip-text font-bold text-5xl font-title text-transparent 
 			 bg-gradient-to-r ${gradientColor}  animate-text`}
-    >
-      {children}
-    </h1>
+      >
+        {children}
+      </h1>
+    )
+  }
+  return (
+    <ClientOnly>
+      <InnerTitle />
+    </ClientOnly>
   )
 }
 
