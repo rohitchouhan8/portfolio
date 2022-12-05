@@ -79,7 +79,7 @@ function ToolbarButton({
           className={`absolute text-sm w-8 h-2 -top-7 rounded-full group-hover:-top-16 transition-all duration-500 ease-in-out ${activeStyle}`}
         />
       )}
-      <span className='absolute opacity-0 group-hover:opacity-100 text-sm -top-12 py-1 px-2 text-gray-800 dark:text-gray-200  whitespace-nowrap transition-all duration-100 ease-linear bg-white dark:bg-gray-800 rounded-lg pointer-events-none shadow-black dark:shadow-2xl'>
+      <span className='absolute opacity-0 group-hover:opacity-100 text-sm -top-12 py-1 px-2 text-gray-800 dark:text-gray-200  whitespace-nowrap transition-all duration-100 ease-linear bg-white dark:bg-gray-800 rounded-lg pointer-events-none shadow-md dark:shadow-2xl'>
         {toSentenceCase(tooltip)}
       </span>
 
