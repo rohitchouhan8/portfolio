@@ -79,7 +79,7 @@ function ToolbarButton({
           className={`absolute text-sm w-8 h-2 -top-7 rounded-full group-hover:-top-16 transition-all duration-500 ease-in-out ${activeStyle}`}
         />
       )}
-      <span className='absolute opacity-0 group-hover:opacity-100 text-sm -top-12 py-1 px-2 text-gray-800 dark:text-gray-200  whitespace-nowrap transition-all duration-100 ease-linear bg-white dark:bg-gray-800 rounded-lg pointer-events-none shadow-xl shadow-black dark:shadow-2xl'>
+      <span className='absolute opacity-0 group-hover:opacity-100 text-sm -top-12 py-1 px-2 text-gray-800 dark:text-gray-200  whitespace-nowrap transition-all duration-100 ease-linear bg-white dark:bg-gray-800 rounded-lg pointer-events-none shadow-black dark:shadow-2xl'>
         {toSentenceCase(tooltip)}
       </span>
 
@@ -202,7 +202,7 @@ const LinkedInButton = () => {
 
 const Section = ({ children }: React.PropsWithChildren<{}>) => {
   return (
-    <div className='flex flex-row gap-4 w-fit py-2 px-3 md:py-3 md:px-6 transition-all duration-200 dark:border-gray-700 border-gray-200 rounded-2xl shadow-lg dark:shadow-black bg-white dark:bg-gray-900'>
+    <div className='flex flex-row gap-4 w-fit py-2 px-3 md:py-3 md:px-6 transition-all duration-200 dark:border-gray-700 border-gray-200 rounded-2xl shadow-lg dark:shadow-2xl dark:shadow-black bg-white dark:bg-gray-900'>
       {children}
     </div>
   )
