@@ -34,7 +34,7 @@ function IconButton({
   ...props
 }: IconButtonProps) {
   const uiIcon = React.createElement(icon, {
-    className: 'h-4 w-4 md:h-6 md:w-6',
+    className: 'h-4 w-4 md:w-6 md:h-6',
   })
   return (
     <ToolbarButton
@@ -71,7 +71,7 @@ function ToolbarButton({
 
   return (
     <a
-      className={`group relative flex items-center justify-center p-2 md:p-4 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-xl transition-colors duration-300 ease-in-out hover:cursor-pointer ${regularStyle}`}
+      className={`group relative flex items-center justify-center p-2 md:p-4 md:w-14 md:h-14 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-xl transition-colors duration-300 ease-in-out hover:cursor-pointer ${regularStyle}`}
       {...props}
     >
       {isCurrentPage && (
@@ -226,7 +226,7 @@ function ThemeGradientButton() {
       }}
       icon={
         <div
-          className={`h-4 w-4 md:h-6 md:w-6 rounded-full bg-gradient-to-br ${gradientColor} border-4 border-white dark:border-gray-900 box-content`}
+          className={`w-4 h-4 md:h-6 md:w-6 rounded-full bg-gradient-to-br ${gradientColor}  md:border-2 border-white dark:border-gray-900`}
         />
       }
       tooltip={'Shuffle gradient'}
