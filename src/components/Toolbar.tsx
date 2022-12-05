@@ -20,6 +20,7 @@ import { toSentenceCase } from '../utils/text'
 import { useTheme } from 'next-themes'
 import { useAtom } from 'jotai'
 import { gradientAtom, GRADIENTS, useGradientCSS } from '../atoms/gradientAtom'
+import ClientOnly from './ClientOnly'
 
 type IconButtonProps = {
   icon: IconType
@@ -75,9 +76,11 @@ function ToolbarButton({
       {...props}
     >
       {isCurrentPage && (
-        <div
-          className={`absolute text-sm w-8 h-2 -top-7 rounded-full group-hover:-top-16 transition-all duration-500 ease-in-out ${activeStyle}`}
-        />
+        <ClientOnly>
+          <div
+            className={`absolute text-sm w-8 h-2 -top-7 rounded-full group-hover:-top-16 transition-all duration-500 ease-in-out ${activeStyle}`}
+          />
+        </ClientOnly>
       )}
       <span className='absolute opacity-0 group-hover:opacity-100 text-sm -top-12 py-1 px-2 text-gray-800 dark:text-gray-200  whitespace-nowrap transition-all duration-100 ease-linear bg-white dark:bg-gray-800 rounded-lg pointer-events-none shadow-md dark:shadow-2xl'>
         {toSentenceCase(tooltip)}
@@ -220,17 +223,19 @@ function ThemeGradientButton() {
   }
 
   return (
-    <ToolbarButton
-      onClick={() => {
-        nextGradient()
-      }}
-      icon={
-        <div
-          className={`w-4 h-4 md:h-6 md:w-6 rounded-full bg-gradient-to-br ${gradientColor}  md:border-2 border-white dark:border-gray-900`}
-        />
-      }
-      tooltip={'Shuffle gradient'}
-    />
+    <ClientOnly>
+      <ToolbarButton
+        onClick={() => {
+          nextGradient()
+        }}
+        icon={
+          <div
+            className={`w-4 h-4 md:h-6 md:w-6 rounded-full bg-gradient-to-br ${gradientColor}  md:border-2 border-white dark:border-gray-900`}
+          />
+        }
+        tooltip={'Shuffle gradient'}
+      />
+    </ClientOnly>
   )
 }
 
