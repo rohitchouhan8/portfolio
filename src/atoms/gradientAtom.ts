@@ -17,12 +17,12 @@ export const GRADIENTS: GradientTheme[] = [
   {
     id: 'green',
     name: 'Tropical',
-    tailwindCSS: `saturate-110 from-teal-500 via-green-500 to-lime-500`,
+    tailwindCSS: `saturate-125 from-teal-500 via-amber-400 to-emerald-500`,
   },
   {
     id: 'purple',
     name: 'Sublime',
-    tailwindCSS: `saturate-110 from-violet-500 via-pink-500 to-fuchsia-500`,
+    tailwindCSS: `saturate-125 from-indigo-500 via-purple-500 to-violet-500`,
   },
   {
     id: 'blue',

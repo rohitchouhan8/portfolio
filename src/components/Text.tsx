@@ -138,3 +138,11 @@ export function ListMonoSubtitle({ children }: React.PropsWithChildren<{}>) {
     </div>
   )
 }
+
+export function ImageMonoSubtitle({ children }: React.PropsWithChildren<{}>) {
+  return (
+    <div className='text-white font-normal whitespace-nowrap truncate text-ellipsis flex-shrink-0 font-mono'>
+      {children}
+    </div>
+  )
+}

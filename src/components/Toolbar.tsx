@@ -11,6 +11,7 @@ import {
   FiMoon,
   FiSun,
   FiTwitter,
+  FiImage,
 } from 'react-icons/fi'
 import { Page, useCurrentPathname } from '../hooks/navigation'
 
@@ -66,18 +67,22 @@ function ToolbarButton({
   )
 
   const regularStyle = `text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white`
-  const activeStyle = `text-white bg-gradient-to-br ${gradientColor}`
+  const activeStyle = `bg-gradient-to-r ${gradientColor}`
 
   return (
     <a
-      className={`group relative flex items-center justify-center p-2 md:p-4 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-xl transition-colors duration-300 ease-in-out hover:cursor-pointer ${
-        isCurrentPage ? activeStyle : regularStyle
-      }`}
+      className={`group relative flex items-center justify-center p-2 md:p-4 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-xl transition-colors duration-300 ease-in-out hover:cursor-pointer ${regularStyle}`}
       {...props}
     >
-      <span className='absolute text-sm -top-12 py-1 px-2 text-gray-800 dark:text-gray-200 opacity-0 group-hover:opacity-100 whitespace-nowrap transition-opacity duration-100 ease-linear bg-white dark:bg-gray-800 rounded-lg pointer-events-none shadow-md dark:shadow-2xl'>
+      {isCurrentPage && (
+        <div
+          className={`absolute text-sm w-8 h-2 -top-7 rounded-full group-hover:-top-16 transition-all duration-500 ease-in-out ${activeStyle}`}
+        />
+      )}
+      <span className='absolute opacity-0 group-hover:opacity-100 text-sm -top-12 py-1 px-2 text-gray-800 dark:text-gray-200  whitespace-nowrap transition-all duration-100 ease-linear bg-white dark:bg-gray-800 rounded-lg pointer-events-none shadow-xl shadow-black dark:shadow-2xl'>
         {toSentenceCase(tooltip)}
       </span>
+
       {icon}
     </a>
   )
@@ -136,6 +141,17 @@ const PencilButton = () => {
       href={'/writing'}
       pointingPage={Page.WRITING}
       tooltip='Writing'
+    />
+  )
+}
+
+const ArtsyButton = () => {
+  return (
+    <IconButton
+      icon={FiImage}
+      href={'/artsy'}
+      pointingPage={Page.ARTSY}
+      tooltip='Artsy'
     />
   )
 }
@@ -210,7 +226,7 @@ function ThemeGradientButton() {
       }}
       icon={
         <div
-          className={`h-4 w-4 md:h-6 md:w-6 rounded-full bg-gradient-to-br ${gradientColor}`}
+          className={`h-4 w-4 md:h-6 md:w-6 rounded-full bg-gradient-to-br ${gradientColor} border-4 border-white dark:border-gray-900 box-content`}
         />
       }
       tooltip={'Shuffle gradient'}
@@ -230,6 +246,7 @@ const Toolbar = () => {
         <LightBulbButton />
         <BookButton />
         <PencilButton />
+        <ArtsyButton />
       </Section>
       <Section>
         <TwitterButton />
