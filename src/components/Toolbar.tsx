@@ -78,7 +78,7 @@ function ToolbarButton({
       {isCurrentPage && (
         <ClientOnly>
           <div
-            className={`absolute text-sm w-8 h-2 -top-7 rounded-full group-hover:-top-16 transition-all duration-500 ease-in-out ${activeStyle}`}
+            className={`absolute text-sm w-10 h-2 -top-7 rounded-full group-hover:-top-16 transition-all duration-500 ease-in-out left-0 right-0 m-auto ${activeStyle}`}
           />
         </ClientOnly>
       )}
