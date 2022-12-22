@@ -56,7 +56,7 @@ function Page({ children }: React.PropsWithChildren<{}>) {
 	return (
 		<div className='w-full h-full min-h-screen bg-gray-50 dark:bg-black px-4 overflow-auto'>
 			<div className='w-full h-full min-h-screen'>
-				<div className='absolute left-4 top-4 w-full mx-auto'>
+				<div className='absolute left-4 top-4 mx-auto'>
 					<AnimatedTitle>Rohit Chouhan.</AnimatedTitle>
 				</div>
 				<div className='max-w-3xl h-full pb-64 pt-20 gap-4 mx-auto inset-x-0 flex flex-col'>
