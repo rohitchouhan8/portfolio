@@ -1,4 +1,3 @@
-import ClientOnly from "./ClientOnly"
 import React from "react"
 import { useGradientCSS } from "../atoms/gradientAtom"
 
@@ -13,11 +12,7 @@ export const HighlightSpan = ({ children }: React.PropsWithChildren<{}>) => {
 			</span>
 		)
 	}
-	return (
-		<ClientOnly>
-			<InnerHighlightSpan />
-		</ClientOnly>
-	)
+	return <InnerHighlightSpan />
 }
 
 export function AnimatedTitle({ children }: React.PropsWithChildren<{}>) {
@@ -33,11 +28,7 @@ export function AnimatedTitle({ children }: React.PropsWithChildren<{}>) {
 			</h1>
 		)
 	}
-	return (
-		<ClientOnly>
-			<InnerTitle />
-		</ClientOnly>
-	)
+	return <InnerTitle />
 }
 
 export function RegularTitle({ children }: React.PropsWithChildren<{}>) {

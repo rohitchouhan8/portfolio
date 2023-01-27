@@ -16,7 +16,6 @@ import {
 import { GRADIENTS, gradientAtom, useGradientCSS } from "../atoms/gradientAtom"
 import { Page, useCurrentPathname } from "../hooks/navigation"
 
-import ClientOnly from "./ClientOnly"
 import { IconType } from "react-icons/lib"
 import { toSentenceCase } from "../utils/text"
 import { useAtom } from "jotai"
@@ -95,7 +94,7 @@ const HomeButton = () => {
 			icon={FiHome}
 			href={"/"}
 			pointingPage={Page.HOME}
-			tooltip='home'
+			tooltip='Who I am'
 		/>
 	)
 }
@@ -237,27 +236,23 @@ function ThemeGradientButton() {
 
 const Toolbar = () => {
 	return (
-		<ClientOnly>
-			<div className='flex flex-row flex-wrap px-4 place-content-start gap-2 md:gap-4 fixed z-50 w-fit h-fit  mx-auto inset-x-0 bottom-20 transition-all duration-200 ease-in-out'>
-				<Section>
-					<HomeButton />
-					<ThemeModeButton />
-					<ThemeGradientButton />
-				</Section>
-				<Section>
-					<LightBulbButton />
-					<BookButton />
-					<PencilButton />
-					<ArtsyButton />
-				</Section>
-				<Section>
-					<TwitterButton />
-					<MailButton />
-					<GithubButton />
-					<LinkedInButton />
-				</Section>
-			</div>
-		</ClientOnly>
+		<div className='flex flex-row flex-wrap px-4 place-content-start gap-2 md:gap-4 fixed z-50 w-fit h-fit  mx-auto inset-x-0 bottom-20 transition-all duration-200 ease-in-out'>
+			<Section>
+				<HomeButton />
+				<ThemeModeButton />
+			</Section>
+			<Section>
+				<LightBulbButton />
+				<BookButton />
+				<PencilButton />
+			</Section>
+			<Section>
+				<TwitterButton />
+				<MailButton />
+				<GithubButton />
+				<LinkedInButton />
+			</Section>
+		</div>
 	)
 }
 

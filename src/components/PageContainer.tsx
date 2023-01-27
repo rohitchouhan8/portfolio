@@ -1,8 +1,10 @@
+import { GRADIENTS, gradientAtom } from "../atoms/gradientAtom"
 import React, { useContext } from "react"
 
 import { AnimatedTitle } from "./Text"
 import { ThemeProvider } from "next-themes"
 import Toolbar from "./Toolbar"
+import { useHydrateAtoms } from "jotai/utils"
 
 function Background() {
 	return (
@@ -45,6 +47,7 @@ function Background() {
 export default function PageContainer({
 	children,
 }: React.PropsWithChildren<{}>) {
+	useHydrateAtoms([[gradientAtom, GRADIENTS[0]]])
 	return (
 		<ThemeProvider attribute='class'>
 			<Page>{children}</Page>

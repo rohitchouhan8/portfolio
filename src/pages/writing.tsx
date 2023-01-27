@@ -35,8 +35,8 @@ export default function WritingPage() {
 	const listItems = allContentfulMediumArticles.nodes.map(
 		({ id, url, title, publishDate }: MediumArticle) => {
 			return (
-				<ListItem key={id} href={url} target="_blank">
-					<div className="flex flex-col md:flex-row place-content-between gap-4">
+				<ListItem key={id} href={url} target='_blank'>
+					<div className='flex flex-col md:flex-row place-content-between gap-4'>
 						<H2>{title}</H2>
 						<ListMonoSubtitle>
 							{formatDate(publishDate)}

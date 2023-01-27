@@ -1,6 +1,4 @@
-import React from "react"
-import { atomWithStorage } from "jotai/utils"
-import { useAtomValue } from "jotai"
+import { atom, useAtomValue } from "jotai"
 
 type GradientTheme = {
 	id: string
@@ -17,7 +15,7 @@ export const GRADIENTS: GradientTheme[] = [
 	{
 		id: "green",
 		name: "Tropical",
-		tailwindCSS: `saturate-125 from-teal-500 via-cyan-600 to-emerald-500`,
+		tailwindCSS: `saturate-125 from-[#22c1c3] to-[#fdbb2d]`,
 	},
 	{
 		id: "purple",
@@ -26,10 +24,7 @@ export const GRADIENTS: GradientTheme[] = [
 	},
 ]
 
-export const gradientAtom = atomWithStorage<GradientTheme>(
-	"gradient",
-	GRADIENTS[0]
-)
+export const gradientAtom = atom<GradientTheme>(GRADIENTS[0])
 
 export function useGradientCSS() {
 	const gradient = useAtomValue(gradientAtom)

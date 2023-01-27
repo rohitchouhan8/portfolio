@@ -36,7 +36,7 @@
     "gatsby-source-contentful": "^7.14.0",
     "gatsby-source-filesystem": "^4.13.0",
     "gatsby-transformer-sharp": "^4.13.0",
-    "jotai": "^1.10.0",
+    "jotai": "^1.13.1",
     "moment": "^2.29.3",
     "next-themes": "^0.2.1",
     "reach": "^1.0.1",

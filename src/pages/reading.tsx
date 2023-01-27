@@ -31,7 +31,7 @@ const ReadingPage = () => {
 			return (
 				<ListItem key={id}>
 					<H2>{title}</H2>
-					<label className="text-gray-400 dark:text-gray-500">
+					<label className='text-gray-400 dark:text-gray-500'>
 						by {author}
 					</label>
 					<Paragraph>{review}</Paragraph>
