@@ -23,7 +23,7 @@ import { toSentenceCase } from "../utils/text"
 import { useTheme } from "next-themes"
 
 type IconButtonProps = {
-  icon: IconType
+  icon: "moon" | "sun" | IconType
   pointingPage?: Page
   tooltip: string
 } & Omit<React.HTMLProps<HTMLAnchorElement>, "page">
@@ -34,7 +34,8 @@ function IconButton({
   tooltip,
   ...props
 }: IconButtonProps) {
-  const uiIcon = React.createElement(icon, {
+  let iconEl = icon === "sun" ? FiSun : icon === "moon" ? FiMoon : icon
+  const uiIcon = React.createElement(iconEl, {
     className: "h-4 w-4 md:w-6 md:h-6",
   })
   return (
@@ -100,13 +101,19 @@ const HomeButton = () => {
 
 const ThemeModeButton = () => {
   const { theme, setTheme } = useTheme()
+  const [tooltipText, setTooltipText] = React.useState("Too bright?")
+  const [tooltipIcon, setTooltipIcon] = React.useState<"sun" | "moon">("sun")
+  React.useEffect(() => {
+    setTooltipText(theme === "dark" ? "Dark in here?" : "Too bright?")
+    setTooltipIcon(theme === "dark" ? "moon" : "sun")
+  }, [theme])
   return (
     <IconButton
-      icon={theme === "dark" ? FiSun : FiMoon}
+      icon={tooltipIcon}
       onClick={() => {
         setTheme(theme === "dark" ? "light" : "dark")
       }}
-      tooltip={theme === "dark" ? "Dark in here?" : "Too bright?"}
+      tooltip={tooltipText}
     />
   )
 }
