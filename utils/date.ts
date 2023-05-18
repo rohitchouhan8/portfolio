@@ -18,3 +18,7 @@ export function timeBetweenTwoDates(date1: string, date2: string) {
   const days = duration.asDays()
   return { years, months, days }
 }
+
+export function today() {
+  return dayjs()
+}
