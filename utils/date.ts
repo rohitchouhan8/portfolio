@@ -22,3 +22,9 @@ export function timeBetweenTwoDates(date1: string, date2: string) {
 export function today() {
   return dayjs()
 }
+
+export function sortByRecency(a: string, b: string) {
+  const date1 = dayjs(a)
+  const date2 = dayjs(b)
+  return date2.diff(date1)
+}

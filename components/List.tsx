@@ -13,7 +13,7 @@ export function ListItem({
   ...props
 }: React.HTMLProps<HTMLAnchorElement>) {
   return (
-    <a className={``} {...props}>
+    <a {...props}>
       <div className='flex flex-col gap-1 hover:bg-gray-200  dark:hover:bg-gray-900 p-5 rounded-md transition-all duration-300 ease-in-out'>
         {children}
       </div>

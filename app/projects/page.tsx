@@ -7,17 +7,8 @@ import { Entry, createClient } from "contentful"
 
 import { Document } from "@contentful/rich-text-types"
 import { List, ListItem } from "@/components/List"
-
-export type ProjectSkeleton = {
-  contentTypeId: "work"
-  fields: {
-    name: string
-    content: { raw: Document }
-    startDate: string
-    endDate: string
-    id: string
-  }
-}
+import { ProjectSkeleton } from "./types"
+import client from "@/utils/contentfulClient"
 
 const VerticalDivider = () => {
   return (
@@ -28,11 +19,6 @@ const VerticalDivider = () => {
 }
 
 async function getData() {
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID ?? "",
-    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN ?? "",
-  })
-
   const entries = await client.getEntries<ProjectSkeleton>({
     content_type: "work",
   })
@@ -43,7 +29,9 @@ async function getData() {
 export default function ProjectsPage() {
   const works = React.use(getData())
   const listItems = works.map((project) => {
-    const { id, name, content, startDate, endDate } = project.fields
+    const id = project.sys.id
+    const { name, startDate, endDate } = project.fields
+
     const { years, months, days } = timeBetweenTwoDates(
       startDate,
       endDate ?? today()
