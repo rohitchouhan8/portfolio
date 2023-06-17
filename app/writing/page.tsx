@@ -1,9 +1,9 @@
-import * as React from "react";
+import * as React from 'react';
 
-import { formatDate, sortByRecency } from "@/utils/date";
-import { List, ListItem } from "@/components/List";
-import { H2, ListMonoSubtitle, H1 } from "@/components/Typography";
-import client from "@/utils/contentfulClient";
+import { formatDate, sortByRecency } from '@/utils/date';
+import { List, ListItem } from '@/components/List';
+import { H2, ListMonoSubtitle, H1 } from '@/components/Typography';
+import client from '@/utils/contentfulClient';
 
 type MediumArticle = {
   title: string;
@@ -13,13 +13,13 @@ type MediumArticle = {
 };
 
 type MediumArticleSkeleton = {
-  contentTypeId: "mediumArticles";
+  contentTypeId: 'mediumArticles';
   fields: MediumArticle;
 };
 
 async function getData() {
   const entries = await client.getEntries<MediumArticleSkeleton>({
-    content_type: "mediumArticles",
+    content_type: 'mediumArticles',
   });
 
   return entries.items.sort((a, b) =>
@@ -30,10 +30,10 @@ async function getData() {
 export default function WritingPage() {
   const articles = React.use(getData());
 
-  const listItems = articles.map((entry) => {
+  const listItems = articles.map((entry, index) => {
     const { id, url, title, publishDate } = entry.fields;
     return (
-      <ListItem key={id} href={url} target="_blank">
+      <ListItem key={id} index={index} href={url} target="_blank">
         <div className="flex flex-col md:flex-row place-content-between gap-4">
           <H2>{title}</H2>
           <ListMonoSubtitle>{formatDate(publishDate)}</ListMonoSubtitle>

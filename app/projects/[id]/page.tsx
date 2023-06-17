@@ -1,9 +1,8 @@
-import { createClient } from "contentful";
-import { Project, ProjectSkeleton } from "../types";
-import { use } from "react";
-import { H1 } from "@/components/Typography";
-import renderRichText from "@/components/RichText";
-import client from "@/utils/contentfulClient";
+import { Project, ProjectSkeleton } from '../types';
+import { use } from 'react';
+import { H1 } from '@/components/Typography';
+import renderRichText from '@/components/RichText';
+import client from '@/utils/contentfulClient';
 
 type Props = {
   params: Project;

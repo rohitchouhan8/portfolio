@@ -1,19 +1,19 @@
-import * as React from "react";
+import * as React from 'react';
 
 import {
   H1,
   H2,
   ListMonoSubtitle,
   StrongSpan,
-} from "../../components/Typography";
+} from '../../components/Typography';
 
-import { formatDate, timeBetweenTwoDates, today } from "../../utils/date";
-import { Entry, createClient } from "contentful";
+import { formatDate, timeBetweenTwoDates, today } from '../../utils/date';
+import { Entry, createClient } from 'contentful';
 
-import { Document } from "@contentful/rich-text-types";
-import { List, ListItem } from "@/components/List";
-import { ProjectSkeleton } from "./types";
-import client from "@/utils/contentfulClient";
+import { Document } from '@contentful/rich-text-types';
+import { List, ListItem } from '@/components/List';
+import { ProjectSkeleton } from './types';
+import client from '@/utils/contentfulClient';
 
 const VerticalDivider = () => {
   return (
@@ -25,7 +25,7 @@ const VerticalDivider = () => {
 
 async function getData() {
   const entries = await client.getEntries<ProjectSkeleton>({
-    content_type: "work",
+    content_type: 'work',
   });
 
   return entries.items;
@@ -33,7 +33,7 @@ async function getData() {
 
 export default function ProjectsPage() {
   const works = React.use(getData());
-  const listItems = works.map((project) => {
+  const listItems = works.map((project, idx) => {
     const id = project.sys.id;
     const { name, startDate, endDate } = project.fields;
 
@@ -47,7 +47,7 @@ export default function ProjectsPage() {
       const yearsDecimal = years + leftOverMonths;
       durationText = durationText = (
         <>
-          {yearsDecimal.toPrecision(2)} {yearsDecimal > 1 ? "years" : "year"}
+          {yearsDecimal.toPrecision(2)} {yearsDecimal > 1 ? 'years' : 'year'}
         </>
       );
     } else if (months > 0) {
@@ -57,13 +57,13 @@ export default function ProjectsPage() {
     }
 
     return (
-      <ListItem key={id} href={`/projects/${id}`}>
+      <ListItem key={id} index={idx} href={`/projects/${id}`}>
         <div className="flex flex-col md:flex-row place-content-between">
           <H2>{name}</H2>
           <ListMonoSubtitle>
             {durationText}
             <VerticalDivider />
-            {endDate ? formatDate(endDate) : "Present"}
+            {endDate ? formatDate(endDate) : 'Present'}
           </ListMonoSubtitle>
         </div>
       </ListItem>
