@@ -22,7 +22,7 @@ module.exports = {
 			fontFamily: {
 				header: ["var(--font-rubik)", ...defaultTheme.fontFamily.sans],
 				sans: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
-				title: ["var(--font-dancing-script)"],
+				title: ["var(--font-brick)"],
 			},
 			animation: {
 				text: "text 15s ease-in-out infinite",
