@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatedTitle } from "@/components/Text";
+import { AnimatedTitle } from "@/components/Typography";
 import Toolbar from "@/components/Toolbar";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";

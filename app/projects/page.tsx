@@ -1,6 +1,11 @@
 import * as React from "react";
 
-import { H1, H2, ListMonoSubtitle, StrongSpan } from "../../components/Text";
+import {
+  H1,
+  H2,
+  ListMonoSubtitle,
+  StrongSpan,
+} from "../../components/Typography";
 
 import { formatDate, timeBetweenTwoDates, today } from "../../utils/date";
 import { Entry, createClient } from "contentful";
@@ -12,7 +17,7 @@ import client from "@/utils/contentfulClient";
 
 const VerticalDivider = () => {
   return (
-    <span className=" text-slate-3 rounded-sm border-0 inline-block mx-2 align-middle">
+    <span className=" text-slate-11 rounded-sm border-0 inline-block mx-2 align-middle">
       •
     </span>
   );

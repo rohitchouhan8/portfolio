@@ -67,19 +67,19 @@ function ToolbarButton({
     pointingPage === currentPage
   );
 
-  const regularStyle = `text-slate-8 hover:text-slate-8`;
+  const regularStyle = `text-slate-11 hover:text-slate-12`;
   const activeStyle = `bg-gradient-to-r saturate-125 from-pink-400 via-amber-500 to-red-400`;
 
   return (
     <a
-      className={`group relative flex items-center justify-center p-2 md:p-4 md:w-14 md:h-14 bg-slate-1 hover:bg-slate-2 rounded-xl transition-colors duration-300 ease-in-out hover:cursor-pointer ${regularStyle}`}
+      className={`group relative flex items-center justify-center p-2 md:p-4 md:w-14 md:h-14 bg-slate-3 hover:bg-slate-4 rounded-xl transition-colors duration-300 ease-in-out hover:cursor-pointer ${regularStyle}`}
       {...props}>
       {isCurrentPage && (
         <div
           className={`absolute text-sm w-10 h-2 -top-7 rounded-full group-hover:-top-16 transition-all duration-500 ease-in-out left-0 right-0 m-auto ${activeStyle}`}
         />
       )}
-      <span className="absolute opacity-0 group-hover:opacity-100 text-sm -top-12 py-1 px-2 text-slate-8  whitespace-nowrap transition-all duration-100 ease-linear bg-slate-1 rounded-lg pointer-events-none shadow-md">
+      <span className="absolute opacity-0 group-hover:opacity-100 text-sm -top-12 py-1 px-2 text-slate-11  whitespace-nowrap transition-all duration-100 ease-linear bg-slate-1 rounded-lg pointer-events-none shadow-md">
         {toSentenceCase(tooltip)}
       </span>
 
@@ -208,7 +208,7 @@ const LinkedInButton = () => {
 
 const Section = ({ children }: React.PropsWithChildren<{}>) => {
   return (
-    <div className="flex flex-row gap-4 w-fit py-2 px-3 md:py-3 md:px-6 transition-all duration-200 border-slate-2 rounded-2xl shadow-lg bg-slate-1">
+    <div className="flex flex-row gap-4 w-fit py-2 px-3 md:py-3 md:px-6 transition-all duration-200 rounded-2xl shadow-lg shadow-slate-1 bg-slate-1">
       {children}
     </div>
   );

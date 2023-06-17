@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { HighlightSpan, Paragraph, Paragraphs } from "../components/Text";
+import { HighlightSpan, Paragraph, Paragraphs } from "../components/Typography";
 
 export default function Home() {
   return (

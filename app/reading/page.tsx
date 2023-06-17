@@ -6,7 +6,7 @@ import {
   ListMonoSubtitle,
   Paragraph,
   StrongSpan,
-} from "../../components/Text";
+} from "../../components/Typography";
 
 import { formatDate, timeBetweenTwoDates, today } from "../../utils/date";
 import { Entry, createClient } from "contentful";
@@ -46,7 +46,7 @@ const ReadingPage = () => {
     return (
       <ListItem key={id}>
         <H2>{title}</H2>
-        <label className="text-slate-5">by {author}</label>
+        <label className="text-slate-11">by {author}</label>
         <Paragraph>{review}</Paragraph>
       </ListItem>
     );

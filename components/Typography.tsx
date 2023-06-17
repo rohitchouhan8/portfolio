@@ -37,7 +37,7 @@ export function RegularTitle({ children }: React.PropsWithChildren<{}>) {
 export function H1({ children }: React.PropsWithChildren<{}>) {
   return (
     <h1
-      className={`bg-clip-text font-bold text-4xl font-header text-slate-12 bg-blend-darken tracking-wider`}>
+      className={`bg-clip-text font-bold text-4xl font-title text-slate-12 bg-blend-darken tracking-wider`}>
       {children}
     </h1>
   );
@@ -103,7 +103,7 @@ export function StrongSpan({ children }: React.PropsWithChildren<{}>) {
 
 export function ListMonoSubtitle({ children }: React.PropsWithChildren<{}>) {
   return (
-    <div className="text-slate-12 font-normal whitespace-nowrap truncate text-ellipsis flex-shrink-0 font-mono">
+    <div className="text-slate-11 font-normal whitespace-nowrap truncate text-ellipsis flex-shrink-0 font-mono">
       {children}
     </div>
   );
@@ -111,7 +111,7 @@ export function ListMonoSubtitle({ children }: React.PropsWithChildren<{}>) {
 
 export function ImageMonoSubtitle({ children }: React.PropsWithChildren<{}>) {
   return (
-    <div className="text-slate-12 font-normal whitespace-nowrap truncate text-ellipsis flex-shrink-0 font-mono">
+    <div className="text-slate-11 font-normal whitespace-nowrap truncate text-ellipsis flex-shrink-0 font-mono">
       {children}
     </div>
   );
