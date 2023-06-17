@@ -46,7 +46,7 @@ const ReadingPage = () => {
     return (
       <ListItem key={id}>
         <H2>{title}</H2>
-        <label className="text-gray-500 dark:text-gray-500">by {author}</label>
+        <label className="text-slate-5">by {author}</label>
         <Paragraph>{review}</Paragraph>
       </ListItem>
     );

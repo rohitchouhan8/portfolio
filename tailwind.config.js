@@ -13,7 +13,6 @@ module.exports = {
 		extend: {
 			colors: {
 				black: "#080d17",
-				gray: colors.slate,
 				highlight: {
 					light: "#000",
 					dark: "#031b47",
@@ -44,5 +43,5 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [],
+	plugins: [require("windy-radix-palette")],
 }

@@ -27,7 +27,7 @@ const brick = localFont({
 
 function Page({ children }: React.PropsWithChildren<{}>) {
   return (
-    <div className="w-full h-full min-h-screen bg-gray-50 dark:bg-black px-4 overflow-auto">
+    <div className="w-full h-full min-h-screen bg-slate-2 px-4 overflow-auto">
       <div className="w-full h-full min-h-screen">
         <div className="absolute left-4 top-4 mx-auto">
           <AnimatedTitle>Rohit Chouhan.</AnimatedTitle>
