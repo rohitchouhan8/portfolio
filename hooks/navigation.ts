@@ -1,12 +1,12 @@
-import React from "react";
-import { useRouter, usePathname } from "next/navigation";
+import React from 'react';
+import { useRouter, usePathname } from 'next/navigation';
 
 export enum Page {
-  HOME = "home",
-  PROJECTS = "projects",
-  READING = "reading",
-  WRITING = "writing",
-  ARTSY = "artsy",
+  HOME = 'home',
+  PROJECTS = 'projects',
+  READING = 'reading',
+  WRITING = 'writing',
+  ARTSY = 'artsy',
 }
 
 export function useCurrentPathname() {
@@ -19,13 +19,13 @@ function parsePath(pathname: string | null): Page | undefined {
   if (!pathname) {
     return;
   }
-  const path = pathname.split("/").filter((s) => !!s)[0];
+  const path = pathname.split('/').filter((s) => !!s)[0];
 
-  if (path === "projects") {
+  if (path === 'projects') {
     return Page.PROJECTS;
-  } else if (path === "reading") {
+  } else if (path === 'reading') {
     return Page.READING;
-  } else if (path === "writing") {
+  } else if (path === 'writing') {
     return Page.WRITING;
   } else {
     return Page.HOME;

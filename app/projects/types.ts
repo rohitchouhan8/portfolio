@@ -1,5 +1,5 @@
 export type ProjectSkeleton = {
-  contentTypeId: "work";
+  contentTypeId: 'work';
   fields: Project;
 };
 

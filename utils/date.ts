@@ -1,11 +1,11 @@
-import dayjs from "dayjs";
-import duration from "dayjs/plugin/duration";
+import dayjs from 'dayjs';
+import duration from 'dayjs/plugin/duration';
 
 dayjs.extend(duration);
 
 export function formatDate(dateString: string) {
   const date = dayjs(dateString);
-  return date.format("YYYY");
+  return date.format('YYYY');
 }
 
 export function timeBetweenTwoDates(date1: string, date2: string) {
