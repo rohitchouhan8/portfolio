@@ -4,11 +4,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export function List(props: React.PropsWithChildren<{}>) {
   return (
-    <AnimatePresence>
-      <motion.div className="grid gap-4 grid-cols-1 relative pl-4 border-l-slate-7 border-l-2">
-        {props.children}
-      </motion.div>
-    </AnimatePresence>
+    <div className="grid gap-4 grid-cols-1 relative pl-4 border-l-slate-7 border-l-2">
+      {props.children}
+    </div>
   );
 }
 
