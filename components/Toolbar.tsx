@@ -101,14 +101,17 @@ const HomeButton = () => {
   );
 };
 
-const ThemeModeButton = () => {
-  const { theme, setTheme } = useTheme();
-  const [tooltipText, setTooltipText] = React.useState('Too bright?');
-  const [tooltipIcon, setTooltipIcon] = React.useState<'sun' | 'moon'>('sun');
-  React.useEffect(() => {
-    setTooltipText(theme === 'dark' ? 'Dark in here?' : 'Too bright?');
-    setTooltipIcon(theme === 'dark' ? 'moon' : 'sun');
-  }, [theme]);
+const ThemeModeButton = ({
+  tooltipIcon,
+  tooltipText,
+  theme,
+  setTheme,
+}: {
+  tooltipIcon: 'moon' | 'sun';
+  tooltipText: string;
+  theme: string | undefined;
+  setTheme: (theme: string) => void;
+}) => {
   return (
     <IconButton
       icon={tooltipIcon}
@@ -217,11 +220,42 @@ const Section = ({ children }: React.PropsWithChildren<{}>) => {
 };
 
 const Toolbar = () => {
+  const { theme, setTheme } = useTheme();
+  const [tooltipText, setTooltipText] = React.useState<string | null>(null);
+  const [tooltipIcon, setTooltipIcon] = React.useState<'sun' | 'moon' | null>(
+    null
+  );
+
+  React.useEffect(() => {
+    if (theme === 'dark') {
+      setTooltipText('Too dark?');
+      setTooltipIcon('sun');
+    } else {
+      setTooltipText('Too bright?');
+      setTooltipIcon('moon');
+    }
+  }, [theme]);
+
+  if (!tooltipText || !tooltipIcon) {
+    return null;
+  }
+
   return (
-    <motion.div className="flex flex-row flex-wrap px-4 place-content-start gap-2 md:gap-4 fixed z-50 w-fit h-fit  mx-auto inset-x-0 bottom-20 transition-all duration-200 ease-in-out">
+    <motion.div
+      className="flex flex-row flex-wrap px-4 place-content-start gap-2 md:gap-4 fixed z-50 w-fit h-fit  mx-auto inset-x-0 bottom-10 md:bottom-20 transition-all duration-200 ease-in-out"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.8, ease: 'easeInOut' }}
+    >
       <Section>
         <HomeButton />
-        <ThemeModeButton />
+        <ThemeModeButton
+          theme={theme}
+          setTheme={setTheme}
+          tooltipIcon={tooltipIcon}
+          tooltipText={tooltipText}
+        />
       </Section>
       <Section>
         <LightBulbButton />
