@@ -1,6 +1,6 @@
-import * as React from "react";
+import * as React from 'react';
 
-import { HighlightSpan, Paragraph, Paragraphs } from "../components/Typography";
+import { HighlightSpan, Paragraph, Paragraphs } from '../components/Typography';
 
 export default function Home() {
   return (
@@ -8,17 +8,17 @@ export default function Home() {
       <Paragraphs>
         <Paragraph>
           I&rsquo;m <HighlightSpan>Rohit</HighlightSpan>. I&rsquo;m a software
-          engineer at Figma on building the platform that powers{" "}
+          engineer at Figma on building the platform that powers{' '}
           <HighlightSpan>Plugins, Widgets, and the REST API. </HighlightSpan>
         </Paragraph>
         <Paragraph>
-          Outside of work, I&rsquo;m working on my creative skills to become a{" "}
-          <HighlightSpan>digital artist.</HighlightSpan>. One day, I want to
+          Outside of work, I&rsquo;m working on my creative skills to become a{' '}
+          <HighlightSpan>digital artist</HighlightSpan>. One day, I want to
           create an entire world through my art.
         </Paragraph>
         <Paragraph>
-          In my freetime, I love to play <HighlightSpan>tennis</HighlightSpan>,{" "}
-          <HighlightSpan>make ice creams</HighlightSpan>, and play
+          In my freetime, I love to play <HighlightSpan>tennis</HighlightSpan>,{' '}
+          <HighlightSpan>make ice cream</HighlightSpan>, and play{' '}
           <HighlightSpan>video games</HighlightSpan>.
         </Paragraph>
         <Paragraph>

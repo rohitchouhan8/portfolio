@@ -1,10 +1,11 @@
-import React from "react";
+import React from 'react';
 
 export const HighlightSpan = ({ children }: React.PropsWithChildren<{}>) => {
   function InnerHighlightSpan() {
     return (
       <span
-        className={`py-0.5 px-1 bg-gradient-to-r saturate-125 from-pink-400 via-amber-500 to-red-400 text-white rounded-sm  animate-text`}>
+        className={`py-0.5 px-1 bg-gradient-to-r saturate-125 from-pink-400 via-amber-500 to-red-400 text-white rounded-sm  animate-text`}
+      >
         {children}
       </span>
     );
@@ -17,7 +18,8 @@ export function AnimatedTitle({ children }: React.PropsWithChildren<{}>) {
     return (
       <h1
         className={`w-fit bg-clip-text text-4xl font-title text-transparent leading-loose
-			 bg-gradient-to-r saturate-125 from-pink-400 via-amber-500 to-red-400  animate-text`}>
+			 bg-gradient-to-r saturate-125 from-pink-400 via-amber-500 to-red-400  animate-text`}
+      >
         {children}
       </h1>
     );
@@ -28,7 +30,8 @@ export function AnimatedTitle({ children }: React.PropsWithChildren<{}>) {
 export function RegularTitle({ children }: React.PropsWithChildren<{}>) {
   return (
     <h1
-      className={`w-fit bg-clip-text font-bold text-7xl font-title text-slate-12`}>
+      className={`w-fit bg-clip-text font-bold text-7xl font-title text-slate-12`}
+    >
       {children}
     </h1>
   );
@@ -37,7 +40,8 @@ export function RegularTitle({ children }: React.PropsWithChildren<{}>) {
 export function H1({ children }: React.PropsWithChildren<{}>) {
   return (
     <h1
-      className={`bg-clip-text font-bold text-4xl font-title text-slate-12 bg-blend-darken tracking-wider`}>
+      className={`bg-clip-text font-bold text-3xl font-header text-slate-12 bg-blend-darken tracking-wider`}
+    >
       {children}
     </h1>
   );
@@ -46,7 +50,8 @@ export function H1({ children }: React.PropsWithChildren<{}>) {
 export function H2({ children }: React.PropsWithChildren<{}>) {
   return (
     <h2
-      className={`w-fit font-medium text-xl font-header text-slate-12 bg-blend-darken tracking-wider text-ellipsis`}>
+      className={`w-fit font-medium text-xl font-header text-slate-12 bg-blend-darken tracking-wider text-ellipsis`}
+    >
       {children}
     </h2>
   );
@@ -55,7 +60,8 @@ export function H2({ children }: React.PropsWithChildren<{}>) {
 export function H3({ children }: React.PropsWithChildren<{}>) {
   return (
     <h3
-      className={`w-fit font-medium text-lg font-header text-slate-12 bg-blend-darken tracking-wider`}>
+      className={`w-fit font-medium text-lg font-header text-slate-12 bg-blend-darken tracking-wider`}
+    >
       {children}
     </h3>
   );
@@ -67,7 +73,8 @@ export function AnimatedGradientSpan({
   return (
     <span
       className={`font-extrabold text-xl bg-clip-text text-transparent 
-            bg-gradient-to-r saturate-125 from-pink-400 via-amber-500 to-red-400`}>
+            bg-gradient-to-r saturate-125 from-pink-400 via-amber-500 to-red-400`}
+    >
       {children}
     </span>
   );
