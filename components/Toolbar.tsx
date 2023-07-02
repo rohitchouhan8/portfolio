@@ -1,7 +1,6 @@
 'use client';
 
 import * as React from 'react';
-import { motion } from 'framer-motion';
 
 import {
   FiBook,
@@ -226,6 +225,8 @@ const Toolbar = () => {
     null
   );
 
+  const [opacity, setOpacity] = React.useState(0);
+
   React.useEffect(() => {
     if (theme === 'dark') {
       setTooltipText('Too dark?');
@@ -236,17 +237,23 @@ const Toolbar = () => {
     }
   }, [theme]);
 
+  React.useEffect(() => {
+    if (!tooltipText || !tooltipIcon) {
+      return;
+    }
+    setOpacity(1);
+  }, [tooltipIcon, tooltipText]);
+
   if (!tooltipText || !tooltipIcon) {
     return null;
   }
 
   return (
-    <motion.div
-      className="flex flex-row flex-wrap px-4 place-content-start gap-2 md:gap-4 fixed z-50 w-fit h-fit  mx-auto inset-x-0 bottom-10 md:bottom-20 transition-all duration-200 ease-in-out"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.8, ease: 'easeInOut' }}
+    <div
+      className="flex flex-row flex-wrap px-4 place-content-start gap-2 md:gap-4 fixed z-50 w-fit h-fit mx-auto inset-x-0 bottom-10 md:bottom-20 transition-opacity duration-700 ease-in-out"
+      style={{
+        opacity,
+      }}
     >
       <Section>
         <HomeButton />
@@ -268,7 +275,7 @@ const Toolbar = () => {
         <GithubButton />
         <LinkedInButton />
       </Section>
-    </motion.div>
+    </div>
   );
 };
 

@@ -1,17 +1,9 @@
 import * as React from 'react';
 
-import {
-  H1,
-  H2,
-  ListMonoSubtitle,
-  Paragraph,
-  StrongSpan,
-} from '../../components/Typography';
+import { H1, H2, Paragraph } from '../../components/Typography';
 
-import { formatDate, timeBetweenTwoDates, today } from '../../utils/date';
-import { Entry, createClient } from 'contentful';
+import { createClient } from 'contentful';
 
-import { Document } from '@contentful/rich-text-types';
 import { List, ListItem } from '@/components/List';
 
 type ReadingSkeleton = {
