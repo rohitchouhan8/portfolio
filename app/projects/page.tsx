@@ -11,7 +11,7 @@ import { formatDate, timeBetweenTwoDates, today } from '../../utils/date';
 import { Entry, createClient } from 'contentful';
 
 import { Document } from '@contentful/rich-text-types';
-import { List, ListItem } from '@/components/List';
+import { LinkItem, List, ListItem } from '@/components/List';
 import { ProjectSkeleton } from './types';
 import client from '@/utils/contentfulClient';
 
@@ -57,7 +57,7 @@ export default function ProjectsPage() {
     }
 
     return (
-      <ListItem key={id} index={idx} href={`/projects/${id}`}>
+      <LinkItem key={id} index={idx} href={`/projects/${id}`}>
         <div className="flex flex-col md:flex-row place-content-between">
           <H2>{name}</H2>
           <ListMonoSubtitle>
@@ -66,7 +66,7 @@ export default function ProjectsPage() {
             {endDate ? formatDate(endDate) : 'Present'}
           </ListMonoSubtitle>
         </div>
-      </ListItem>
+      </LinkItem>
     );
   });
 
