@@ -34,7 +34,7 @@ async function getData() {
 const ReadingPage = () => {
   const reading = React.use(getData());
   const listItems = reading.map((reading, index) => {
-    const { id, title, author, review, dateFinished } = reading.fields;
+    const { id, title, author, review } = reading.fields;
     return (
       <ListItem key={id} index={index}>
         <H2>{title}</H2>

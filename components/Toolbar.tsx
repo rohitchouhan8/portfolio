@@ -212,7 +212,7 @@ const LinkedInButton = () => {
 
 const Section = ({ children }: React.PropsWithChildren<{}>) => {
   return (
-    <div className="flex flex-row gap-4 w-fit py-2 px-3 md:py-3 md:px-6 transition-all duration-200 rounded-2xl shadow-lg shadow-slate-1 bg-slate-2">
+    <div className="flex flex-row gap-4 w-fit py-2 px-3 md:py-3 md:px-6 transition-all duration-200 rounded-2xl shadow-lg bg-slate-2 border border-slate-6">
       {children}
     </div>
   );

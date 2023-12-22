@@ -7,7 +7,12 @@ import {
   StrongSpan,
 } from '../../components/Typography';
 
-import { formatDate, timeBetweenTwoDates, today } from '../../utils/date';
+import {
+  formatDate,
+  sortByRecency,
+  timeBetweenTwoDates,
+  today,
+} from '../../utils/date';
 import { Entry, createClient } from 'contentful';
 
 import { Document } from '@contentful/rich-text-types';
@@ -28,7 +33,9 @@ async function getData() {
     content_type: 'work',
   });
 
-  return entries.items;
+  return entries.items.sort((a, b) =>
+    sortByRecency(a.fields.endDate, b.fields.endDate)
+  );
 }
 
 export default function ProjectsPage() {
