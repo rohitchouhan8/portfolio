@@ -4,7 +4,7 @@ export const HighlightSpan = ({ children }: React.PropsWithChildren<{}>) => {
   function InnerHighlightSpan() {
     return (
       <span
-        className={`py-0.5 px-1 bg-gradient-to-r saturate-125 from-pink-400 via-amber-500 to-red-400 text-white rounded-sm  animate-text`}
+        className={`bg-gradient-to-r saturate-125 from-pink-400 via-amber-500 to-red-400 text-transparent font-semibold rounded-sm  animate-text bg-clip-text`}
       >
         {children}
       </span>
@@ -40,7 +40,7 @@ export function RegularTitle({ children }: React.PropsWithChildren<{}>) {
 export function H1({ children }: React.PropsWithChildren<{}>) {
   return (
     <h1
-      className={`bg-clip-text font-bold text-3xl font-header text-slate-12 bg-blend-darken tracking-wider`}
+      className={`bg-clip-text font-bold text-3xl font-header text-slate-12 bg-blend-darken tracking-wider mb-2`}
     >
       {children}
     </h1>

@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import * as Tooltip from '@radix-ui/react-tooltip';
 
 import {
   FiBook,
@@ -21,12 +22,17 @@ import { Page, useCurrentPathname } from '../hooks/navigation';
 import { IconType } from 'react-icons/lib';
 import { toSentenceCase } from '../utils/text';
 import { useTheme } from 'next-themes';
+import Link from 'next/link';
+import { AnimatePresence, motion } from 'framer-motion';
 
 type IconButtonProps = {
   icon: 'moon' | 'sun' | IconType;
   pointingPage?: Page;
   tooltip: string;
-} & Omit<React.HTMLProps<HTMLAnchorElement>, 'page'>;
+  href?: string;
+  onClick?: () => void;
+  target?: string;
+};
 
 function IconButton({
   icon,
@@ -52,12 +58,14 @@ type ToolbarButtonProps = {
   icon: React.ReactNode;
   pointingPage?: Page;
   tooltip: string;
-} & Omit<React.HTMLProps<HTMLAnchorElement>, 'page'>;
+  href?: string;
+};
 
 function ToolbarButton({
   icon,
   pointingPage,
   tooltip,
+  href,
   ...props
 }: ToolbarButtonProps) {
   const { page: currentPage } = useCurrentPathname();
@@ -70,22 +78,54 @@ function ToolbarButton({
   const regularStyle = `text-slate-11 hover:text-slate-12`;
   const activeStyle = `bg-gradient-to-r saturate-125 from-pink-400 via-amber-500 to-red-400`;
 
-  return (
-    <a
-      className={`group relative flex items-center justify-center p-2 md:p-4 md:w-14 md:h-14 bg-slate-3 hover:bg-slate-4 rounded-xl transition-colors duration-300 ease-in-out hover:cursor-pointer ${regularStyle}`}
-      {...props}
-    >
+  const children = (
+    <>
       {isCurrentPage && (
         <div
-          className={`absolute text-sm w-10 h-2 -top-7 rounded-full group-hover:-top-16 transition-all duration-500 ease-in-out left-0 right-0 m-auto ${activeStyle}`}
+          className={`absolute text-sm w-10 h-2 -top-7 rounded-full group-hover:-top-16 left-0 right-0 m-auto ${activeStyle}`}
         />
       )}
-      <span className="absolute opacity-0 group-hover:opacity-100 text-sm -top-12 py-1 px-2 text-slate-11  whitespace-nowrap transition-all duration-100 ease-linear bg-slate-1 rounded-lg pointer-events-none shadow-md">
-        {toSentenceCase(tooltip)}
-      </span>
-
       {icon}
-    </a>
+    </>
+  );
+  const className = `group relative flex items-center justify-center p-2 md:p-4 md:w-14 md:h-14 bg-slate-3 hover:bg-slate-4 rounded-xl ${regularStyle}`;
+  const trigger = href ? (
+    <Link className={className} href={href} {...props}>
+      {children}
+    </Link>
+  ) : (
+    <button className={className} {...props}>
+      {children}
+    </button>
+  );
+
+  return (
+    <Tooltip.Provider delayDuration={50}>
+      <Tooltip.Root>
+        <Tooltip.Trigger>
+          <motion.div
+            whileHover={{
+              scale: 1.2,
+              transition: {
+                type: 'spring',
+                stiffness: 260,
+                damping: 15,
+              },
+            }}
+          >
+            {trigger}
+          </motion.div>
+        </Tooltip.Trigger>
+        <Tooltip.Portal>
+          <Tooltip.TooltipContent
+            sideOffset={24}
+            className="z-10 text-sm py-1 px-2 text-slate-11 whitespace-nowrap transition-all duration-100 ease-linear bg-slate-1 rounded-lg pointer-events-none shadow-md"
+          >
+            {toSentenceCase(tooltip)}
+          </Tooltip.TooltipContent>
+        </Tooltip.Portal>
+      </Tooltip.Root>
+    </Tooltip.Provider>
   );
 }
 
@@ -250,7 +290,7 @@ const Toolbar = () => {
 
   return (
     <div
-      className="flex flex-row flex-wrap px-4 place-content-start gap-2 md:gap-4 fixed z-50 w-fit h-fit mx-auto inset-x-0 bottom-10 md:bottom-20 transition-opacity duration-700 ease-in-out"
+      className="flex flex-row flex-wrap px-4 place-content-start gap-2 md:gap-4 fixed z-9 w-fit h-fit mx-auto inset-x-0 bottom-10 md:bottom-20 transition-opacity duration-700 ease-in-out"
       style={{
         opacity,
       }}
