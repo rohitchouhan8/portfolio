@@ -36,7 +36,7 @@ const ReadingPage = () => {
   const listItems = reading.map((reading, index) => {
     const { id, title, author, review } = reading.fields;
     return (
-      <ListItem key={id} index={index}>
+      <ListItem key={index} index={index}>
         <H2>{title}</H2>
         <label className="text-slate-11">by {author}</label>
         <Paragraph>{review}</Paragraph>
