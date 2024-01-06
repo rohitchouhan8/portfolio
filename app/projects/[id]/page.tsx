@@ -12,7 +12,6 @@ type Props = {
 export default function PageDetail({ params }: Props) {
   const entry = use(client.getEntry<ProjectSkeleton>(params.id));
   const { name, content } = entry.fields;
-
   return (
     <>
       <ScrollProgress />

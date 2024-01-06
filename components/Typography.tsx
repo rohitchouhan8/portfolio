@@ -1,10 +1,17 @@
+import { cn } from '@/utils/tailwind';
 import React from 'react';
 
-export const HighlightSpan = ({ children }: React.PropsWithChildren<{}>) => {
+export const HighlightSpan = ({
+  children,
+  className,
+}: React.PropsWithChildren<{ className?: string }>) => {
   function InnerHighlightSpan() {
     return (
       <span
-        className={`bg-gradient-to-r saturate-125 from-pink-400 via-amber-500 to-red-400 text-transparent font-semibold rounded-sm  animate-text bg-clip-text`}
+        className={cn(
+          `bg-gradient-to-r saturate-125 from-pink-400 via-amber-500 to-red-400 text-transparent rounded-sm animate-text bg-clip-text`,
+          className
+        )}
       >
         {children}
       </span>

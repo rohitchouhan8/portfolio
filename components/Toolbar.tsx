@@ -102,7 +102,7 @@ function ToolbarButton({
   return (
     <Tooltip.Provider delayDuration={50}>
       <Tooltip.Root>
-        <Tooltip.Trigger>
+        <Tooltip.Trigger asChild>
           <motion.div
             whileHover={{
               scale: 1.2,
