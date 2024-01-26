@@ -3,6 +3,7 @@ import * as React from 'react';
 import {
   H1,
   H2,
+  H3,
   ListMonoSubtitle,
   StrongSpan,
 } from '../../components/Typography';
@@ -22,7 +23,7 @@ import client from '@/utils/contentfulClient';
 
 const VerticalDivider = () => {
   return (
-    <span className=" text-slate-11 rounded-sm border-0 inline-block mx-2 align-middle">
+    <span className="text-mauve-11 rounded-sm border-0 inline-block mx-2 align-middle">
       •
     </span>
   );
@@ -65,8 +66,9 @@ export default function ProjectsPage() {
 
     return (
       <LinkItem key={id} index={idx} href={`/projects/${id}`}>
-        <div className="flex flex-col md:flex-row place-content-between">
-          <H2>{name}</H2>
+        <div className="flex flex-col md:flex-row place-content-between items-center gap-4">
+          <StrongSpan>{name}</StrongSpan>
+          <line className="grow h-[0.05rem] bg-mauve-7" />
           <ListMonoSubtitle>
             {durationText}
             <VerticalDivider />

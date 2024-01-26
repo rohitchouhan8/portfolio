@@ -2,7 +2,13 @@ import * as React from 'react';
 
 import { formatDate, sortByRecency } from '@/utils/date';
 import { LinkItem, List, ListItem } from '@/components/List';
-import { H2, ListMonoSubtitle, H1 } from '@/components/Typography';
+import {
+  H2,
+  ListMonoSubtitle,
+  H1,
+  H3,
+  StrongSpan,
+} from '@/components/Typography';
 import client from '@/utils/contentfulClient';
 
 type MediumArticle = {
@@ -34,8 +40,9 @@ export default function WritingPage() {
     const { id, url, title, publishDate } = entry.fields;
     return (
       <LinkItem key={id} index={index} href={url} target="_blank">
-        <div className="flex flex-col md:flex-row place-content-between gap-4">
-          <H2>{title}</H2>
+        <div className="flex flex-col md:flex-row place-content-between items-center gap-4">
+          <StrongSpan>{title}</StrongSpan>
+          <line className="grow h-[0.05rem] bg-mauve-7" />
           <ListMonoSubtitle>{formatDate(publishDate)}</ListMonoSubtitle>
         </div>
       </LinkItem>

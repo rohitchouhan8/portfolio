@@ -6,6 +6,7 @@ import {
   LI,
   ListMonoSubtitle,
   Paragraph,
+  StrongSpan,
   UnorderedList,
 } from './Typography';
 import {
@@ -14,13 +15,12 @@ import {
 } from '@contentful/rich-text-react-renderer';
 
 import React from 'react';
-import { FiExternalLink } from 'react-icons/fi';
 import Link from 'next/link';
 import Image from 'next/image';
 
 const options: Options = {
   renderMark: {
-    [MARKS.BOLD]: (text: any) => <HighlightSpan>{text}</HighlightSpan>,
+    [MARKS.BOLD]: (text: any) => <StrongSpan>{text}</StrongSpan>,
     [MARKS.CODE]: (text: any) => {
       return <code>{text}</code>;
     },
@@ -38,7 +38,7 @@ const options: Options = {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <span className="font-semibold underline underline-offset-4">
+        <span className="font-medium text-mauve-12 underline underline-offset-4">
           {next}
         </span>
       </Link>
@@ -58,9 +58,7 @@ const options: Options = {
     },
     [BLOCKS.QUOTE]: (node, next) => {
       return (
-        <blockquote className="border-l-4 border-slate-11 pl-4">
-          {next}
-        </blockquote>
+        <blockquote className="mt-6 border-l-2 pl-6 italic">{next}</blockquote>
       );
     },
   },

@@ -6,7 +6,7 @@ import { cn } from '@/utils/tailwind';
 
 export function List(props: React.PropsWithChildren<{}>) {
   return (
-    <div className="grid gap-4 grid-cols-1 relative pl-4 border-l-slate-7 border-l-2">
+    <div className="grid grid-cols-1 -ml-3 relative border-l-mauve-7 border-l-1">
       {props.children}
     </div>
   );
@@ -19,16 +19,10 @@ export function ListItem({
   index: number;
   children: React.ReactNode;
 }) {
-  const [opacity, setOpacity] = React.useState(0);
-
-  React.useEffect(() => {
-    setOpacity(1);
-  }, []);
-
   return (
     <AnimatedDiv
       index={index}
-      className="flex flex-col gap-1 hover:bg-slate-4 p-5 rounded-md"
+      className="flex flex-col gap-1 hover:bg-mauve-4 p-4 rounded-lg transition-colors"
     >
       {children}
     </AnimatedDiv>
@@ -41,7 +35,7 @@ export function LinkItem({ index, ...props }: LinkItemProps) {
     <AnimatedDiv index={index}>
       <Link
         {...props}
-        className="flex flex-col gap-1 hover:bg-slate-4 p-5 rounded-md"
+        className="flex flex-col gap-1 hover:bg-mauve-4 p-4 rounded-lg transition-colors"
       >
         {props.children}
       </Link>
@@ -57,15 +51,14 @@ function AnimatedDiv({
   return (
     <motion.div
       className={cn('w-full h-full', className)}
-      initial={{ scale: 0 }}
-      animate={{ scale: 1 }}
-      layout
+      initial={{ y: 25, opacity: 0 }}
+      animate={{
+        y: 0,
+        opacity: 1,
+      }}
       transition={{
-        type: 'spring',
-        stiffness: 160,
-        damping: 20,
-        duration: 0.5,
-        delay: index * 0.2,
+        duration: 0.4,
+        delay: index * 0.3,
       }}
     >
       {children}

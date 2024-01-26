@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { H1, H2, Paragraph } from '../../components/Typography';
+import { H1, H2, H3, Paragraph, StrongSpan } from '../../components/Typography';
 
 import { createClient } from 'contentful';
 
@@ -36,9 +36,11 @@ const ReadingPage = () => {
   const listItems = reading.map((reading, index) => {
     const { id, title, author, review } = reading.fields;
     return (
-      <ListItem key={index} index={index}>
-        <H2>{title}</H2>
-        <label className="text-slate-11">by {author}</label>
+      <ListItem key={id} index={index}>
+        <div className="flex gap-1 items-baseline">
+          <StrongSpan>{title}</StrongSpan>
+          <label className="text-mauve-11 text-sm">by {author}</label>
+        </div>
         <Paragraph>{review}</Paragraph>
       </ListItem>
     );

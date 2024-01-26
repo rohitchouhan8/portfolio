@@ -75,7 +75,7 @@ function ToolbarButton({
     pointingPage === currentPage
   );
 
-  const regularStyle = `text-slate-11 hover:text-slate-12`;
+  const regularStyle = `text-mauve-11 hover:text-mauve-12`;
   const activeStyle = `bg-gradient-to-r saturate-125 from-pink-400 via-amber-500 to-red-400`;
 
   const children = (
@@ -88,7 +88,7 @@ function ToolbarButton({
       {icon}
     </>
   );
-  const className = `group relative flex items-center justify-center p-2 md:p-4 md:w-14 md:h-14 bg-slate-3 hover:bg-slate-4 rounded-xl ${regularStyle}`;
+  const className = `group relative flex items-center justify-center p-2 md:p-4 md:w-14 md:h-14 bg-mauve-3 hover:bg-mauve-4 rounded-xl ${regularStyle}`;
   const trigger = href ? (
     <Link className={className} href={href} {...props}>
       {children}
@@ -105,12 +105,7 @@ function ToolbarButton({
         <Tooltip.Trigger asChild>
           <motion.div
             whileHover={{
-              scale: 1.2,
-              transition: {
-                type: 'spring',
-                stiffness: 260,
-                damping: 15,
-              },
+              y: -4,
             }}
           >
             {trigger}
@@ -119,7 +114,7 @@ function ToolbarButton({
         <Tooltip.Portal>
           <Tooltip.TooltipContent
             sideOffset={24}
-            className="z-10 text-sm py-1 px-2 text-slate-11 whitespace-nowrap transition-all duration-100 ease-linear bg-slate-1 rounded-lg pointer-events-none shadow-md"
+            className="z-10 text-sm py-1 px-2 text-mauve-11 whitespace-nowrap transition-all duration-100 ease-linear bg-mauve-1 rounded-lg pointer-events-none shadow-md"
           >
             {toSentenceCase(tooltip)}
           </Tooltip.TooltipContent>
@@ -252,7 +247,7 @@ const LinkedInButton = () => {
 
 const Section = ({ children }: React.PropsWithChildren<{}>) => {
   return (
-    <div className="flex flex-row gap-4 w-fit py-2 px-3 md:py-3 md:px-6 transition-all duration-200 rounded-2xl shadow-lg bg-slate-2 border border-slate-6">
+    <div className="flex flex-row gap-4 w-fit py-2 px-3 md:py-3 md:px-6 transition-all duration-200 rounded-2xl shadow-lg bg-mauve-2 border border-mauve-6">
       {children}
     </div>
   );

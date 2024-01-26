@@ -7,7 +7,7 @@ import { AnimatedTitle } from './Typography';
 export function Page({ children }: React.PropsWithChildren<{}>) {
   return (
     <ThemeProvider attribute="class">
-      <div className="w-full h-full min-h-screen bg-slate-1 px-4 overflow-auto">
+      <div className="w-full h-full min-h-screen bg-mauve-1 px-4 overflow-auto">
         <div className="w-full h-full min-h-screen">
           <div className="absolute left-4 top-4 mx-auto">
             <AnimatedTitle>Rohit Chouhan.</AnimatedTitle>
