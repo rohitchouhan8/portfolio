@@ -4,7 +4,7 @@ import { H1, H2, H3, Paragraph, StrongSpan } from '../../components/Typography';
 
 import { createClient } from 'contentful';
 
-import { List, ListItem } from '@/components/List';
+import { AnimatedDiv, List, ListItem } from '@/components/List';
 
 type ReadingSkeleton = {
   contentTypeId: 'reading';
@@ -36,13 +36,15 @@ const ReadingPage = () => {
   const listItems = reading.map((reading, index) => {
     const { id, title, author, review } = reading.fields;
     return (
-      <ListItem key={id} index={index}>
-        <div className="flex gap-1 items-baseline">
-          <StrongSpan>{title}</StrongSpan>
-          <label className="text-mauve-11 text-sm">by {author}</label>
-        </div>
-        <Paragraph>{review}</Paragraph>
-      </ListItem>
+      <AnimatedDiv key={id} index={index}>
+        <ListItem key={id} index={index}>
+          <div className="flex gap-1 items-baseline">
+            <StrongSpan>{title}</StrongSpan>
+            <label className="text-mauve-11 text-sm">by {author}</label>
+          </div>
+          <Paragraph>{review}</Paragraph>
+        </ListItem>
+      </AnimatedDiv>
     );
   });
 

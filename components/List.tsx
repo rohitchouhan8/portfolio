@@ -14,36 +14,30 @@ export function List(props: React.PropsWithChildren<{}>) {
 
 export function ListItem({
   children,
-  index,
 }: {
   index: number;
   children: React.ReactNode;
 }) {
   return (
-    <AnimatedDiv
-      index={index}
-      className="flex flex-col gap-1 hover:bg-mauve-4 p-4 rounded-lg transition-colors"
-    >
+    <div className="flex flex-col gap-1 hover:bg-mauve-4 p-4 rounded-lg transition-colors">
       {children}
-    </AnimatedDiv>
+    </div>
   );
 }
 
 type LinkItemProps = React.ComponentProps<typeof Link> & { index: number };
 export function LinkItem({ index, ...props }: LinkItemProps) {
   return (
-    <AnimatedDiv index={index}>
-      <Link
-        {...props}
-        className="flex flex-col gap-1 hover:bg-mauve-4 p-4 rounded-lg transition-colors"
-      >
-        {props.children}
-      </Link>
-    </AnimatedDiv>
+    <Link
+      {...props}
+      className="flex flex-col gap-1 hover:bg-mauve-4 p-4 rounded-lg transition-colors"
+    >
+      {props.children}
+    </Link>
   );
 }
 
-function AnimatedDiv({
+export function AnimatedDiv({
   index,
   children,
   className,
@@ -51,7 +45,7 @@ function AnimatedDiv({
   return (
     <motion.div
       className={cn('w-full h-full', className)}
-      initial={{ y: 25, opacity: 0 }}
+      initial={{ y: -10, opacity: 0 }}
       animate={{
         y: 0,
         opacity: 1,

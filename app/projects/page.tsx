@@ -20,6 +20,7 @@ import { Document } from '@contentful/rich-text-types';
 import { LinkItem, List, ListItem } from '@/components/List';
 import { ProjectSkeleton } from './types';
 import client from '@/utils/contentfulClient';
+import { TypingAnimatedText } from '@/components/TypingText';
 
 const VerticalDivider = () => {
   return (
@@ -67,7 +68,9 @@ export default function ProjectsPage() {
     return (
       <LinkItem key={id} index={idx} href={`/projects/${id}`}>
         <div className="flex flex-col md:flex-row place-content-between items-center gap-4">
-          <StrongSpan>{name}</StrongSpan>
+          <StrongSpan>
+            <TypingAnimatedText text={name} />
+          </StrongSpan>
           <line className="grow h-[0.05rem] bg-mauve-7" />
           <ListMonoSubtitle>
             {durationText}
