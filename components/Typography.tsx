@@ -47,7 +47,7 @@ export function RegularTitle({ children }: React.PropsWithChildren<{}>) {
 export function H1({ children }: React.PropsWithChildren<{}>) {
   return (
     <h1
-      className={`scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl lg:leading-tight`}
+      className={`scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-4xl lg:leading-tight`}
     >
       {children}
     </h1>
@@ -57,7 +57,7 @@ export function H1({ children }: React.PropsWithChildren<{}>) {
 export function H2({ children }: React.PropsWithChildren<{}>) {
   return (
     <h2
-      className={`scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0`}
+      className={`scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0`}
     >
       {children}
     </h2>
@@ -102,16 +102,16 @@ export function UnorderedList({ children }: React.PropsWithChildren<{}>) {
 }
 
 export function LI({ children }: React.PropsWithChildren<{}>) {
-  return <li className={``}>{children}</li>;
+  return <li className={`marker:text-mauve-11`}>{children}</li>;
 }
 
 export function StrongSpan({ children }: React.PropsWithChildren<{}>) {
-  return <span className="text-lg font-semibold">{children}</span>;
+  return <span className="text-md font-medium text-mauve-12">{children}</span>;
 }
 
 export function ListMonoSubtitle({ children }: React.PropsWithChildren<{}>) {
   return (
-    <div className="text-mauve-11 font-normal whitespace-nowrap truncate text-ellipsis flex-shrink-0 font-mono">
+    <div className="text-mauve-11 font-normal whitespace-nowrap truncate text-ellipsis flex-shrink-0 font-mono text-sm">
       {children}
     </div>
   );

@@ -1,8 +1,7 @@
 'use client';
 
 import './globals.css';
-import { Inter, Dancing_Script, Rubik } from 'next/font/google';
-import localFont from 'next/font/local';
+import { Inter, Dancing_Script, Rubik, Alex_Brush } from 'next/font/google';
 import { Page } from '@/components/Page';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
@@ -15,14 +14,6 @@ const rubik = Rubik({
   variable: '--font-rubik',
 });
 
-// Font files can be colocated inside of `app`
-const brick = localFont({
-  src: '../fonts/Brick-Variant.otf',
-  display: 'swap',
-  adjustFontFallback: 'Arial',
-  variable: '--font-brick',
-});
-
 export default function RootLayout({
   children,
 }: {
@@ -31,7 +22,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${dancingScript.variable} ${rubik.variable} ${brick.variable}`}
+      className={`${inter.variable} ${dancingScript.variable} ${rubik.variable}`}
     >
       <body>
         <Page>{children}</Page>

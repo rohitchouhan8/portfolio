@@ -19,7 +19,7 @@ export function ListItem({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col gap-1 hover:bg-mauve-4 p-4 rounded-lg transition-colors">
+    <div className="flex flex-col gap-1 hover:bg-mauve-4 p-4 rounded-lg transition-colors duration-75">
       {children}
     </div>
   );
@@ -30,7 +30,7 @@ export function LinkItem({ index, ...props }: LinkItemProps) {
   return (
     <Link
       {...props}
-      className="flex flex-col gap-1 hover:bg-mauve-4 p-4 rounded-lg transition-colors"
+      className="flex flex-col gap-1 hover:bg-mauve-4 p-4 rounded-lg transition-colors duration-75"
     >
       {props.children}
     </Link>
