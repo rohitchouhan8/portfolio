@@ -47,7 +47,7 @@ export function RegularTitle({ children }: React.PropsWithChildren<{}>) {
 export function H1({ children }: React.PropsWithChildren<{}>) {
   return (
     <h1
-      className={`scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-4xl lg:leading-tight`}
+      className={`scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl lg:leading-tight`}
     >
       {children}
     </h1>
@@ -57,7 +57,7 @@ export function H1({ children }: React.PropsWithChildren<{}>) {
 export function H2({ children }: React.PropsWithChildren<{}>) {
   return (
     <h2
-      className={`scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0`}
+      className={`scroll-m-20 text-2xl font-semibold tracking-tight first:mt-0`}
     >
       {children}
     </h2>

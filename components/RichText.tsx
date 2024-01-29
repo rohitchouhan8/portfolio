@@ -57,9 +57,7 @@ const options: Options = {
       );
     },
     [BLOCKS.QUOTE]: (node, next) => {
-      return (
-        <blockquote className="mt-6 border-l-2 pl-6 italic">{next}</blockquote>
-      );
+      return <blockquote className="border-l-2 pl-6 italic">{next}</blockquote>;
     },
   },
 };

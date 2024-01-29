@@ -71,7 +71,7 @@ export default function ProjectsPage() {
           <StrongSpan>
             <TypingAnimatedText text={name} />
           </StrongSpan>
-          <line className="grow h-[0.05rem] bg-mauve-7" />
+          <div className="grow h-[0.05rem] bg-mauve-7" />
           <ListMonoSubtitle>
             {durationText}
             <VerticalDivider />

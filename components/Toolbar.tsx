@@ -100,7 +100,7 @@ function ToolbarButton({
   );
 
   return (
-    <Tooltip.Provider delayDuration={50}>
+    <Tooltip.Provider delayDuration={0}>
       <Tooltip.Root>
         <Tooltip.Trigger asChild>
           <motion.div
@@ -114,7 +114,7 @@ function ToolbarButton({
         <Tooltip.Portal>
           <Tooltip.TooltipContent
             sideOffset={24}
-            className="z-10 text-sm py-1 px-2 text-mauve-11 whitespace-nowrap transition-all duration-100 ease-linear bg-mauve-1 rounded-lg pointer-events-none shadow-md"
+            className="z-10 text-sm py-1 px-2 text-mauve-11 whitespace-nowrap transition-all duration-100 ease-linear bg-mauve-2 rounded-lg pointer-events-none shadow-md"
           >
             {toSentenceCase(tooltip)}
           </Tooltip.TooltipContent>
