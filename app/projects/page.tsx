@@ -5,7 +5,7 @@ import {
   H2,
   H3,
   ListMonoSubtitle,
-  StrongSpan,
+  Bold,
 } from '../../components/Typography';
 
 import {
@@ -68,9 +68,9 @@ export default function ProjectsPage() {
     return (
       <LinkItem key={id} index={idx} href={`/projects/${id}`}>
         <div className="flex flex-col md:flex-row place-content-between items-center gap-4">
-          <StrongSpan>
+          <Bold>
             <TypingAnimatedText text={name} />
-          </StrongSpan>
+          </Bold>
           <div className="grow h-[0.05rem] bg-mauve-7" />
           <ListMonoSubtitle>
             {durationText}

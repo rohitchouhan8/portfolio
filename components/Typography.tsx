@@ -105,7 +105,7 @@ export function LI({ children }: React.PropsWithChildren<{}>) {
   return <li className={`marker:text-mauve-11`}>{children}</li>;
 }
 
-export function StrongSpan({ children }: React.PropsWithChildren<{}>) {
+export function Bold({ children }: React.PropsWithChildren<{}>) {
   return <span className="text-md font-medium text-mauve-12">{children}</span>;
 }
 
@@ -117,10 +117,10 @@ export function ListMonoSubtitle({ children }: React.PropsWithChildren<{}>) {
   );
 }
 
-export function ImageMonoSubtitle({ children }: React.PropsWithChildren<{}>) {
+export function InlineCode({ children }: React.PropsWithChildren<{}>) {
   return (
-    <div className="text-mauve-11 font-normal whitespace-nowrap truncate text-ellipsis flex-shrink-0 font-mono">
+    <code className="relative rounded bg-mauve-10 px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold">
       {children}
-    </div>
+    </code>
   );
 }

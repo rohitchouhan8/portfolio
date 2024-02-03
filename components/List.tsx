@@ -12,26 +12,23 @@ export function List(props: React.PropsWithChildren<{}>) {
   );
 }
 
+const itemClassName =
+  'flex flex-col gap-1 hover:bg-mauve-4 p-4 rounded-lg transition-colors duration-75';
 export function ListItem({
   children,
+  className,
 }: {
   index: number;
   children: React.ReactNode;
+  className?: string;
 }) {
-  return (
-    <div className="flex flex-col gap-1 hover:bg-mauve-4 p-4 rounded-lg transition-colors duration-75">
-      {children}
-    </div>
-  );
+  return <div className={cn(itemClassName, className)}>{children}</div>;
 }
 
 type LinkItemProps = React.ComponentProps<typeof Link> & { index: number };
 export function LinkItem({ index, ...props }: LinkItemProps) {
   return (
-    <Link
-      {...props}
-      className="flex flex-col gap-1 hover:bg-mauve-4 p-4 rounded-lg transition-colors duration-75"
-    >
+    <Link {...props} className={cn(itemClassName, props.className)}>
       {props.children}
     </Link>
   );

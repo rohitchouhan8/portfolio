@@ -6,8 +6,9 @@ import {
   LI,
   ListMonoSubtitle,
   Paragraph,
-  StrongSpan,
+  Bold,
   UnorderedList,
+  InlineCode,
 } from './Typography';
 import {
   Options,
@@ -20,9 +21,9 @@ import Image from 'next/image';
 
 const options: Options = {
   renderMark: {
-    [MARKS.BOLD]: (text: any) => <StrongSpan>{text}</StrongSpan>,
+    [MARKS.BOLD]: (text: any) => <Bold>{text}</Bold>,
     [MARKS.CODE]: (text: any) => {
-      return <code>{text}</code>;
+      return <InlineCode>{text}</InlineCode>;
     },
   },
   renderNode: {

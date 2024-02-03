@@ -10,6 +10,7 @@ import {
   FiGithub,
   FiHome,
   FiImage,
+  FiLayers,
   FiLinkedin,
   FiMail,
   FiMoon,
@@ -245,6 +246,17 @@ const LinkedInButton = () => {
   );
 };
 
+const StackButton = () => {
+  return (
+    <IconButton
+      icon={FiLayers}
+      href={'/stack'}
+      pointingPage={Page.STACK}
+      tooltip="Stack"
+    />
+  );
+};
+
 const Section = ({ children }: React.PropsWithChildren<{}>) => {
   return (
     <div className="flex flex-row gap-4 w-fit py-2 px-3 md:py-3 md:px-6 transition-all duration-200 rounded-2xl shadow-lg bg-mauve-2 border border-mauve-6">
@@ -303,6 +315,7 @@ const Toolbar = () => {
         <LightBulbButton />
         <BookButton />
         <PencilButton />
+        <StackButton />
       </Section>
       <Section>
         <TwitterButton />

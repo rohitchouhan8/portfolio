@@ -7,6 +7,7 @@ export enum Page {
   READING = 'reading',
   WRITING = 'writing',
   ARTSY = 'artsy',
+  STACK = 'stack',
 }
 
 export function useCurrentPathname() {
