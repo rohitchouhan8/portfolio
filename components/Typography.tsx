@@ -37,7 +37,7 @@ export function AnimatedTitle({ children }: React.PropsWithChildren<{}>) {
 export function RegularTitle({ children }: React.PropsWithChildren<{}>) {
   return (
     <h1
-      className={`w-fit bg-clip-text font-bold text-7xl font-title text-mauve-12`}
+      className={`w-fit bg-clip-text font-bold text-7xl font-title text-grey-12`}
     >
       {children}
     </h1>
@@ -91,7 +91,7 @@ export function Paragraphs({ children }: React.PropsWithChildren<{}>) {
 
 export function Paragraph({ children }: React.PropsWithChildren<{}>) {
   return (
-    <p className={`leading-7 [&:not(:first-child)]:mt-6s text-mauve-11`}>
+    <p className={`leading-7 [&:not(:first-child)]:mt-6s text-grey-11`}>
       {children}
     </p>
   );
@@ -102,16 +102,16 @@ export function UnorderedList({ children }: React.PropsWithChildren<{}>) {
 }
 
 export function LI({ children }: React.PropsWithChildren<{}>) {
-  return <li className={`marker:text-mauve-11`}>{children}</li>;
+  return <li className={`marker:text-grey-11`}>{children}</li>;
 }
 
 export function Bold({ children }: React.PropsWithChildren<{}>) {
-  return <span className="text-md font-medium text-mauve-12">{children}</span>;
+  return <span className="text-md font-medium text-grey-12">{children}</span>;
 }
 
 export function ListMonoSubtitle({ children }: React.PropsWithChildren<{}>) {
   return (
-    <div className="text-mauve-11 font-normal whitespace-nowrap truncate text-ellipsis flex-shrink-0 font-mono text-sm">
+    <div className="text-grey-11 font-normal whitespace-nowrap truncate text-ellipsis flex-shrink-0 font-mono text-sm">
       {children}
     </div>
   );
@@ -119,7 +119,7 @@ export function ListMonoSubtitle({ children }: React.PropsWithChildren<{}>) {
 
 export function InlineCode({ children }: React.PropsWithChildren<{}>) {
   return (
-    <code className="relative rounded bg-mauve-10 px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold">
+    <code className="relative rounded bg-grey-10 px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold">
       {children}
     </code>
   );

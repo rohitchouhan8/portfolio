@@ -39,7 +39,7 @@ const options: Options = {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <span className="font-medium text-mauve-12 underline underline-offset-4">
+        <span className="font-medium text-grey-12 underline underline-offset-4">
           {next}
         </span>
       </Link>
