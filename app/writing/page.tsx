@@ -37,7 +37,7 @@ export default function WritingPage() {
         <LinkItem key={id} index={index} href={url} target="_blank">
           <div className="flex flex-col md:flex-row place-content-between items-center gap-4">
             <Bold>{title}</Bold>
-            <line className="grow h-[0.05rem] bg-mauve-7" />
+            <line className="grow h-[0.05rem] bg-grey-7" />
             <ListMonoSubtitle>{formatDate(publishDate)}</ListMonoSubtitle>
           </div>
         </LinkItem>

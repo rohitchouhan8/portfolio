@@ -40,7 +40,7 @@ const ReadingPage = () => {
         <ListItem key={id} index={index}>
           <div className="flex gap-1 items-baseline">
             <Bold>{title}</Bold>
-            <label className="text-mauve-11">by {author}</label>
+            <label className="text-grey-11">by {author}</label>
           </div>
           <Paragraph>{review}</Paragraph>
         </ListItem>

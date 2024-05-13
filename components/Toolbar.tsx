@@ -76,7 +76,7 @@ function ToolbarButton({
     pointingPage === currentPage
   );
 
-  const regularStyle = `text-mauve-11 hover:text-mauve-12`;
+  const regularStyle = `text-grey-11 hover:text-grey-12`;
   const activeStyle = `bg-gradient-to-r saturate-125 from-pink-400 via-amber-500 to-red-400`;
 
   const children = (
@@ -89,7 +89,7 @@ function ToolbarButton({
       {icon}
     </>
   );
-  const className = `group relative flex items-center justify-center p-2 md:p-4 md:w-14 md:h-14 bg-mauve-3 hover:bg-mauve-4 rounded-xl ${regularStyle}`;
+  const className = `group relative flex items-center justify-center p-2 md:p-4 md:w-14 md:h-14 bg-grey-3 hover:bg-grey-4 rounded-xl ${regularStyle}`;
   const trigger = href ? (
     <Link className={className} href={href} {...props}>
       {children}
@@ -115,7 +115,7 @@ function ToolbarButton({
         <Tooltip.Portal>
           <Tooltip.TooltipContent
             sideOffset={24}
-            className="z-10 text-sm py-1 px-2 text-mauve-11 whitespace-nowrap transition-all duration-100 ease-linear bg-mauve-2 rounded-lg pointer-events-none shadow-md"
+            className="z-10 text-sm py-1 px-2 text-grey-11 whitespace-nowrap transition-all duration-100 ease-linear bg-grey-2 rounded-lg pointer-events-none shadow-md"
           >
             {toSentenceCase(tooltip)}
           </Tooltip.TooltipContent>
@@ -259,7 +259,7 @@ const StackButton = () => {
 
 const Section = ({ children }: React.PropsWithChildren<{}>) => {
   return (
-    <div className="flex flex-row gap-4 w-fit py-2 px-3 md:py-3 md:px-6 transition-all duration-200 rounded-2xl shadow-lg bg-mauve-2 border border-mauve-6">
+    <div className="flex flex-row gap-4 w-fit py-2 px-3 md:py-3 md:px-6 transition-all duration-200 rounded-2xl shadow-lg bg-grey-2 border border-grey-6">
       {children}
     </div>
   );

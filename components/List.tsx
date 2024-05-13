@@ -6,14 +6,14 @@ import { cn } from '@/utils/tailwind';
 
 export function List(props: React.PropsWithChildren<{}>) {
   return (
-    <div className="grid grid-cols-1 -ml-3 relative border-l-mauve-7 border-l-1">
+    <div className="grid grid-cols-1 -ml-3 relative border-l-grey-7 border-l-1">
       {props.children}
     </div>
   );
 }
 
 const itemClassName =
-  'flex flex-col gap-1 hover:bg-mauve-4 p-4 rounded-lg transition-colors duration-75';
+  'flex flex-col gap-1 hover:bg-grey-4 p-4 rounded-lg transition-colors duration-75';
 export function ListItem({
   children,
   className,

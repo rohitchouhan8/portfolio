@@ -24,7 +24,7 @@ import { TypingAnimatedText } from '@/components/TypingText';
 
 const VerticalDivider = () => {
   return (
-    <span className="text-mauve-11 rounded-sm border-0 inline-block mx-2 align-middle">
+    <span className="text-grey-11 rounded-sm border-0 inline-block mx-2 align-middle">
       •
     </span>
   );
@@ -71,7 +71,7 @@ export default function ProjectsPage() {
           <Bold>
             <TypingAnimatedText text={name} />
           </Bold>
-          <div className="grow h-[0.05rem] bg-mauve-7" />
+          <div className="grow h-[0.05rem] bg-grey-7" />
           <ListMonoSubtitle>
             {durationText}
             <VerticalDivider />
