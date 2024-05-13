@@ -1,5 +1,5 @@
 import { cn } from '@/utils/tailwind';
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 
 export const HighlightSpan = ({
   children,
@@ -44,31 +44,30 @@ export function RegularTitle({ children }: React.PropsWithChildren<{}>) {
   );
 }
 
-export function H1({ children }: React.PropsWithChildren<{}>) {
+export function H1(props: React.HTMLProps<HTMLHeadingElement>) {
   return (
     <h1
       className={`scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl lg:leading-tight`}
-    >
-      {children}
-    </h1>
+      {...props}
+    />
   );
 }
 
-export function H2({ children }: React.PropsWithChildren<{}>) {
+export function H2(props: HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h2
       className={`scroll-m-20 text-2xl font-semibold tracking-tight first:mt-0`}
-    >
-      {children}
-    </h2>
+      {...props}
+    />
   );
 }
 
-export function H3({ children }: React.PropsWithChildren<{}>) {
+export function H3(props: HTMLAttributes<HTMLHeadingElement>) {
   return (
-    <h3 className={`scroll-m-20 text-2xl font-semibold tracking-tight`}>
-      {children}
-    </h3>
+    <h3
+      className={`scroll-m-20 text-2xl font-semibold tracking-tight`}
+      {...props}
+    />
   );
 }
 
@@ -89,24 +88,30 @@ export function Paragraphs({ children }: React.PropsWithChildren<{}>) {
   return <div className="leading-relaxed flex flex-col gap-3">{children}</div>;
 }
 
-export function Paragraph({ children }: React.PropsWithChildren<{}>) {
+export function Paragraph(props: HTMLAttributes<HTMLParagraphElement>) {
   return (
-    <p className={`leading-7 [&:not(:first-child)]:mt-6s text-grey-11`}>
-      {children}
-    </p>
+    <p
+      className={`leading-7 [&:not(:first-child)]:mt-6s text-grey-11`}
+      {...props}
+    />
   );
 }
 
-export function UnorderedList({ children }: React.PropsWithChildren<{}>) {
-  return <ul className="ml-6 list-disc [&>li]:mt-2">{children}</ul>;
+export function UnorderedList(props: HTMLAttributes<HTMLUListElement>) {
+  return (
+    <ul
+      className="ml-6 list-disc [&>li]:mt-2 text-grey-11 leading-7"
+      {...props}
+    />
+  );
 }
 
-export function LI({ children }: React.PropsWithChildren<{}>) {
-  return <li className={`marker:text-grey-11`}>{children}</li>;
+export function LI(props: HTMLAttributes<HTMLLIElement>) {
+  return <li className={`marker:text-grey-11`} {...props} />;
 }
 
-export function Bold({ children }: React.PropsWithChildren<{}>) {
-  return <span className="text-md font-medium text-grey-12">{children}</span>;
+export function Bold(props: React.HTMLAttributes<HTMLSpanElement>) {
+  return <strong className="text-md font-medium text-grey-12" {...props} />;
 }
 
 export function ListMonoSubtitle({ children }: React.PropsWithChildren<{}>) {

@@ -1,5 +1,5 @@
 'use client';
-import { TStackItem, StackItemId } from '@/app/models/stack/types';
+import { TStackItem, StackItemId } from '@/models/stack/types';
 import { AnimatedDiv, LinkItem } from '../List';
 import { Bold } from '../Typography';
 import { useTheme } from 'next-themes';
@@ -61,7 +61,7 @@ function RaycastIcon() {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g clip-path="url(#clip0_1218_17)">
+        <g clipPath="url(#clip0_1218_17)">
           <path
             fillRule="evenodd"
             clipRule="evenodd"

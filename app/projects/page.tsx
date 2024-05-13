@@ -1,26 +1,12 @@
 import * as React from 'react';
 
-import {
-  H1,
-  H2,
-  H3,
-  ListMonoSubtitle,
-  Bold,
-} from '../../components/Typography';
+import { H1, ListMonoSubtitle, Bold } from '../../components/Typography';
 
-import {
-  formatDate,
-  sortByRecency,
-  timeBetweenTwoDates,
-  today,
-} from '../../utils/date';
-import { Entry, createClient } from 'contentful';
+import { formatDate, timeBetweenTwoDates, today } from '../../utils/date';
 
-import { Document } from '@contentful/rich-text-types';
-import { LinkItem, List, ListItem } from '@/components/List';
-import { ProjectSkeleton } from './types';
-import client from '@/utils/contentfulClient';
+import { LinkItem, List } from '@/components/List';
 import { TypingAnimatedText } from '@/components/TypingText';
+import { projects } from '../../models/projects/data';
 
 const VerticalDivider = () => {
   return (
@@ -30,21 +16,14 @@ const VerticalDivider = () => {
   );
 };
 
-async function getData() {
-  const entries = await client.getEntries<ProjectSkeleton>({
-    content_type: 'work',
-  });
-
-  return entries.items.sort((a, b) =>
-    sortByRecency(a.fields.endDate, b.fields.endDate)
-  );
-}
-
 export default function ProjectsPage() {
-  const works = React.use(getData());
+  const works = Object.values(projects).sort((a, b) =>
+    b.startDate.diff(a.startDate)
+  );
+
   const listItems = works.map((project, idx) => {
-    const id = project.sys.id;
-    const { name, startDate, endDate } = project.fields;
+    const id = project.id;
+    const { name, startDate, endDate } = project;
 
     const { years, months, days } = timeBetweenTwoDates(
       startDate,
@@ -66,7 +45,7 @@ export default function ProjectsPage() {
     }
 
     return (
-      <LinkItem key={id} index={idx} href={`/projects/${id}`}>
+      <LinkItem key={id} index={idx} href={`/projects/${id}`} prefetch>
         <div className="flex flex-col md:flex-row place-content-between items-center gap-4">
           <Bold>
             <TypingAnimatedText text={name} />
