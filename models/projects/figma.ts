@@ -1,17 +1,7 @@
-import { Project, ProjectSkeleton } from '../types';
-import { use } from 'react';
-import { H1 } from '@/components/Typography';
-import renderRichText from '@/components/RichText';
-import client from '@/utils/contentfulClient';
-import { ScrollProgress } from '@/components/ScrollProgress';
-import { ReactMarkdown } from '@/components/ReactMarkdown';
+import dayjs from 'dayjs';
+import { Project, ProjectId } from './types';
 
-type Props = {
-  params: Project;
-};
-
-const content = `
-## Introduction
+const content = `## Introduction
 Figma is my first job out of college and I couldn't be happier. The people and the company culture is just awesome. Plus we are building some really cool stuff. 
 I work on the Extensibility team in the Creation Engine pillar. **We are responsible for building and maintaining the plugin, widget, and REST APIs**. Basically, if a third party developer wants to integrate into Figma, they go through one of our platforms. 
 
@@ -38,15 +28,12 @@ published
 What's awesome is that these are multiplayer-compatible out of the box. The Widget API handles all of the complexities for the developer. 
 
 ## My contributions
-I worked on this project for the greater part of a year, getting the project to launch. Specifically, I built the [<Input/> component](https://www.figma.com/widget-docs/api/component-Input/), an editable text field widget component. I also build Widget undo and redo logic, which was a bit trickier than Figma's standard undo and redo logic. 
-`;
+I worked on this project for the greater part of a year, getting the project to launch. Specifically, I built the [<Input/> component](https://www.figma.com/widget-docs/api/component-Input/), an editable text field widget component. I also build Widget undo and redo logic, which was a bit trickier than Figma's standard undo and redo logic. `;
 
-export default function Figma({ params }: Props) {
-  return (
-    <>
-      <ScrollProgress />
-      <H1>Figma.</H1>
-      <ReactMarkdown content={content} />
-    </>
-  );
-}
+export const figma: Project = {
+  id: ProjectId.FIGMA,
+  name: 'Figma',
+  startDate: dayjs('2021-08-30'),
+  endDate: undefined,
+  content: content,
+};

@@ -1,14 +1,5 @@
-import { Project, ProjectSkeleton } from '../types';
-import { use } from 'react';
-import { H1 } from '@/components/Typography';
-import renderRichText from '@/components/RichText';
-import client from '@/utils/contentfulClient';
-import { ScrollProgress } from '@/components/ScrollProgress';
-import { ReactMarkdown } from '@/components/ReactMarkdown';
-
-type Props = {
-  params: Project;
-};
+import dayjs from 'dayjs';
+import { Project, ProjectId } from './types';
 
 const content = `## Introduction
 Senior design is the hallmark class of any engineering student. Students are put into teams to solve a real-world problem, applying all of their newly learned skills. In this class, the entire 40-student class was put onto the same team and acted as a software engineering consulting company, helping our clients at Schlumberger solve a problem. 
@@ -48,12 +39,10 @@ Overall, this semester was a lot more challenging than I had anticipated. While 
 Overall, the project was difficult, but I am thankful for the semester. This class provided the most real-world experience than any other class at Rice University. Heading into my first full-time job, I will take these lessons and hope to build on them.
 `;
 
-export default function Figma({ params }: Props) {
-  return (
-    <>
-      <ScrollProgress />
-      <H1>Senior Design.</H1>
-      <ReactMarkdown content={content} />
-    </>
-  );
-}
+export const seniorDesign: Project = {
+  id: ProjectId.SENIOR_DESIGN,
+  name: 'Senior Design',
+  startDate: dayjs('2021-01-01'),
+  endDate: dayjs('2021-05-15'),
+  content: content,
+};

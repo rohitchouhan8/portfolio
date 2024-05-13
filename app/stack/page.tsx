@@ -1,7 +1,7 @@
-import { AnimatedDiv, LinkItem, List } from '@/components/List';
-import { Bold, H1 } from '@/components/Typography';
+import { List } from '@/components/List';
+import { H1 } from '@/components/Typography';
 import { StackItem } from '@/components/stack/StackItem';
-import { StackItemId, TStackItem } from '../models/stack/types';
+import { StackItemId, TStackItem } from '../../models/stack/types';
 
 const stackItems: TStackItem[] = [
   {

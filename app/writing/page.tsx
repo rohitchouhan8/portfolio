@@ -1,37 +1,17 @@
 import * as React from 'react';
 
 import { formatDate, sortByRecency } from '@/utils/date';
-import { AnimatedDiv, LinkItem, List, ListItem } from '@/components/List';
-import { H2, ListMonoSubtitle, H1, H3, Bold } from '@/components/Typography';
-import client from '@/utils/contentfulClient';
-
-type MediumArticle = {
-  title: string;
-  url: string;
-  id: string;
-  publishDate: string;
-};
-
-type MediumArticleSkeleton = {
-  contentTypeId: 'mediumArticles';
-  fields: MediumArticle;
-};
-
-async function getData() {
-  const entries = await client.getEntries<MediumArticleSkeleton>({
-    content_type: 'mediumArticles',
-  });
-
-  return entries.items.sort((a, b) =>
-    sortByRecency(a.fields.publishDate, b.fields.publishDate)
-  );
-}
+import { AnimatedDiv, LinkItem, List } from '@/components/List';
+import { ListMonoSubtitle, H1, Bold } from '@/components/Typography';
+import { writing } from '@/models/writing/data';
 
 export default function WritingPage() {
-  const articles = React.use(getData());
+  const articles = Object.values(writing).sort((a, b) =>
+    sortByRecency(a.publishDate, b.publishDate)
+  );
 
   const listItems = articles.map((entry, index) => {
-    const { id, url, title, publishDate } = entry.fields;
+    const { id, url, title, publishDate } = entry;
     return (
       <AnimatedDiv key={id} index={index}>
         <LinkItem key={id} index={index} href={url} target="_blank">

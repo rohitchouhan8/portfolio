@@ -3,12 +3,15 @@ import duration from 'dayjs/plugin/duration';
 
 dayjs.extend(duration);
 
-export function formatDate(dateString: string) {
+export function formatDate(dateString: string | dayjs.Dayjs) {
   const date = dayjs(dateString);
   return date.format('YYYY');
 }
 
-export function timeBetweenTwoDates(date1: string, date2: string) {
+export function timeBetweenTwoDates(
+  date1: string | dayjs.Dayjs,
+  date2: string | dayjs.Dayjs
+) {
   const start = dayjs(date1);
   const end = dayjs(date2);
   const duration = dayjs.duration(end.diff(start));
@@ -23,7 +26,10 @@ export function today() {
   return dayjs();
 }
 
-export function sortByRecency(a: string, b: string) {
+export function sortByRecency(
+  a: string | dayjs.Dayjs,
+  b: string | dayjs.Dayjs
+) {
   const date1 = dayjs(a);
   const date2 = dayjs(b);
   return date2.diff(date1);
