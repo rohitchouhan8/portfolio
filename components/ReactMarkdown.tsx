@@ -1,6 +1,7 @@
 import Markdown from 'react-markdown';
 import { Bold, H1, H2, H3, Paragraph, UnorderedList } from './Typography';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export function ReactMarkdown({ content }: { content: string }) {
   return (
