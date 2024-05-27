@@ -17,9 +17,15 @@ const VerticalDivider = () => {
 };
 
 export default function ProjectsPage() {
-  const works = Object.values(projects).sort((a, b) =>
-    b.startDate.diff(a.startDate)
-  );
+  const works = Object.values(projects).sort((a, b) => {
+    if (!a.endDate) {
+      return -1;
+    }
+    if (!b.endDate) {
+      return 1;
+    }
+    return b.startDate.diff(a.startDate);
+  });
 
   const listItems = works.map((project, idx) => {
     const id = project.id;
