@@ -4,6 +4,8 @@
 
 @import '@radix-ui/colors/mauve';
 @import '@radix-ui/colors/mauve-dark';
+@import '@radix-ui/colors/amber';
+@import '@radix-ui/colors/amber-dark';
 
 :root {
   --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);

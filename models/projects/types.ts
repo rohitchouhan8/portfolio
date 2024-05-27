@@ -6,11 +6,11 @@ export enum ProjectId {
   RICE_UNIVERSITY = 'rice-university',
   FACEBOOK = 'facebook',
   JP_MORGAN = 'jp-morgan-chase-and-co',
+  PULSE_FITNESS_AI = 'pulse-fitness-ai',
 }
 export type Project = {
   id: ProjectId;
   name: string;
-  content: string;
   startDate: dayjs.Dayjs;
   endDate: dayjs.Dayjs | undefined;
 };
