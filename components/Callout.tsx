@@ -9,7 +9,7 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        warning: 'bg-warning-2 text-warning-12 border-warning-6',
+        warning: 'bg-warning-2 text-warning-11 border-warning-6',
       },
     },
     defaultVariants: {

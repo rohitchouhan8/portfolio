@@ -20,34 +20,10 @@ export const HighlightSpan = ({
   return <InnerHighlightSpan />;
 };
 
-export function AnimatedTitle({ children }: React.PropsWithChildren<{}>) {
-  function InnerTitle() {
-    return (
-      <h1
-        className={`w-fit bg-clip-text text-4xl font-title text-transparent leading-loose
-			 bg-gradient-to-r saturate-125 from-pink-400 via-amber-500 to-red-400  animate-text`}
-      >
-        {children}
-      </h1>
-    );
-  }
-  return <InnerTitle />;
-}
-
-export function RegularTitle({ children }: React.PropsWithChildren<{}>) {
-  return (
-    <h1
-      className={`w-fit bg-clip-text font-bold text-7xl font-title text-grey-12`}
-    >
-      {children}
-    </h1>
-  );
-}
-
 export function H1(props: React.HTMLProps<HTMLHeadingElement>) {
   return (
     <h1
-      className={`scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl lg:leading-tight`}
+      className={`scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl lg:leading-tight`}
       {...props}
     />
   );

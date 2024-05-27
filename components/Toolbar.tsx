@@ -1,5 +1,4 @@
 'use client';
-
 import * as React from 'react';
 import * as Tooltip from '@radix-ui/react-tooltip';
 
@@ -25,6 +24,7 @@ import { toSentenceCase } from '../utils/text';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
+import { cn } from '@/utils/tailwind';
 
 type IconButtonProps = {
   icon: 'moon' | 'sun' | IconType;
@@ -76,20 +76,31 @@ function ToolbarButton({
     pointingPage === currentPage
   );
 
+  const [isTooltipOpen, setIsTooltipOpen] = React.useState(false);
+
   const regularStyle = `text-grey-11 hover:text-grey-12`;
   const activeStyle = `bg-gradient-to-r saturate-125 from-pink-400 via-amber-500 to-red-400`;
 
   const children = (
     <>
       {isCurrentPage && (
-        <div
-          className={`absolute text-sm w-10 h-2 -top-7 rounded-full group-hover:-top-16 left-0 right-0 m-auto ${activeStyle}`}
+        <motion.div
+          className={cn(
+            `absolute text-sm w-10 h-2 -top-7 rounded-full left-0 right-0 m-auto`,
+            activeStyle,
+            isTooltipOpen ? '-top-16' : ''
+          )}
+          layout
+          transition={{ duration: 0.3, bounce: 0, type: 'spring' }}
         />
       )}
       {icon}
     </>
   );
-  const className = `group relative flex items-center justify-center p-2 md:p-4 md:w-14 md:h-14 bg-grey-3 hover:bg-grey-4 rounded-xl ${regularStyle}`;
+  const className = cn(
+    `group relative flex items-center justify-center p-2 md:p-4 md:w-14 md:h-14 bg-grey-3 hover:bg-grey-4 rounded-xl transition-all`,
+    regularStyle
+  );
   const trigger = href ? (
     <Link className={className} href={href} {...props}>
       {children}
@@ -102,23 +113,28 @@ function ToolbarButton({
 
   return (
     <Tooltip.Provider delayDuration={0}>
-      <Tooltip.Root>
-        <Tooltip.Trigger asChild>
-          <motion.div
-            whileHover={{
-              y: -4,
-            }}
-          >
-            {trigger}
-          </motion.div>
-        </Tooltip.Trigger>
-        <Tooltip.Portal>
-          <Tooltip.TooltipContent
-            sideOffset={24}
-            className="z-10 text-sm py-1 px-2 text-grey-11 whitespace-nowrap transition-all duration-100 ease-linear bg-grey-2 rounded-lg pointer-events-none shadow-md"
-          >
-            {toSentenceCase(tooltip)}
-          </Tooltip.TooltipContent>
+      <Tooltip.Root onOpenChange={setIsTooltipOpen}>
+        <Tooltip.Trigger asChild>{trigger}</Tooltip.Trigger>
+        <Tooltip.Portal forceMount>
+          <AnimatePresence>
+            {isTooltipOpen && (
+              <Tooltip.Content
+                asChild
+                forceMount
+                sideOffset={24}
+                className="z-10 text-sm py-1 px-2 text-grey-11 whitespace-nowrap transition-all duration-100 ease-linear bg-grey-2 rounded-lg pointer-events-none shadow-md"
+              >
+                <motion.div
+                  initial={{ y: 5, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: 5, opacity: 0 }}
+                  transition={{ duration: 0.1, bounce: 0, type: 'spring' }}
+                >
+                  {toSentenceCase(tooltip)}
+                </motion.div>
+              </Tooltip.Content>
+            )}
+          </AnimatePresence>
         </Tooltip.Portal>
       </Tooltip.Root>
     </Tooltip.Provider>
@@ -259,9 +275,9 @@ const StackButton = () => {
 
 const Section = ({ children }: React.PropsWithChildren<{}>) => {
   return (
-    <div className="flex flex-row gap-4 w-fit py-2 px-3 md:py-3 md:px-6 transition-all duration-200 rounded-2xl shadow-lg bg-grey-2 border border-grey-6">
+    <motion.div className="flex flex-row gap-4 w-fit py-2 px-3 md:py-3 md:px-6 transition-all duration-200 rounded-2xl shadow-lg bg-grey-2 border border-grey-6">
       {children}
-    </div>
+    </motion.div>
   );
 };
 
@@ -271,8 +287,6 @@ const Toolbar = () => {
   const [tooltipIcon, setTooltipIcon] = React.useState<'sun' | 'moon' | null>(
     null
   );
-
-  const [opacity, setOpacity] = React.useState(0);
 
   React.useEffect(() => {
     if (theme === 'dark') {
@@ -284,46 +298,41 @@ const Toolbar = () => {
     }
   }, [theme]);
 
-  React.useEffect(() => {
-    if (!tooltipText || !tooltipIcon) {
-      return;
-    }
-    setOpacity(1);
-  }, [tooltipIcon, tooltipText]);
-
   if (!tooltipText || !tooltipIcon) {
     return null;
   }
 
   return (
-    <div
+    <motion.div
       className="flex flex-row flex-wrap px-4 place-content-start gap-2 md:gap-4 fixed z-9 w-fit h-fit mx-auto inset-x-0 bottom-10 md:bottom-20 transition-opacity duration-700 ease-in-out"
-      style={{
-        opacity,
-      }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ opacity: { duration: 0.5 }, y: { duration: 0.3 } }}
     >
-      <Section>
-        <HomeButton />
-        <ThemeModeButton
-          theme={theme}
-          setTheme={setTheme}
-          tooltipIcon={tooltipIcon}
-          tooltipText={tooltipText}
-        />
-      </Section>
-      <Section>
-        <LightBulbButton />
-        <BookButton />
-        <PencilButton />
-        <StackButton />
-      </Section>
-      <Section>
-        <TwitterButton />
-        <MailButton />
-        <GithubButton />
-        <LinkedInButton />
-      </Section>
-    </div>
+      <AnimatePresence>
+        <Section>
+          <HomeButton />
+          <ThemeModeButton
+            theme={theme}
+            setTheme={setTheme}
+            tooltipIcon={tooltipIcon}
+            tooltipText={tooltipText}
+          />
+        </Section>
+        <Section>
+          <LightBulbButton />
+          <BookButton />
+          <PencilButton />
+          <StackButton />
+        </Section>
+        <Section>
+          <TwitterButton />
+          <MailButton />
+          <GithubButton />
+          <LinkedInButton />
+        </Section>
+      </AnimatePresence>
+    </motion.div>
   );
 };
 

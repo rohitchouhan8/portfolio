@@ -46,9 +46,10 @@ module.exports = {
         },
       },
       fontFamily: {
-        header: ['var(--font-inter)', ...defaultTheme.fontFamily.sans],
-        sans: ['var(--font-inter)', ...defaultTheme.fontFamily.sans],
-        title: ['var(--font-brick)'],
+        header: ['var(--font-geist-sans)', ...defaultTheme.fontFamily.sans],
+        sans: ['var(--font-geist-sans)', ...defaultTheme.fontFamily.sans],
+        title: ['var(--font-geist-sans)'],
+        mono: ['var(--font-geist-mono)', ...defaultTheme.fontFamily.mono],
       },
       animation: {
         text: 'text 15s ease-in-out infinite',
