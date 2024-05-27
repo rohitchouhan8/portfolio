@@ -49,7 +49,7 @@ export function AnimatedDiv({
       }}
       transition={{
         duration: 0.4,
-        delay: index * 0.3,
+        delay: index * 0.1,
       }}
     >
       {children}
