@@ -4,23 +4,6 @@ import { motion } from 'framer-motion';
 
 export function TypingAnimatedText({ text }: { text: string }) {
   const letters = text.split('');
-  //   const [current, setCurrent] = useState('');
-
-  //   // Animate typing a few random letters as the real text animates in
-  //   const randomLetters =
-  //     '012i3o4p5a6s7d8f9g0hjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM';
-
-  //   const [realIndex, setRealIndex] = useState(0);
-  //   const [lastIndex, setLastIndex] = useState(0);
-
-  //   useEffect(() => {
-  //     const interval = setInterval(() => {
-  //       setRealIndex((prev) => prev + 1);
-  //       setLastIndex((prev) => prev + 2);
-  //     }, 50);
-
-  //     return () => clearInterval(interval);
-  //   }, []);
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
@@ -35,19 +18,37 @@ function AnimatedLetter({ letter, index }: { letter: string; index: number }) {
   const randomLetters =
     '012i3o4p5a6s7d8f9g0hjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM';
   const [displayLetter, setDisplayLetter] = useState(randomLetters[index]);
-  const [timesLeft, setTimesLeft] = useState(30);
+  const [isAnimating, setIsAnimating] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
-      if (timesLeft === 0) {
+    const startDelay = index * 50; // Base delay for each letter
+    const intervalDuration = 30; // How fast letters change
+    const animationDuration = 500; // Total animation time per letter
+
+    // Start the animation after the initial delay
+    const startTimeout = setTimeout(() => {
+      const interval = setInterval(() => {
+        if (!isAnimating) return;
+
+        const randomIdx = Math.floor(Math.random() * randomLetters.length);
+        setDisplayLetter(randomLetters[randomIdx]);
+      }, intervalDuration);
+
+      // Stop the animation and show the final letter
+      const endTimeout = setTimeout(() => {
+        setIsAnimating(false);
         setDisplayLetter(letter);
-        return;
-      }
-      const randomIdx = Math.floor(Math.random() * randomLetters.length);
-      setDisplayLetter(randomLetters[randomIdx]);
-      setTimesLeft((prev) => prev - 1);
-    }, 10 * (index * 0.25));
-  }, [index, letter, timesLeft]);
+        clearInterval(interval);
+      }, animationDuration);
+
+      return () => {
+        clearInterval(interval);
+        clearTimeout(endTimeout);
+      };
+    }, startDelay);
+
+    return () => clearTimeout(startTimeout);
+  }, [index, letter, isAnimating, randomLetters]);
 
   return (
     <motion.span
