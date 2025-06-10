@@ -7,23 +7,33 @@ export default function Home() {
     <div className="mt-6">
       <Paragraphs>
         <Paragraph>
-          I&rsquo;m <HighlightSpan>Rohit</HighlightSpan>. I&rsquo;m a software
-          engineer at Figma on building the platform that powers{' '}
-          <HighlightSpan>Plugins, Widgets, and the REST API. </HighlightSpan>
+          Hey there! I&rsquo;m <HighlightSpan>Rohit</HighlightSpan>, a software
+          engineer at Figma where I spend my days building the{' '}
+          <HighlightSpan>extensibility platform</HighlightSpan> that powers
+          thousands of plugins, widgets, and integrations. Think of me as the
+          bridge between Figma&rsquo;s incredible design tools and the creative
+          minds who want to extend them.
         </Paragraph>
         <Paragraph>
-          Outside of work, I&rsquo;m working on my creative skills to become a{' '}
-          <HighlightSpan>digital artist</HighlightSpan>. One day, I want to
-          create an entire world through my art.
+          When I&rsquo;m not deep in code, you&rsquo;ll find me on a completely
+          different creative journey—learning to become a{' '}
+          <HighlightSpan>digital artist</HighlightSpan>. There&rsquo;s something
+          magical about switching from building software interfaces to crafting
+          visual worlds. My dream? To create an entire universe through art,
+          complete with its own stories and characters.
         </Paragraph>
         <Paragraph>
-          In my freetime, I love to play <HighlightSpan>tennis</HighlightSpan>,{' '}
-          <HighlightSpan>make ice cream</HighlightSpan>, and play{' '}
-          <HighlightSpan>video games</HighlightSpan>.
+          Life outside the screen is just as important to me. I&rsquo;m that
+          person who gets genuinely excited about a perfect{' '}
+          <HighlightSpan>tennis serve</HighlightSpan>, spends weekends
+          experimenting with <HighlightSpan>homemade ice cream</HighlightSpan>{' '}
+          flavors (lavender honey is my latest obsession), and loses track of
+          time in epic <HighlightSpan>gaming sessions</HighlightSpan>.
         </Paragraph>
         <Paragraph>
-          I&rsquo;m not currently looking for a new job, but I&rsquo;d always
-          love to connect.
+          While I&rsquo;m happily settled at Figma, I&rsquo;m always up for
+          interesting conversations about technology, creativity, or that perfect
+          ice cream recipe. Let&rsquo;s connect!
         </Paragraph>
       </Paragraphs>
     </div>
