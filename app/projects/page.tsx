@@ -57,11 +57,13 @@ export default function ProjectsPage() {
             <TypingAnimatedText text={name} />
           </Bold>
           <div className="grow h-[0.05rem] bg-grey-7" />
-          <ListMonoSubtitle>
-            {durationText}
-            <VerticalDivider />
-            {endDate ? formatDate(endDate) : 'Present'}
-          </ListMonoSubtitle>
+          <div className="flex items-center">
+            <ListMonoSubtitle>
+              {durationText}
+              <VerticalDivider />
+              {endDate ? formatDate(endDate) : 'Present'}
+            </ListMonoSubtitle>
+          </div>
         </div>
       </LinkItem>
     );

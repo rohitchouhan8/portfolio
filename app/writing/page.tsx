@@ -18,7 +18,9 @@ export default function WritingPage() {
           <div className="flex flex-col md:flex-row place-content-between items-start md:items-center gap-4">
             <Bold>{title}</Bold>
             <line className="grow h-[0.05rem] bg-grey-7" />
-            <ListMonoSubtitle>{formatDate(publishDate)}</ListMonoSubtitle>
+            <div className="flex items-center">
+              <ListMonoSubtitle>{formatDate(publishDate)}</ListMonoSubtitle>
+            </div>
           </div>
         </LinkItem>
       </AnimatedDiv>
