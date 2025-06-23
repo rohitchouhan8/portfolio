@@ -52,16 +52,18 @@ export default function ProjectsPage() {
 
     return (
       <LinkItem key={id} index={idx} href={`/projects/${id}`} prefetch>
-        <div className="flex flex-col md:flex-row place-content-between items-center gap-4">
+        <div className="flex flex-col md:flex-row place-content-between items-start md:items-center gap-4">
           <Bold>
             <TypingAnimatedText text={name} />
           </Bold>
           <div className="grow h-[0.05rem] bg-grey-7" />
-          <ListMonoSubtitle>
-            {durationText}
-            <VerticalDivider />
-            {endDate ? formatDate(endDate) : 'Present'}
-          </ListMonoSubtitle>
+          <div className="flex items-center">
+            <ListMonoSubtitle>
+              {durationText}
+              <VerticalDivider />
+              {endDate ? formatDate(endDate) : 'Present'}
+            </ListMonoSubtitle>
+          </div>
         </div>
       </LinkItem>
     );
