@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { cn } from '@/utils/tailwind';
 
 export function List(props: React.PropsWithChildren<{}>) {

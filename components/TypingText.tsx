@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 export function TypingAnimatedText({ text }: { text: string }) {
   const letters = text.split('');

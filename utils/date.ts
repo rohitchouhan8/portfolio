@@ -3,9 +3,12 @@ import duration from 'dayjs/plugin/duration';
 
 dayjs.extend(duration);
 
-export function formatDate(dateString: string | dayjs.Dayjs) {
+export function formatDate(
+  dateString: string | dayjs.Dayjs,
+  format: string = 'YYYY'
+) {
   const date = dayjs(dateString);
-  return date.format('YYYY');
+  return date.format(format);
 }
 
 export function timeBetweenTwoDates(

@@ -23,7 +23,7 @@ import { IconType } from 'react-icons/lib';
 import { toSentenceCase } from '../utils/text';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'motion/react';
 import { cn } from '@/utils/tailwind';
 
 type IconButtonProps = {
