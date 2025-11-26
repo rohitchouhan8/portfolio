@@ -10,6 +10,7 @@ import {
   UnorderedList,
 } from './Typography';
 import Link from 'next/link';
+import { cn } from '@/utils/tailwind';
 
 export function ReactMarkdown({ content }: { content: string }) {
   return (
@@ -36,6 +37,18 @@ export function ReactMarkdown({ content }: { content: string }) {
           >
             {props.children}
           </Link>
+        ),
+        img: ({ node, ...props }) => (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            {...props}
+            alt={props.alt ?? ''}
+            loading="lazy"
+            className={cn(
+              'my-6 mx-auto block h-auto w-auto max-h-[480px] max-w-full rounded-lg border border-grey-7 shadow-sm',
+              props.className
+            )}
+          />
         ),
       }}
     >
