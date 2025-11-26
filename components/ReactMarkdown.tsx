@@ -1,7 +1,15 @@
 import Markdown from 'react-markdown';
-import { Bold, H1, H2, H3, Paragraph, UnorderedList } from './Typography';
+import {
+  Bold,
+  Code,
+  H1,
+  H2,
+  H3,
+  OrderedList,
+  Paragraph,
+  UnorderedList,
+} from './Typography';
 import Link from 'next/link';
-import Image from 'next/image';
 
 export function ReactMarkdown({ content }: { content: string }) {
   return (
@@ -12,6 +20,8 @@ export function ReactMarkdown({ content }: { content: string }) {
         h3: ({ node, ...props }) => <H3 {...props} />,
         p: ({ node, ...props }) => <Paragraph {...props} />,
         ul: ({ node, ...props }) => <UnorderedList {...props} />,
+        ol: ({ node, ...props }) => <OrderedList {...props} />,
+        code: ({ node, ...props }) => <Code {...props} />,
         strong: ({ node, ...props }) => <Bold {...props} />,
         b: ({ node, ...props }) => <Bold {...props} />,
         blockquote: ({ node, ...props }) => (

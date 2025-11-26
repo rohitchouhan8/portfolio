@@ -82,6 +82,15 @@ export function UnorderedList(props: HTMLAttributes<HTMLUListElement>) {
   );
 }
 
+export function OrderedList(props: HTMLAttributes<HTMLOListElement>) {
+  return (
+    <ol
+      className="ml-6 list-decimal [&>li]:mt-2 text-grey-11 leading-7"
+      {...props}
+    />
+  );
+}
+
 export function LI(props: HTMLAttributes<HTMLLIElement>) {
   return <li className={`marker:text-grey-11`} {...props} />;
 }
@@ -104,4 +113,8 @@ export function InlineCode({ children }: React.PropsWithChildren<{}>) {
       {children}
     </code>
   );
+}
+
+export function Code(props: HTMLAttributes<HTMLElement>) {
+  return <code className="text-grey-12 font-mono font-semibold" {...props} />;
 }

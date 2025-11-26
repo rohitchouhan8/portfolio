@@ -11,10 +11,12 @@ export default function WritingPage() {
   );
 
   const listItems = articles.map((entry, index) => {
-    const { id, url, title, publishDate } = entry;
+    const { id, content, title, publishDate } = entry;
+    const url = content.type === 'external' ? content.url : `/writing/${id}`;
+    const target = content.type === 'external' ? '_blank' : undefined;
     return (
       <AnimatedDiv key={id} index={index}>
-        <LinkItem key={id} index={index} href={url} target="_blank">
+        <LinkItem key={id} index={index} href={url} target={target}>
           <div className="flex flex-col md:flex-row place-content-between items-start md:items-center gap-4">
             <Bold>{title}</Bold>
             <line className="grow h-[0.05rem] bg-grey-7" />

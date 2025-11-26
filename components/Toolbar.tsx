@@ -321,8 +321,8 @@ const Toolbar = () => {
         </Section>
         <Section>
           <LightBulbButton />
-          <BookButton />
           <PencilButton />
+          <BookButton />
           <StackButton />
         </Section>
         <Section>

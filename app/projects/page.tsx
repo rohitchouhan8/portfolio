@@ -24,7 +24,7 @@ export default function ProjectsPage() {
     if (!b.endDate) {
       return 1;
     }
-    return b.startDate.diff(a.startDate);
+    return b.endDate.diff(a.endDate);
   });
 
   const listItems = works.map((project, idx) => {
