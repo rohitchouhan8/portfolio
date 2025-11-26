@@ -79,7 +79,7 @@ function ToolbarButton({
   const [isTooltipOpen, setIsTooltipOpen] = React.useState(false);
 
   const regularStyle = `text-grey-11 hover:text-grey-12`;
-  const activeStyle = `bg-gradient-to-r saturate-125 from-pink-400 via-amber-500 to-red-400`;
+  const activeStyle = `bg-linear-to-r saturate-125 from-pink-400 via-amber-500 to-red-400`;
 
   const children = (
     <>

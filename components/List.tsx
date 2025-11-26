@@ -6,7 +6,7 @@ import { cn } from '@/utils/tailwind';
 
 export function List(props: React.PropsWithChildren<{}>) {
   return (
-    <div className="grid grid-cols-1 -ml-3 relative border-l-grey-7 border-l-1">
+    <div className="grid grid-cols-1 -ml-3 relative border-l-grey-7 border-l">
       {props.children}
     </div>
   );

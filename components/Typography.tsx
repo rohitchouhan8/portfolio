@@ -9,7 +9,7 @@ export const HighlightSpan = ({
     return (
       <span
         className={cn(
-          `bg-gradient-to-r saturate-125 from-pink-400 via-amber-500 to-red-400 text-transparent rounded-sm animate-text bg-clip-text`,
+          `bg-linear-to-r saturate-125 from-pink-500 via-amber-500 to-red-500 text-transparent rounded-xs animate-text bg-clip-text font-semibold`,
           className
         )}
       >
@@ -53,7 +53,7 @@ export function AnimatedGradientSpan({
   return (
     <span
       className={`font-extrabold text-xl bg-clip-text text-transparent 
-            bg-gradient-to-r saturate-125 from-pink-400 via-amber-500 to-red-400`}
+            bg-linear-to-r saturate-125 from-pink-400 via-amber-500 to-red-400`}
     >
       {children}
     </span>
@@ -101,7 +101,7 @@ export function Bold(props: React.HTMLAttributes<HTMLSpanElement>) {
 
 export function ListMonoSubtitle({ children }: React.PropsWithChildren<{}>) {
   return (
-    <div className="text-grey-11 font-normal whitespace-nowrap truncate text-ellipsis flex-shrink-0 font-mono text-sm">
+    <div className="text-grey-11 font-normal whitespace-nowrap truncate text-ellipsis shrink-0 font-mono text-sm">
       {children}
     </div>
   );
@@ -109,7 +109,7 @@ export function ListMonoSubtitle({ children }: React.PropsWithChildren<{}>) {
 
 export function InlineCode({ children }: React.PropsWithChildren<{}>) {
   return (
-    <code className="relative rounded bg-grey-10 px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold">
+    <code className="relative rounded-sm bg-grey-10 px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold">
       {children}
     </code>
   );

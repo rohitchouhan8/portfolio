@@ -1,5 +1,6 @@
 export enum StackItemId {
   RAYCAST = 'raycast',
+  CURSOR = 'cursor',
   GRAPHITE = 'graphite',
   ARC_BROWSER = 'arc-browser',
   ARC_SEARCH = 'arc-search',

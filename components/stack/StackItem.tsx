@@ -32,8 +32,6 @@ export function StackItem({
 }
 
 function StackIcon({ id }: { id: StackItemId }) {
-  const { theme } = useTheme();
-  let content: React.ReactNode;
   switch (id) {
     case StackItemId.RAYCAST:
       return <RaycastIcon />;
@@ -45,6 +43,8 @@ function StackIcon({ id }: { id: StackItemId }) {
       return <ArcSearchIcon />;
     case StackItemId.MONARCH:
       return <MonarchIcon />;
+    case StackItemId.CURSOR:
+      return <CursorIcon />;
     default:
       assertNever(id);
   }
@@ -104,7 +104,7 @@ function RaycastIcon() {
 
 function GraphiteIcon() {
   return (
-    <div className="rounded overflow-hidden">
+    <div className="rounded-sm overflow-hidden">
       <Image
         src="/graphite-logo.png"
         alt="Graphite"
@@ -217,7 +217,7 @@ function ArcBrowserIcon() {
 
 function ArcSearchIcon() {
   return (
-    <div className="rounded overflow-hidden">
+    <div className="rounded-sm overflow-hidden">
       <Image
         src="/arc-search.png"
         alt="Arc Search"
@@ -230,10 +230,24 @@ function ArcSearchIcon() {
 
 function MonarchIcon() {
   return (
-    <div className="rounded overflow-hidden">
+    <div className="rounded-sm overflow-hidden">
       <Image
         src="/monarch-logo.png"
         alt="Monarch"
+        width={ICON_SIZE}
+        height={ICON_SIZE}
+      />
+    </div>
+  );
+}
+
+function CursorIcon() {
+  const { theme } = useTheme();
+  return (
+    <div className="rounded-sm overflow-hidden">
+      <Image
+        src={theme === 'dark' ? '/cursor-logo-dark.webp' : '/cursor-logo.webp'}
+        alt="Cursor"
         width={ICON_SIZE}
         height={ICON_SIZE}
       />

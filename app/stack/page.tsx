@@ -11,6 +11,12 @@ const stackItems: TStackItem[] = [
     label: 'A faster and more extensible Apple Spotlight',
   },
   {
+    id: StackItemId.CURSOR,
+    title: 'Cursor',
+    url: 'https://cursor.com/',
+    label: 'AI-powered IDE',
+  },
+  {
     id: StackItemId.GRAPHITE,
     title: 'Graphite',
     url: 'https://graphite.dev/',

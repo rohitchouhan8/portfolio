@@ -10,7 +10,7 @@ import { projects } from '../../models/projects/data';
 
 const VerticalDivider = () => {
   return (
-    <span className="text-grey-11 rounded-sm border-0 inline-block mx-2 align-middle">
+    <span className="text-grey-11 rounded-xs border-0 inline-block mx-2 align-middle">
       •
     </span>
   );
