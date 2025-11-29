@@ -8,11 +8,11 @@ export default function Home() {
       <Paragraphs>
         <Paragraph>
           Hey there! I&rsquo;m <HighlightSpan>Rohit</HighlightSpan>, a software
-          engineer at Figma where I spend my days building the{' '}
-          <HighlightSpan>extensibility platform</HighlightSpan> that powers
-          thousands of plugins, widgets, and integrations. Think of me as the
-          bridge between Figma&rsquo;s incredible design tools and the creative
-          minds who want to extend them.
+          engineer at Figma, currently leading the team behind{' '}
+          <HighlightSpan>Figma Make</HighlightSpan>, our app builder that now
+          serves hundreds of thousands of creators. I obsess over creating the
+          best AI agent, currently reimagining how the whole agent architecture
+          should run.
         </Paragraph>
         <Paragraph>
           When I&rsquo;m not deep in code, you&rsquo;ll find me on a completely
@@ -32,8 +32,8 @@ export default function Home() {
         </Paragraph>
         <Paragraph>
           While I&rsquo;m happily settled at Figma, I&rsquo;m always up for
-          interesting conversations about technology, creativity, or that perfect
-          ice cream recipe. Let&rsquo;s connect!
+          interesting conversations about technology, creativity, or that
+          perfect ice cream recipe. Let&rsquo;s connect!
         </Paragraph>
       </Paragraphs>
     </div>
