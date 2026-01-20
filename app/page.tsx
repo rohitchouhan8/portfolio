@@ -82,8 +82,8 @@ export default function Home() {
 
         <Paragraph delay={0.25}>
           I also enjoy a good <HighlightSpan>tennis match</HighlightSpan>, making{' '}
-          <HighlightSpan>homemade ice cream</HighlightSpan> (lavender honey is my
-          current favorite), and long <HighlightSpan>gaming sessions</HighlightSpan>.
+          <HighlightSpan>homemade ice cream</HighlightSpan>, and long{' '}
+          <HighlightSpan>gaming sessions</HighlightSpan>.
         </Paragraph>
 
         <Paragraph delay={0.3}>
