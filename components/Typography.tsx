@@ -76,6 +76,7 @@ export function H2({
       className={cn(
         'text-2xl md:text-3xl font-semibold tracking-tight',
         'text-text-primary font-serif',
+        'mt-10 mb-4',
         className
       )}
       initial={{ opacity: 0, y: 8 }}
@@ -99,6 +100,7 @@ export function H3({
       className={cn(
         'text-xl md:text-2xl font-semibold tracking-tight',
         'text-text-primary font-serif',
+        'mt-8 mb-3',
         className
       )}
     >
@@ -137,7 +139,7 @@ export function Paragraph({
   return (
     <motion.p
       className={cn(
-        'leading-relaxed text-text-secondary',
+        'leading-[1.8] text-text-secondary mb-5',
         className
       )}
       initial={{ opacity: 0, y: 8 }}
@@ -155,7 +157,7 @@ export function Paragraph({
 
 export function UnorderedList({ children, className }: React.PropsWithChildren<{ className?: string }>) {
   return (
-    <ul className={cn("ml-5 list-disc [&>li]:mt-1.5 text-text-secondary leading-relaxed", className)}>
+    <ul className={cn("ml-5 list-disc [&>li]:mt-2 text-text-secondary leading-[1.8] mb-5", className)}>
       {children}
     </ul>
   );
@@ -163,7 +165,7 @@ export function UnorderedList({ children, className }: React.PropsWithChildren<{
 
 export function OrderedList({ children, className }: React.PropsWithChildren<{ className?: string }>) {
   return (
-    <ol className={cn("ml-5 list-decimal [&>li]:mt-1.5 text-text-secondary leading-relaxed", className)}>
+    <ol className={cn("ml-5 list-decimal [&>li]:mt-2 text-text-secondary leading-[1.8] mb-5", className)}>
       {children}
     </ol>
   );
