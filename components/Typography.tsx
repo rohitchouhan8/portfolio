@@ -1,49 +1,111 @@
+'use client';
 import { cn } from '@/utils/tailwind';
-import React, { HTMLAttributes } from 'react';
+import React from 'react';
+import { motion } from 'motion/react';
 
 export const HighlightSpan = ({
   children,
   className,
 }: React.PropsWithChildren<{ className?: string }>) => {
-  function InnerHighlightSpan() {
-    return (
-      <span
-        className={cn(
-          `bg-linear-to-r saturate-125 from-pink-500 via-amber-500 to-red-500 text-transparent rounded-xs animate-text bg-clip-text font-semibold`,
-          className
-        )}
-      >
-        {children}
-      </span>
-    );
-  }
-  return <InnerHighlightSpan />;
+  return (
+    <span
+      className={cn(
+        'text-accent font-medium',
+        className
+      )}
+    >
+      {children}
+    </span>
+  );
 };
 
-export function H1(props: React.HTMLProps<HTMLHeadingElement>) {
+export const GlowText = ({
+  children,
+  className,
+}: React.PropsWithChildren<{ className?: string }>) => {
   return (
+    <span className={cn('text-accent font-medium', className)}>
+      {children}
+    </span>
+  );
+};
+
+export function H1({
+  children,
+  className,
+  animate = true,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  animate?: boolean;
+}) {
+  const content = (
     <h1
-      className={`scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl lg:leading-tight`}
-      {...props}
-    />
+      className={cn(
+        'text-4xl md:text-5xl font-semibold tracking-tight leading-[1.15]',
+        'text-text-primary font-serif',
+        className
+      )}
+    >
+      {children}
+    </h1>
   );
-}
 
-export function H2(props: HTMLAttributes<HTMLHeadingElement>) {
+  if (!animate) return content;
+
   return (
-    <h2
-      className={`scroll-m-20 text-2xl font-semibold tracking-tight first:mt-0`}
-      {...props}
-    />
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: [0.19, 1, 0.22, 1] }}
+    >
+      {content}
+    </motion.div>
   );
 }
 
-export function H3(props: HTMLAttributes<HTMLHeadingElement>) {
+export function H2({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <motion.h2
+      className={cn(
+        'text-2xl md:text-3xl font-semibold tracking-tight',
+        'text-text-primary font-serif',
+        'mt-10 mb-4',
+        className
+      )}
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.35, ease: [0.19, 1, 0.22, 1] }}
+    >
+      {children}
+    </motion.h2>
+  );
+}
+
+export function H3({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
     <h3
-      className={`scroll-m-20 text-2xl font-semibold tracking-tight`}
-      {...props}
-    />
+      className={cn(
+        'text-xl md:text-2xl font-semibold tracking-tight',
+        'text-text-primary font-serif',
+        'mt-8 mb-3',
+        className
+      )}
+    >
+      {children}
+    </h3>
   );
 }
 
@@ -51,57 +113,79 @@ export function AnimatedGradientSpan({
   children,
 }: React.PropsWithChildren<{}>) {
   return (
-    <span
-      className={`font-extrabold text-xl bg-clip-text text-transparent 
-            bg-linear-to-r saturate-125 from-pink-400 via-amber-500 to-red-400`}
-    >
+    <span className="text-accent font-semibold">
       {children}
     </span>
   );
 }
 
 export function Paragraphs({ children }: React.PropsWithChildren<{}>) {
-  return <div className="leading-relaxed flex flex-col gap-3">{children}</div>;
-}
-
-export function Paragraph(props: HTMLAttributes<HTMLParagraphElement>) {
   return (
-    <p
-      className={`leading-7 [&:not(:first-child)]:mt-6s text-grey-11`}
-      {...props}
-    />
+    <div className="flex flex-col gap-5">
+      {children}
+    </div>
   );
 }
 
-export function UnorderedList(props: HTMLAttributes<HTMLUListElement>) {
+export function Paragraph({
+  children,
+  className,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+}) {
   return (
-    <ul
-      className="ml-6 list-disc [&>li]:mt-2 text-grey-11 leading-7"
-      {...props}
-    />
+    <motion.p
+      className={cn(
+        'leading-[1.8] text-text-secondary mb-5',
+        className
+      )}
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 0.35,
+        delay,
+        ease: [0.19, 1, 0.22, 1],
+      }}
+    >
+      {children}
+    </motion.p>
   );
 }
 
-export function OrderedList(props: HTMLAttributes<HTMLOListElement>) {
+export function UnorderedList({ children, className }: React.PropsWithChildren<{ className?: string }>) {
   return (
-    <ol
-      className="ml-6 list-decimal [&>li]:mt-2 text-grey-11 leading-7"
-      {...props}
-    />
+    <ul className={cn("ml-5 list-disc [&>li]:mt-2 text-text-secondary leading-[1.8] mb-5", className)}>
+      {children}
+    </ul>
   );
 }
 
-export function LI(props: HTMLAttributes<HTMLLIElement>) {
-  return <li className={`marker:text-grey-11`} {...props} />;
+export function OrderedList({ children, className }: React.PropsWithChildren<{ className?: string }>) {
+  return (
+    <ol className={cn("ml-5 list-decimal [&>li]:mt-2 text-text-secondary leading-[1.8] mb-5", className)}>
+      {children}
+    </ol>
+  );
 }
 
-export function Bold(props: React.HTMLAttributes<HTMLSpanElement>) {
-  return <strong className="text-md font-medium text-grey-12" {...props} />;
+export function LI({ children, className }: React.PropsWithChildren<{ className?: string }>) {
+  return <li className={cn("marker:text-text-tertiary", className)}>{children}</li>;
+}
+
+export function Bold({ children, className }: React.PropsWithChildren<{ className?: string }>) {
+  return (
+    <strong className={cn("font-medium text-text-primary", className)}>
+      {children}
+    </strong>
+  );
 }
 
 export function ListMonoSubtitle({ children }: React.PropsWithChildren<{}>) {
   return (
-    <div className="text-grey-11 font-normal whitespace-nowrap truncate text-ellipsis shrink-0 font-mono text-sm">
+    <div className="text-text-tertiary font-normal whitespace-nowrap truncate text-ellipsis shrink-0 font-mono text-sm">
       {children}
     </div>
   );
@@ -109,12 +193,31 @@ export function ListMonoSubtitle({ children }: React.PropsWithChildren<{}>) {
 
 export function InlineCode({ children }: React.PropsWithChildren<{}>) {
   return (
-    <code className="relative rounded-sm bg-grey-10 px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold">
+    <code className="relative rounded bg-surface-2 border border-border px-1.5 py-0.5 font-mono text-sm text-text-primary">
       {children}
     </code>
   );
 }
 
-export function Code(props: HTMLAttributes<HTMLElement>) {
-  return <code className="text-grey-12 font-mono font-semibold" {...props} />;
+export function Code({ children, className }: React.PropsWithChildren<{ className?: string }>) {
+  return (
+    <code className={cn("text-accent font-mono", className)}>
+      {children}
+    </code>
+  );
+}
+
+export function SectionLabel({ children }: React.PropsWithChildren<{}>) {
+  return (
+    <motion.div
+      className="mb-4"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3, ease: [0.19, 1, 0.22, 1] }}
+    >
+      <span className="text-xs font-medium uppercase tracking-wider text-text-tertiary">
+        {children}
+      </span>
+    </motion.div>
+  );
 }

@@ -16,37 +16,39 @@ export function ReactMarkdown({ content }: { content: string }) {
   return (
     <Markdown
       components={{
-        h1: ({ node, ...props }) => <H1 {...props} />,
-        h2: ({ node, ...props }) => <H2 {...props} />,
-        h3: ({ node, ...props }) => <H3 {...props} />,
-        p: ({ node, ...props }) => <Paragraph {...props} />,
-        ul: ({ node, ...props }) => <UnorderedList {...props} />,
-        ol: ({ node, ...props }) => <OrderedList {...props} />,
-        code: ({ node, ...props }) => <Code {...props} />,
-        strong: ({ node, ...props }) => <Bold {...props} />,
-        b: ({ node, ...props }) => <Bold {...props} />,
-        blockquote: ({ node, ...props }) => (
-          <blockquote className="border-l-2 pl-6 italic" {...props} />
+        h1: ({ children }) => <H1 animate={false}>{children}</H1>,
+        h2: ({ children }) => <H2>{children}</H2>,
+        h3: ({ children }) => <H3>{children}</H3>,
+        p: ({ children }) => <Paragraph delay={0}>{children}</Paragraph>,
+        ul: ({ children }) => <UnorderedList>{children}</UnorderedList>,
+        ol: ({ children }) => <OrderedList>{children}</OrderedList>,
+        code: ({ children }) => <Code>{children}</Code>,
+        strong: ({ children }) => <Bold>{children}</Bold>,
+        b: ({ children }) => <Bold>{children}</Bold>,
+        blockquote: ({ children }) => (
+          <blockquote className="border-l-2 border-border-dark pl-4 italic text-text-secondary my-4">
+            {children}
+          </blockquote>
         ),
-        a: ({ node, ...props }) => (
+        a: ({ href, children }) => (
           <Link
-            className="w-fit font-medium text-grey-12 underline underline-offset-4"
-            href={props.href as string}
+            className="text-accent link-underline"
+            href={href as string}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {props.children}
+            {children}
           </Link>
         ),
-        img: ({ node, ...props }) => (
+        img: ({ src, alt, className }) => (
           // eslint-disable-next-line @next/next/no-img-element
           <img
-            {...props}
-            alt={props.alt ?? ''}
+            src={src}
+            alt={alt ?? ''}
             loading="lazy"
             className={cn(
-              'my-6 mx-auto block h-auto w-auto max-h-[480px] max-w-full rounded-lg border border-grey-7 shadow-sm',
-              props.className
+              'my-6 mx-auto block h-auto w-auto max-h-[480px] max-w-full rounded-lg border border-border shadow-sm',
+              className
             )}
           />
         ),

@@ -4,33 +4,61 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { cn } from '@/utils/tailwind';
 
-export function List(props: React.PropsWithChildren<{}>) {
+export function List({ children }: React.PropsWithChildren<{}>) {
   return (
-    <div className="grid grid-cols-1 -ml-3 relative border-l-grey-7 border-l">
-      {props.children}
+    <div className="flex flex-col gap-1 mt-6">
+      {children}
     </div>
   );
 }
 
-const itemClassName =
-  'flex flex-col gap-1 hover:bg-grey-4 p-4 rounded-lg transition-colors duration-75';
+const itemClassName = cn(
+  'group relative flex flex-col gap-1 py-3 px-4 -mx-4 rounded-lg transition-colors duration-200',
+  'hover:bg-surface-hover'
+);
+
 export function ListItem({
   children,
   className,
+  index,
 }: {
   index: number;
   children: React.ReactNode;
   className?: string;
 }) {
-  return <div className={cn(itemClassName, className)}>{children}</div>;
+  return (
+    <motion.div
+      className={cn(itemClassName, className)}
+      initial={{ opacity: 0, y: 6 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 0.3,
+        delay: index * 0.03,
+        ease: [0.19, 1, 0.22, 1],
+      }}
+    >
+      {children}
+    </motion.div>
+  );
 }
 
 type LinkItemProps = React.ComponentProps<typeof Link> & { index: number };
-export function LinkItem({ index, ...props }: LinkItemProps) {
+
+export function LinkItem({ index, className, children, ...props }: LinkItemProps) {
   return (
-    <Link {...props} className={cn(itemClassName, props.className)}>
-      {props.children}
-    </Link>
+    <motion.div
+      initial={{ opacity: 0, y: 6 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 0.3,
+        delay: index * 0.03,
+        ease: [0.19, 1, 0.22, 1],
+      }}
+    >
+      <Link {...props} className={cn(itemClassName, className)}>
+        {children}
+      </Link>
+    </motion.div>
   );
 }
 
@@ -42,14 +70,12 @@ export function AnimatedDiv({
   return (
     <motion.div
       className={cn('w-full h-full', className)}
-      initial={{ y: -10, opacity: 0 }}
-      animate={{
-        y: 0,
-        opacity: 1,
-      }}
+      initial={{ opacity: 0, y: 6 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{
-        duration: 0.4,
-        delay: index * 0.1,
+        duration: 0.3,
+        delay: index * 0.03,
+        ease: [0.19, 1, 0.22, 1],
       }}
     >
       {children}

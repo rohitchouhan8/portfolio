@@ -1,3 +1,4 @@
+'use client';
 import { List } from '@/components/List';
 import { H1 } from '@/components/Typography';
 import { StackItem } from '@/components/stack/StackItem';
@@ -44,13 +45,14 @@ const stackItems: TStackItem[] = [
 
 export default function Stack() {
   return (
-    <main>
-      <H1>Stack.</H1>
+    <div>
+      <H1>Stack</H1>
+
       <List>
         {stackItems.map((item, index) => (
           <StackItem key={item.id} item={item} index={index} />
         ))}
       </List>
-    </main>
+    </div>
   );
 }

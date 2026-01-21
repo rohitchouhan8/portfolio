@@ -1,8 +1,12 @@
 import './globals.css';
 import { Page } from '@/components/Page';
-import { GeistSans } from 'geist/font/sans';
-import { GeistMono } from 'geist/font/mono';
 import { Analytics } from '@vercel/analytics/next';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Rohit Chouhan',
+  description: 'Software Engineer at Figma',
+};
 
 export default function RootLayout({
   children,
@@ -10,7 +14,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body>
         <Analytics />
         <Page>{children}</Page>

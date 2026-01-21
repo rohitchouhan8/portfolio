@@ -25,7 +25,7 @@ export function StackItem({
       >
         <StackIcon id={item.id} />
         <Bold>{item.title}</Bold>
-        <span className="text-grey-11 font-light">{item.label}</span>
+        <span className="text-text-secondary font-light">{item.label}</span>
       </LinkItem>
     </AnimatedDiv>
   );

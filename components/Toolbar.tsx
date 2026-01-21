@@ -8,7 +8,6 @@ import {
   FiEdit2,
   FiGithub,
   FiHome,
-  FiImage,
   FiLayers,
   FiLinkedin,
   FiMail,
@@ -18,16 +17,15 @@ import {
 } from 'react-icons/fi';
 
 import { Page, useCurrentPathname } from '../hooks/navigation';
-
+import { useTheme } from 'next-themes';
 import { IconType } from 'react-icons/lib';
 import { toSentenceCase } from '../utils/text';
-import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'motion/react';
 import { cn } from '@/utils/tailwind';
 
 type IconButtonProps = {
-  icon: 'moon' | 'sun' | IconType;
+  icon: IconType | 'sun' | 'moon';
   pointingPage?: Page;
   tooltip: string;
   href?: string;
@@ -41,9 +39,9 @@ function IconButton({
   tooltip,
   ...props
 }: IconButtonProps) {
-  let iconEl = icon === 'sun' ? FiSun : icon === 'moon' ? FiMoon : icon;
+  const iconEl = icon === 'sun' ? FiSun : icon === 'moon' ? FiMoon : icon;
   const uiIcon = React.createElement(iconEl, {
-    className: 'h-4 w-4 md:w-6 md:h-6',
+    className: 'h-4 w-4',
   });
   return (
     <ToolbarButton
@@ -60,6 +58,8 @@ type ToolbarButtonProps = {
   pointingPage?: Page;
   tooltip: string;
   href?: string;
+  onClick?: () => void;
+  target?: string;
 };
 
 function ToolbarButton({
@@ -67,7 +67,8 @@ function ToolbarButton({
   pointingPage,
   tooltip,
   href,
-  ...props
+  onClick,
+  target,
 }: ToolbarButtonProps) {
   const { page: currentPage } = useCurrentPathname();
   const isCurrentPage = !!(
@@ -78,41 +79,37 @@ function ToolbarButton({
 
   const [isTooltipOpen, setIsTooltipOpen] = React.useState(false);
 
-  const regularStyle = `text-grey-11 hover:text-grey-12`;
-  const activeStyle = `bg-linear-to-r saturate-125 from-pink-400 via-amber-500 to-red-400`;
-
   const children = (
     <>
       {isCurrentPage && (
         <motion.div
-          className={cn(
-            `absolute text-sm w-10 h-2 -top-7 rounded-full left-0 right-0 m-auto`,
-            activeStyle,
-            isTooltipOpen ? '-top-16' : ''
-          )}
-          layout
-          transition={{ duration: 0.3, bounce: 0, type: 'spring' }}
+          className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-accent"
+          layoutId="toolbar-indicator"
+          transition={{ duration: 0.25, type: 'spring', bounce: 0.15 }}
         />
       )}
       {icon}
     </>
   );
+
   const className = cn(
-    `group relative flex items-center justify-center p-2 md:p-4 md:w-14 md:h-14 bg-grey-3 hover:bg-grey-4 rounded-xl transition-all`,
-    regularStyle
+    'group relative flex items-center justify-center p-2.5 rounded-lg transition-colors duration-200',
+    'text-text-tertiary hover:text-text-primary hover:bg-surface-hover',
+    isCurrentPage && 'text-accent'
   );
+
   const trigger = href ? (
-    <Link className={className} href={href} {...props}>
+    <Link className={className} href={href} target={target}>
       {children}
     </Link>
   ) : (
-    <button className={className} {...props}>
+    <button className={className} onClick={onClick}>
       {children}
     </button>
   );
 
   return (
-    <Tooltip.Provider delayDuration={0}>
+    <Tooltip.Provider delayDuration={300}>
       <Tooltip.Root onOpenChange={setIsTooltipOpen}>
         <Tooltip.Trigger asChild>{trigger}</Tooltip.Trigger>
         <Tooltip.Portal forceMount>
@@ -121,14 +118,15 @@ function ToolbarButton({
               <Tooltip.Content
                 asChild
                 forceMount
-                sideOffset={24}
-                className="z-10 text-sm py-1 px-2 text-grey-11 whitespace-nowrap transition-all duration-100 ease-linear bg-grey-2 rounded-lg pointer-events-none shadow-md"
+                sideOffset={12}
+                className="z-50"
               >
                 <motion.div
-                  initial={{ y: 5, opacity: 0 }}
+                  initial={{ y: 4, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: 5, opacity: 0 }}
-                  transition={{ duration: 0.1, bounce: 0, type: 'spring' }}
+                  exit={{ y: 4, opacity: 0 }}
+                  transition={{ duration: 0.15, ease: [0.19, 1, 0.22, 1] }}
+                  className="text-xs py-1 px-2 text-text-secondary whitespace-nowrap bg-surface-2 rounded-md pointer-events-none border border-border shadow-sm"
                 >
                   {toSentenceCase(tooltip)}
                 </motion.div>
@@ -141,198 +139,132 @@ function ToolbarButton({
   );
 }
 
-const HomeButton = () => {
-  return (
-    <IconButton
-      icon={FiHome}
-      href={'/'}
-      pointingPage={Page.HOME}
-      tooltip="Who I am"
-    />
-  );
-};
+const HomeButton = () => (
+  <IconButton icon={FiHome} href="/" pointingPage={Page.HOME} tooltip="Home" />
+);
 
-const ThemeModeButton = ({
-  tooltipIcon,
-  tooltipText,
-  theme,
-  setTheme,
-}: {
-  tooltipIcon: 'moon' | 'sun';
-  tooltipText: string;
-  theme: string | undefined;
-  setTheme: (theme: string) => void;
-}) => {
-  return (
-    <IconButton
-      icon={tooltipIcon}
-      onClick={() => {
-        setTheme(theme === 'dark' ? 'light' : 'dark');
-      }}
-      tooltip={tooltipText}
-    />
-  );
-};
+const ProjectsButton = () => (
+  <IconButton
+    icon={FiCode}
+    href="/projects"
+    pointingPage={Page.PROJECTS}
+    tooltip="Projects"
+  />
+);
 
-const LightBulbButton = () => {
-  return (
-    <IconButton
-      icon={FiCode}
-      href={'/projects'}
-      pointingPage={Page.PROJECTS}
-      tooltip="projects"
-    />
-  );
-};
+const WritingButton = () => (
+  <IconButton
+    icon={FiEdit2}
+    href="/writing"
+    pointingPage={Page.WRITING}
+    tooltip="Writing"
+  />
+);
 
-const BookButton = () => {
-  return (
-    <IconButton
-      icon={FiBook}
-      href={'/reading'}
-      pointingPage={Page.READING}
-      tooltip="Reading"
-    />
-  );
-};
+const ReadingButton = () => (
+  <IconButton
+    icon={FiBook}
+    href="/reading"
+    pointingPage={Page.READING}
+    tooltip="Reading"
+  />
+);
 
-const PencilButton = () => {
-  return (
-    <IconButton
-      icon={FiEdit2}
-      href={'/writing'}
-      pointingPage={Page.WRITING}
-      tooltip="Writing"
-    />
-  );
-};
+const StackButton = () => (
+  <IconButton
+    icon={FiLayers}
+    href="/stack"
+    pointingPage={Page.STACK}
+    tooltip="Stack"
+  />
+);
 
-const ArtsyButton = () => {
-  return (
-    <IconButton
-      icon={FiImage}
-      href={'/artsy'}
-      pointingPage={Page.ARTSY}
-      tooltip="Artsy"
-    />
-  );
-};
-
-const TwitterButton = () => {
-  return (
-    <IconButton
-      icon={FiTwitter}
-      href={'https://twitter.com/@ro_chouhan'}
-      target="_blank"
-      tooltip="Twitter"
-    />
-  );
-};
-
-const GithubButton = () => {
-  return (
-    <IconButton
-      icon={FiGithub}
-      href={'https://github.com/rochouhan'}
-      target="_blank"
-      tooltip="GitHub"
-    />
-  );
-};
-
-const MailButton = () => {
-  return (
-    <IconButton
-      icon={FiMail}
-      href={'mailto:ro.chouhan@gmail.com'}
-      target="_blank"
-      tooltip="email"
-    />
-  );
-};
-
-const LinkedInButton = () => {
-  return (
-    <IconButton
-      icon={FiLinkedin}
-      href={'https://www.linkedin.com/in/rohit-chouhan/'}
-      target="_blank"
-      tooltip="LinkedIn"
-    />
-  );
-};
-
-const StackButton = () => {
-  return (
-    <IconButton
-      icon={FiLayers}
-      href={'/stack'}
-      pointingPage={Page.STACK}
-      tooltip="Stack"
-    />
-  );
-};
-
-const Section = ({ children }: React.PropsWithChildren<{}>) => {
-  return (
-    <motion.div className="flex flex-row gap-4 w-fit py-2 px-3 md:py-3 md:px-6 transition-all duration-200 rounded-2xl shadow-lg bg-grey-2 border border-grey-6">
-      {children}
-    </motion.div>
-  );
-};
-
-const Toolbar = () => {
+const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();
-  const [tooltipText, setTooltipText] = React.useState<string | null>(null);
-  const [tooltipIcon, setTooltipIcon] = React.useState<'sun' | 'moon' | null>(
-    null
-  );
+  const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
-    if (theme === 'dark') {
-      setTooltipText('Too dark?');
-      setTooltipIcon('sun');
-    } else {
-      setTooltipText('Too bright?');
-      setTooltipIcon('moon');
-    }
-  }, [theme]);
+    setMounted(true);
+  }, []);
 
-  if (!tooltipText || !tooltipIcon) {
-    return null;
-  }
+  if (!mounted) return null;
+
+  const isDark = theme === 'dark';
 
   return (
-    <motion.div
-      className="flex flex-row flex-wrap px-4 place-content-start gap-2 md:gap-4 fixed z-9 w-fit h-fit mx-auto inset-x-0 bottom-10 md:bottom-20 transition-opacity duration-700 ease-in-out"
-      initial={{ opacity: 0, y: 20 }}
+    <IconButton
+      icon={isDark ? 'sun' : 'moon'}
+      onClick={() => setTheme(isDark ? 'light' : 'dark')}
+      tooltip={isDark ? 'Light mode' : 'Dark mode'}
+    />
+  );
+};
+
+const TwitterButton = () => (
+  <IconButton
+    icon={FiTwitter}
+    href="https://twitter.com/@ro_chouhan"
+    target="_blank"
+    tooltip="Twitter"
+  />
+);
+
+const GithubButton = () => (
+  <IconButton
+    icon={FiGithub}
+    href="https://github.com/rochouhan"
+    target="_blank"
+    tooltip="GitHub"
+  />
+);
+
+const MailButton = () => (
+  <IconButton
+    icon={FiMail}
+    href="mailto:ro.chouhan@gmail.com"
+    target="_blank"
+    tooltip="Email"
+  />
+);
+
+const LinkedInButton = () => (
+  <IconButton
+    icon={FiLinkedin}
+    href="https://www.linkedin.com/in/rohit-chouhan/"
+    target="_blank"
+    tooltip="LinkedIn"
+  />
+);
+
+const Divider = () => <div className="w-px h-4 bg-border mx-1" />;
+
+const Toolbar = () => {
+  return (
+    <motion.nav
+      className="fixed z-50 bottom-6 left-1/2 -translate-x-1/2"
+      initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ opacity: { duration: 0.5 }, y: { duration: 0.3 } }}
+      transition={{ duration: 0.4, delay: 0.3, ease: [0.19, 1, 0.22, 1] }}
     >
-      <AnimatePresence>
-        <Section>
-          <HomeButton />
-          <ThemeModeButton
-            theme={theme}
-            setTheme={setTheme}
-            tooltipIcon={tooltipIcon}
-            tooltipText={tooltipText}
-          />
-        </Section>
-        <Section>
-          <LightBulbButton />
-          <PencilButton />
-          <BookButton />
-          <StackButton />
-        </Section>
-        <Section>
-          <TwitterButton />
-          <MailButton />
-          <GithubButton />
-          <LinkedInButton />
-        </Section>
-      </AnimatePresence>
-    </motion.div>
+      <div className="flex items-center gap-0.5 px-2 py-1.5 bg-surface-1 rounded-xl border border-border shadow-lg">
+        <HomeButton />
+        <ProjectsButton />
+        <WritingButton />
+        <ReadingButton />
+        <StackButton />
+
+        <Divider />
+
+        <ThemeToggle />
+
+        <Divider />
+
+        <TwitterButton />
+        <MailButton />
+        <GithubButton />
+        <LinkedInButton />
+      </div>
+    </motion.nav>
   );
 };
 
